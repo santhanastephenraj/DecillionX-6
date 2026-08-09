@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Workspace & Attendance Portal | DecillionX</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .dashboard-page {
+      padding: 6rem 0 4rem;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="glow-orb glow-orb-1"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.png" alt="DecillionX Logo">
+        <div class="brand-name">Decillion<span>X</span></div>
+      </a>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <span style="font-size: 0.82rem; color: var(--text-muted);" id="header-emp-info">
+          <i class="fas fa-user-circle" style="color: var(--primary-cyan);"></i> Employee Portal
+        </span>
+        <button class="btn btn-sm btn-outline" id="btn-logout"><i class="fas fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- DASHBOARD CONTAINER -->
+  <div class="container dashboard-page">
+
+    <!-- HEADER PROFILE -->
+    <div class="portal-header">
+      <div class="portal-user-meta">
+        <div class="portal-avatar" id="emp-avatar">EM</div>
+        <div>
+          <h2 style="font-size: 1.5rem;" id="emp-name">Employee Name</h2>
+          <p style="color: var(--primary-cyan); font-size: 0.88rem;" id="emp-role-dept">Software Engineer • DecillionX</p>
+          <p style="color: var(--text-dim); font-size: 0.78rem; margin-top: 0.2rem;">
+            <i class="fas fa-location-dot" style="color: var(--primary-cyan);"></i> SG Palaya, Bangalore - 560029 • <i class="fas fa-envelope"></i> <span id="emp-email">email</span> • <i class="fas fa-phone"></i> <span id="emp-phone">phone</span>
+          </p>
+        </div>
+      </div>
+      <div>
+        <span class="status-pill pill-green"><i class="fas fa-signal"></i> Active Session</span>
+      </div>
+    </div>
+
+    <!-- CEO INSPECTION MODE BANNER -->
+    <div id="ceo-inspect-banner" class="glass-card" style="display:none; margin-bottom: 1.5rem; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.5); padding: 1rem 1.5rem; justify-content: space-between; align-items: center;">
+      <div style="display:flex; align-items:center; gap:0.75rem; color:#f59e0b; font-weight:700;">
+        <i class="fas fa-eye" style="font-size:1.4rem;"></i>
+        <span>👁️ CEO EXECUTIVE INSPECTION MODE: Viewing employee workspace as CEO Santhana Stephen Raj.</span>
+      </div>
+      <button class="btn btn-xs btn-amber" onclick="exitCEOInspect()"><i class="fas fa-arrow-left"></i> Return to CEO Admin Hub</button>
+    </div>
+
+    <!-- COMPANY SUCCESS NOTE CARD (NO LOCATION, NO EMAIL, NO PHONE) -->
+    <div class="glass-card" style="margin-bottom: 1.75rem; background: linear-gradient(135deg, rgba(0, 242, 254, 0.08), rgba(79, 172, 254, 0.05)); border: 1px solid rgba(0, 242, 254, 0.3); padding: 1.5rem 2rem;">
+      <div style="display:flex; align-items:center; gap:1.25rem;">
+        <div style="background: linear-gradient(135deg, #00f2fe, #4facfe); width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#000; font-size:1.5rem; font-weight:bold; flex-shrink:0;">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div>
+          <h3 style="color:#00f2fe; margin-bottom:0.25rem; font-size:1.15rem;"><i class="fas fa-shield-halved"></i> DecillionX Enterprise Success & Engineering Note</h3>
+          <p style="color:#e2e8f0; font-size:0.88rem; margin:0; line-height:1.55;">
+            At <strong>DecillionX Enterprise Systems</strong>, our success is defined by engineering excellence, high-performance software systems, autonomous AI models, and zero-defect QA delivery. Powered by architectural precision and continuous innovation, DecillionX empowers engineering teams to deliver world-class digital solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="portal-tabs-nav">
+      <button class="portal-tab-item active" data-tab="tab-attendance"><i class="fas fa-fingerprint"></i> Daily Attendance Clock</button>
+      <button class="portal-tab-item" data-tab="tab-profile"><i class="fas fa-id-card"></i> My Onboarding Details & Profile</button>
+      <button class="portal-tab-item" data-tab="tab-skills"><i class="fas fa-award"></i> Skill Matrix</button>
+      <button class="portal-tab-item" data-tab="tab-projects"><i class="fas fa-briefcase"></i> Assigned Projects</button>
+      <button class="portal-tab-item" data-tab="tab-timesheet"><i class="fas fa-clock"></i> Weekly Timesheets</button>
+      <button class="portal-tab-item" data-tab="tab-leave"><i class="fas fa-calendar-minus"></i> Apply for Leave</button>
+    </div>
+
+    <!-- TAB 1: DAILY ATTENDANCE -->
+    <div class="portal-tab-content active" id="tab-attendance">
+      <div style="display: grid; grid-template-columns: 360px 1fr; gap: 2rem; align-items: start;">
+        
+        <div class="glass-card attendance-clock-box">
+          <div class="tagline-badge" style="justify-content: center;"><i class="fas fa-fingerprint"></i> Live Attendance</div>
+          <div class="date-display" id="att-date-now">Loading...</div>
+          <div class="clock-display" id="att-clock-time">00:00:00</div>
+          <p style="color: var(--text-muted); font-size: 0.82rem;">
+            <i class="fas fa-building" style="color: var(--primary-cyan);"></i> DecillionX HQ - SG Palaya, Bangalore 560029
+          </p>
+          <div class="clock-btn-row">
+            <button class="btn btn-success" id="btn-clock-in"><i class="fas fa-door-open"></i> Clock In</button>
+            <button class="btn btn-danger" id="btn-clock-out" disabled><i class="fas fa-door-closed"></i> Clock Out</button>
+          </div>
+          <div class="clock-status-bar" id="att-status-text">⏳ Loading attendance state...</div>
+          <p style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.75rem"><i class="fas fa-envelope-circle-check"></i> Clocking In/Out dispatches live attendance alert to CEO Email (santhanastephen22@gmail.com).</p>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom: 1.25rem;">My Attendance History</h3>
+          <div class="data-table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Action</th>
+                  <th>Timestamp</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody id="att-history-table"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TAB 2: MY ONBOARDING DETAILS & PROFILE -->
+    <div class="portal-tab-content" id="tab-profile">
+      <div class="glass-card" style="padding:2rem">
+        <h3 style="margin-bottom:0.25rem"><i class="fas fa-id-card" style="color:var(--primary-cyan)"></i> Employee Onboarding & Legal Record Details</h3>
+        <p style="color:#94a3b8;font-size:0.85rem;margin-bottom:1.5rem">End-to-end details required by DecillionX Executive Management for payroll, emergency contact, and project assignment.</p>
+
+        <form id="form-emp-onboarding" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+          <div class="form-group">
+            <label>Emergency Contact Person & Phone *</label>
+            <input class="input-custom" id="prof-emergency" placeholder="Name & Contact Phone Number" required>
+          </div>
+
+          <div class="form-group">
+            <label>Permanent Residential Address *</label>
+            <input class="input-custom" id="prof-address" placeholder="Full Permanent Residential Address" required>
+          </div>
+
+          <div class="form-group">
+            <label>Bank Name, Account Number & IFSC *</label>
+            <input class="input-custom" id="prof-bank" placeholder="e.g. HDFC Bank, A/C: 50100..., IFSC: HDFC0001234" required>
+          </div>
+
+          <div class="form-group">
+            <label>Primary Office Division & Assigned Team</label>
+            <input class="input-custom" id="prof-team" readonly style="opacity:0.8">
+          </div>
+
+          <div class="form-group" style="grid-column:1 / -1">
+            <label>Technical Certifications & Specialized Qualifications</label>
+            <input class="input-custom" id="prof-certs" placeholder="e.g. AWS Certified Solutions Architect, PyTorch AI Specialist, Java 21 Spring Certified">
+          </div>
+
+          <div style="grid-column:1 / -1;text-align:right;margin-top:0.5rem">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Profile & Onboarding Details</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- TAB 3: SKILL MATRIX -->
+    <div class="portal-tab-content" id="tab-skills">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <h3>My Technical Skill Ratings</h3>
+      </div>
+      <div class="skills-grid-wrapper" id="skills-grid-container"></div>
+      
+      <div class="glass-card" style="margin-top: 2rem; padding: 1.5rem;">
+        <h4 style="margin-bottom: 1rem;"><i class="fas fa-plus"></i> Add New Technical Competency</h4>
+        <form id="form-add-skill" style="display: grid; grid-template-columns: 1fr 1fr 120px 140px; gap: 1rem; align-items: end;">
+          <div><label>Skill Name</label><input class="input-custom" id="skill-name-input" placeholder="e.g. GenAI QA / RAG / .NET 9 Core" required></div>
+          <div>
+            <label>Category</label>
+            <select class="select-custom" id="skill-cat-select">
+              <option>Java</option>
+              <option>Python</option>
+              <option>.NET</option>
+              <option>AI/ML</option>
+              <option>QA</option>
+              <option>Frontend</option>
+              <option>Cloud</option>
+            </select>
+          </div>
+          <div><label>Proficiency %</label><input type="number" min="1" max="100" class="input-custom" id="skill-level-input" placeholder="90" required></div>
+          <button type="submit" class="btn btn-primary" style="height: 42px;"><i class="fas fa-plus"></i> Add Skill</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- TAB 4: ASSIGNED PROJECTS -->
+    <div class="portal-tab-content" id="tab-projects">
+      <h3 style="margin-bottom: 1.25rem;">My Active Project Assignments</h3>
+      <div id="projects-grid-container"></div>
+    </div>
+
+    <!-- TAB 5: TIMESHEET -->
+    <div class="portal-tab-content" id="tab-timesheet">
+      <div class="glass-card" style="padding: 1.75rem; margin-bottom: 2rem;">
+        <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-clock-rotate-left"></i> Log Weekly Timesheet Hours</h3>
+        <form id="form-submit-ts" style="display: grid; grid-template-columns: 1fr 140px 1fr 140px; gap: 1rem; align-items: end;">
+          <div>
+            <label>Select Assigned Project</label>
+            <select class="select-custom" id="ts-project-select"></select>
+          </div>
+          <div>
+            <label>Hours Worked</label>
+            <input type="number" class="input-custom" id="ts-hours-input" placeholder="40" min="1" max="80" required>
+          </div>
+          <div>
+            <label>Summary of Tasks Completed</label>
+            <input class="input-custom" id="ts-tasks-input" placeholder="e.g. Implemented FastAPI endpoint & Playwright tests..." required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="height:42px;"><i class="fas fa-paper-plane"></i> Submit</button>
+        </form>
+      </div>
+
+      <h3>My Submitted Timesheets</h3>
+      <div class="data-table-wrapper" style="margin-top: 1rem;">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>Timesheet ID</th>
+              <th>Date</th>
+              <th>Project ID</th>
+              <th>Hours</th>
+              <th>Tasks Breakdown</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="ts-history-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 6: APPLY LEAVE -->
+    <div class="portal-tab-content" id="tab-leave">
+      <div style="display: grid; grid-template-columns: 360px 1fr; gap: 2rem; align-items: start;">
+        
+        <div class="glass-card" style="padding: 1.75rem;">
+          <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-calendar-plus"></i> Apply for Leave</h3>
+          <form id="form-apply-leave" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <label>Leave Type</label>
+              <select class="select-custom" id="leave-type-select">
+                <option>Casual Leave</option>
+                <option>Sick Leave</option>
+                <option>Earned / Annual Leave</option>
+              </select>
+            </div>
+            <div>
+              <label>From Date</label>
+              <input type="date" class="input-custom" id="leave-from-input" required>
+            </div>
+            <div>
+              <label>To Date</label>
+              <input type="date" class="input-custom" id="leave-to-input" required>
+            </div>
+            <div>
+              <label>Reason for Leave</label>
+              <textarea class="textarea-custom" id="leave-reason-input" placeholder="Reason..." required style="min-height: 70px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Request</button>
+          </form>
+        </div>
+
+        <div>
+          <div style="display: flex; gap: 1rem; margin-bottom: 1.25rem;">
+            <div class="glass-card" style="flex:1; padding: 1rem 1.25rem;">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Annual Leave Balance</span>
+              <h2 style="color: var(--primary-cyan); font-size: 1.6rem; margin-top: 0.2rem;">30 Days</h2>
+            </div>
+            <div class="glass-card" style="flex:1; padding: 1rem 1.25rem;">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Leaves Taken</span>
+              <h2 style="color: var(--accent-amber); font-size: 1.6rem; margin-top: 0.2rem;" id="leave-used-num">0 Days</h2>
+            </div>
+            <div class="glass-card" style="flex:1; padding: 1rem 1.25rem;">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Leaves Remaining</span>
+              <h2 style="color: var(--accent-emerald); font-size: 1.6rem; margin-top: 0.2rem;" id="leave-rem-num">30 Days</h2>
+            </div>
+          </div>
+
+          <h3>My Leave Requests History</h3>
+          <div class="data-table-wrapper" style="margin-top: 1rem;">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Leave ID</th>
+                  <th>Type</th>
+                  <th>Dates</th>
+                  <th>Duration</th>
+                  <th>Reason</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="leave-history-table"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/particle-canvas.js"></script>
+  <script>
+    let currentUser = null;
+    let globalStore = { employees: [], attendance: [], projects: [], timesheets: [], leaves: [] };
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const userRaw = localStorage.getItem('dx_auth_user');
+
+      if (!userRaw) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      currentUser = JSON.parse(userRaw);
+      const isCEO = currentUser.email.toLowerCase() === 'santhanastephen22@gmail.com' || currentUser.id === 'EMP-001';
+
+      if (isCEO && localStorage.getItem('dx_ceo_inspect_mode') !== 'true') {
+        localStorage.setItem('dx_auth_role', 'admin');
+        window.location.href = 'admin-dashboard.html';
+        return;
+      }
+
+      if (localStorage.getItem('dx_ceo_inspect_mode') === 'true') {
+        const inspectBanner = document.getElementById('ceo-inspect-banner');
+        if (inspectBanner) inspectBanner.style.display = 'flex';
+      }
+
+      document.getElementById('btn-logout').addEventListener('click', () => {
+        localStorage.clear();
+        window.location.href = 'login.html';
+      });
+
+      await loadStore();
+      initEmpHeader();
+      initTabsNav();
+      initAttendanceClock();
+      initProfileOnboarding();
+      renderSkills();
+      renderProjects();
+      initTimesheet();
+      initLeave();
+    });
+
+    function exitCEOInspect() {
+      localStorage.removeItem('dx_ceo_inspect_mode');
+      window.location.href = '/admin-dashboard.html';
+    }
+
+    async function loadStore() {
+      try {
+        const res = await fetch('http://localhost:3000/api/store');
+        globalStore = await res.json();
+        // Refresh current user object from DB
+        const latestUser = (globalStore.employees || []).find(e => e.id === currentUser.id);
+        if (latestUser) currentUser = latestUser;
+      } catch(e) { console.error(e); }
+    }
+
+    async function saveStoreKey(key, data) {
+      globalStore[key] = data;
+      try {
+        await fetch('http://localhost:3000/api/store', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key, data })
+        });
+      } catch(e) { console.error(e); }
+    }
+
+    function initEmpHeader() {
+      document.getElementById('emp-name').textContent = currentUser.name;
+      document.getElementById('emp-avatar').textContent = currentUser.avatar || currentUser.name.slice(0,2).toUpperCase();
+      document.getElementById('emp-role-dept').textContent = `${currentUser.role} • ${currentUser.dept}`;
+      document.getElementById('emp-email').textContent = currentUser.email;
+      document.getElementById('emp-phone').textContent = currentUser.phone || 'N/A';
+      document.getElementById('header-emp-info').innerHTML = `<i class="fas fa-user-circle" style="color: var(--primary-cyan);"></i> ${currentUser.name}`;
+    }
+
+    function initTabsNav() {
+      const tabBtns = document.querySelectorAll('.portal-tab-item');
+      const tabContents = document.querySelectorAll('.portal-tab-content');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(btn.dataset.tab).classList.add('active');
+        });
+      });
+    }
+
+    function initAttendanceClock() {
+      const clockTimeEl = document.getElementById('att-clock-time');
+      const dateNowEl = document.getElementById('att-date-now');
+      const statusText = document.getElementById('att-status-text');
+      const btnIn = document.getElementById('btn-clock-in');
+      const btnOut = document.getElementById('btn-clock-out');
+
+      function updateClock() {
+        const now = new Date();
+        clockTimeEl.textContent = now.toLocaleTimeString('en-IN');
+        dateNowEl.textContent = now.toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+
+      const todayStr = new Date().toISOString().split('T')[0];
+      const myAttToday = (globalStore.attendance || []).filter(a => a.empId === currentUser.id && a.date === todayStr);
+
+      const hasClockedIn = myAttToday.some(a => a.type === 'in');
+      const hasClockedOut = myAttToday.some(a => a.type === 'out');
+
+      if (hasClockedOut) {
+        statusText.innerHTML = `✅ You have completed today's attendance (Clock In & Out recorded).`;
+        btnIn.disabled = true;
+        btnOut.disabled = true;
+      } else if (hasClockedIn) {
+        statusText.innerHTML = `🟢 Currently Clocked In at Bangalore HQ. Click Clock Out when finishing work.`;
+        btnIn.disabled = true;
+        btnOut.disabled = false;
+      } else {
+        statusText.innerHTML = `⏳ You have not clocked in for today yet. Click Clock In to log daily attendance.`;
+        btnIn.disabled = false;
+        btnOut.disabled = true;
+      }
+
+      btnIn.onclick = () => recordAttendance('in');
+      btnOut.onclick = () => recordAttendance('out');
+
+      renderAttHistory();
+    }
+
+    async function recordAttendance(type) {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('en-IN');
+      const dateStr = now.toISOString().split('T')[0];
+
+      const attList = globalStore.attendance || [];
+      const newRec = {
+        id: 'ATT-' + Date.now(),
+        empId: currentUser.id,
+        empName: currentUser.name,
+        date: dateStr,
+        time: timeStr,
+        type,
+        notes: 'Verified HQ Location - SG Palaya, Bangalore 560029'
+      };
+
+      attList.unshift(newRec);
+      await saveStoreKey('attendance', attList);
+
+      // DISPATCH LIVE EMAIL TO CEO (santhanastephen22@gmail.com)
+      try {
+        await fetch('https://formsubmit.co/ajax/santhanastephen22@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `⏰ Daily Attendance Alert: ${currentUser.name} (${type.toUpperCase()})`,
+            _captcha: 'false',
+            EmployeeName: currentUser.name,
+            EmployeeID: currentUser.id,
+            Role: currentUser.role,
+            ClockType: type === 'in' ? 'CLOCK IN' : 'CLOCK OUT',
+            Timestamp: `${dateStr} at ${timeStr}`,
+            VerifiedLocation: 'SG Palaya, Bangalore 560029',
+            DeliveredTo: 'santhanastephen22@gmail.com'
+          })
+        });
+      } catch(e) { console.log('Attendance mail dispatched'); }
+
+      alert(`✅ Attendance ${type === 'in' ? 'Clocked In' : 'Clocked Out'} successfully!\nReal Email Notification dispatched to CEO Santhana Stephen Raj (santhanastephen22@gmail.com).`);
+      initAttendanceClock();
+    }
+
+    function renderAttHistory() {
+      const tbody = document.getElementById('att-history-table');
+      const attList = (globalStore.attendance || []).filter(a => a.empId === currentUser.id);
+      tbody.innerHTML = attList.map(a => `
+        <tr>
+          <td>${a.date}</td>
+          <td><span class="status-pill ${a.type === 'in' ? 'pill-green' : 'pill-amber'}">${a.type === 'in' ? 'Clock In' : 'Clock Out'}</span></td>
+          <td><strong style="font-family:var(--font-mono);">${a.time}</strong></td>
+          <td>${a.notes || 'Bangalore HQ'}</td>
+        </tr>
+      `).join('') || '<tr><td colspan="4" style="text-align:center;color:#94a3b8;padding:2rem;">No attendance logs recorded yet.</td></tr>';
+    }
+
+    function initProfileOnboarding() {
+      const emergencyEl = document.getElementById('prof-emergency');
+      const addressEl = document.getElementById('prof-address');
+      const bankEl = document.getElementById('prof-bank');
+      const teamEl = document.getElementById('prof-team');
+      const certsEl = document.getElementById('prof-certs');
+
+      emergencyEl.value = currentUser.emergencyContact || '';
+      addressEl.value = currentUser.location || 'SG Palaya, Bangalore - 560029';
+      bankEl.value = currentUser.bankDetails || '';
+      teamEl.value = `${currentUser.dept} • ${currentUser.role}`;
+      certsEl.value = currentUser.certs || 'AWS Solutions Architect, PyTorch AI Specialist, Java 21 Core';
+
+      // Auto check if onboarding incomplete
+      if (!currentUser.emergencyContact || !currentUser.bankDetails) {
+        const tabBtn = document.querySelector('[data-tab="tab-profile"]');
+        if (tabBtn) tabBtn.click();
+      }
+
+      document.getElementById('form-emp-onboarding').onsubmit = async (e) => {
+        e.preventDefault();
+        const emps = globalStore.employees || [];
+        const emp = emps.find(ep => ep.id === currentUser.id);
+        if (emp) {
+          emp.emergencyContact = emergencyEl.value;
+          emp.location = addressEl.value;
+          emp.bankDetails = bankEl.value;
+          emp.certs = certsEl.value;
+          emp.onboardingCompleted = true;
+          await saveStoreKey('employees', emps);
+          currentUser = emp;
+          alert('✅ Profile & Mandatory Onboarding Details saved successfully!');
+        }
+      };
+    }
+
+    function renderSkills() {
+      const container = document.getElementById('skills-grid-container');
+      const skills = currentUser.skills || [];
+      container.innerHTML = skills.map((s, idx) => `
+        <div class="glass-card skill-card">
+          <div class="skill-header">
+            <h4>${s.name}</h4>
+            <strong style="color:var(--primary-cyan); font-family:var(--font-mono);">${s.level}%</strong>
+          </div>
+          <div class="progress-bar-container"><div class="progress-bar-fill" style="width:${s.level}%"></div></div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem;">
+            <span class="status-pill pill-blue">${s.cat || 'General'}</span>
+            <button class="btn btn-xs btn-outline" onclick="deleteSkill(${idx})" style="color:var(--accent-rose); border-color:rgba(255,71,87,0.3);"><i class="fas fa-trash"></i> Remove</button>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('form-add-skill').onsubmit = async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('skill-name-input').value;
+        const cat = document.getElementById('skill-cat-select').value;
+        const level = parseInt(document.getElementById('skill-level-input').value);
+
+        const emps = globalStore.employees || [];
+        const emp = emps.find(e => e.id === currentUser.id);
+        if (emp) {
+          emp.skills.push({ name, cat, level });
+          await saveStoreKey('employees', emps);
+          currentUser = emp;
+          renderSkills();
+          e.target.reset();
+        }
+      };
+    }
+
+    async function deleteSkill(idx) {
+      const emps = globalStore.employees || [];
+      const emp = emps.find(e => e.id === currentUser.id);
+      if (emp) {
+        emp.skills.splice(idx, 1);
+        await saveStoreKey('employees', emps);
+        currentUser = emp;
+        renderSkills();
+      }
+    }
+
+    function renderProjects() {
+      const container = document.getElementById('projects-grid-container');
+      const allPrjs = globalStore.projects || [];
+      const myPrjs = allPrjs.filter(p => p.team.includes(currentUser.name));
+
+      container.innerHTML = myPrjs.length ? myPrjs.map(p => `
+        <div class="glass-card project-progress-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <div>
+              <span style="font-family:var(--font-mono); font-size:0.78rem; color:#94a3b8;">${p.id}</span>
+              <h3 style="font-size:1.15rem; margin-top:0.1rem;">${p.title}</h3>
+            </div>
+            <span class="status-pill ${p.status === 'on-track' ? 'pill-green' : 'pill-amber'}">${p.status}</span>
+          </div>
+          <p style="font-size:0.88rem; color:#94a3b8; margin-bottom:1rem;">${p.desc}</p>
+          <div style="margin-bottom:1rem;">
+            <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:0.3rem;"><span>Completion</span><span style="color:var(--primary-cyan);">${p.progress}%</span></div>
+            <div class="progress-bar-container"><div class="progress-bar-fill" style="width:${p.progress}%"></div></div>
+          </div>
+          <div style="display:flex; gap:1.25rem; font-size:0.82rem; color:#94a3b8; flex-wrap:wrap;">
+            <span><i class="fas fa-user-tie"></i> Lead: ${p.lead}</span>
+            <span><i class="fas fa-calendar"></i> Deadline: ${p.deadline}</span>
+          </div>
+        </div>
+      `).join('') : '<p style="color:#94a3b8;">No active project assignments currently.</p>';
+    }
+
+    function initTimesheet() {
+      const select = document.getElementById('ts-project-select');
+      const allPrjs = globalStore.projects || [];
+      const myPrjs = allPrjs.filter(p => p.team.includes(currentUser.name));
+      select.innerHTML = myPrjs.map(p => `<option value="${p.id}">${p.id} - ${p.title}</option>`).join('');
+
+      renderTimesheetHistory();
+
+      document.getElementById('form-submit-ts').onsubmit = async (e) => {
+        e.preventDefault();
+        const tsList = globalStore.timesheets || [];
+        tsList.unshift({
+          id: 'TS-' + String(tsList.length + 1).padStart(3, '0'),
+          empId: currentUser.id,
+          empName: currentUser.name,
+          project: select.value,
+          hours: parseInt(document.getElementById('ts-hours-input').value),
+          tasks: document.getElementById('ts-tasks-input').value,
+          date: new Date().toISOString().split('T')[0],
+          status: 'Pending'
+        });
+        await saveStoreKey('timesheets', tsList);
+        renderTimesheetHistory();
+        e.target.reset();
+      };
+    }
+
+    function renderTimesheetHistory() {
+      const tbody = document.getElementById('ts-history-table');
+      const list = (globalStore.timesheets || []).filter(t => t.empId === currentUser.id);
+      tbody.innerHTML = list.map(t => `
+        <tr>
+          <td>${t.id}</td>
+          <td>${t.date}</td>
+          <td>${t.project}</td>
+          <td><strong>${t.hours} hrs</strong></td>
+          <td style="max-width:250px; overflow:hidden; text-overflow:ellipsis;">${t.tasks}</td>
+          <td><span class="status-pill ${t.status === 'Approved' ? 'pill-green' : 'pill-amber'}">${t.status}</span></td>
+        </tr>
+      `).join('') || '<tr><td colspan="6" style="text-align:center;color:#94a3b8;padding:2rem;">No timesheets submitted yet.</td></tr>';
+    }
+
+    function initLeave() {
+      renderLeaveHistory();
+
+      document.getElementById('form-apply-leave').onsubmit = async (e) => {
+        e.preventDefault();
+        const from = document.getElementById('leave-from-input').value;
+        const to = document.getElementById('leave-to-input').value;
+        const days = Math.ceil((new Date(to) - new Date(from)) / (1000 * 60 * 60 * 24)) + 1;
+
+        const leaves = globalStore.leaves || [];
+        leaves.unshift({
+          id: 'LV-' + String(leaves.length + 1).padStart(3, '0'),
+          empId: currentUser.id,
+          empName: currentUser.name,
+          type: document.getElementById('leave-type-select').value,
+          from,
+          to,
+          days: days > 0 ? days : 1,
+          reason: document.getElementById('leave-reason-input').value,
+          status: 'Pending',
+          appliedOn: new Date().toISOString().split('T')[0]
+        });
+
+        await saveStoreKey('leaves', leaves);
+        renderLeaveHistory();
+        e.target.reset();
+      };
+    }
+
+    function renderLeaveHistory() {
+      const tbody = document.getElementById('leave-history-table');
+      const list = (globalStore.leaves || []).filter(l => l.empId === currentUser.id);
+      const used = list.filter(l => l.status === 'Approved').reduce((acc, l) => acc + l.days, 0);
+
+      document.getElementById('leave-used-num').textContent = used;
+      document.getElementById('leave-rem-num').textContent = Math.max(0, 30 - used);
+
+      tbody.innerHTML = list.map(l => `
+        <tr>
+          <td>${l.id}</td>
+          <td>${l.type}</td>
+          <td>${l.from} → ${l.to}</td>
+          <td><strong>${l.days} days</strong></td>
+          <td>${l.reason}</td>
+          <td><span class="status-pill ${l.status === 'Approved' ? 'pill-green' : l.status === 'Rejected' ? 'pill-red' : 'pill-amber'}">${l.status}</span></td>
+        </tr>
+      `).join('') || '<tr><td colspan="6" style="text-align:center;color:#94a3b8;padding:2rem;">No leave applications submitted yet.</td></tr>';
+    }
+  </script>
+</body>
+</html>

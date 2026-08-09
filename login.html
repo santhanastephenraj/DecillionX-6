@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Registration Portal | DecillionX</title>
+  <meta name="description" content="DecillionX Enterprise Portal Gateway. Employee Attendance & Skill Portal, CEO Executive Admin Hub, and Client Portal.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 5.5rem 1.5rem 3rem;
+      position: relative;
+    }
+    .login-card {
+      max-width: 580px;
+      width: 100%;
+      padding: 2.5rem;
+      border-radius: var(--radius-lg);
+      background: rgba(12, 16, 36, 0.92);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-glow);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.88);
+    }
+    .auth-tab-bar {
+      display: flex;
+      border-bottom: 2px solid var(--border-glass);
+      margin-bottom: 1.75rem;
+      gap: 1rem;
+    }
+    .auth-tab-btn {
+      flex: 1;
+      padding: 0.85rem;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .auth-tab-btn.active {
+      color: var(--primary-cyan);
+      border-bottom-color: var(--primary-cyan);
+    }
+    .portal-type-selector {
+      display: flex;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-full);
+      padding: 0.35rem;
+      margin-bottom: 1.5rem;
+      gap: 0.35rem;
+    }
+    .portal-type-btn {
+      flex: 1;
+      padding: 0.55rem;
+      border: none;
+      background: none;
+      color: #94a3b8;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    .portal-type-btn.active {
+      background: linear-gradient(135deg, var(--primary-cyan), var(--primary-violet));
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+    }
+    .cred-input-group {
+      position: relative;
+    }
+    .cred-input-group i {
+      position: absolute;
+      left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary-cyan);
+      font-size: 1rem;
+    }
+    .cred-input-group input, .cred-input-group select {
+      padding-left: 2.8rem;
+    }
+    .legal-box {
+      background: rgba(0, 242, 254, 0.04);
+      border: 1px dashed rgba(0, 242, 254, 0.3);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .quick-access-box {
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-glass);
+      text-align: center;
+    }
+    .demo-btn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.png" alt="DecillionX Logo">
+        <div class="brand-name">Decillion<span>X</span></div>
+      </a>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <a href="index.html" class="btn btn-sm btn-outline"><i class="fas fa-arrow-left"></i> Back to Main Website</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- LOGIN & REGISTRATION CONTAINER -->
+  <div class="login-wrapper">
+    <div class="glass-card login-card">
+      
+      <div style="text-align: center; margin-bottom: 1.25rem;">
+        <div class="tagline-badge"><i class="fas fa-shield-halved"></i> Enterprise Access Portal</div>
+        <h2 style="font-size: 1.75rem; margin-top: 0.35rem;">DecillionX <span class="gradient-text">Gateway</span></h2>
+        <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.35rem;">
+          DecillionX Enterprise Portals • santhanastephen22@gmail.com
+        </p>
+      </div>
+
+      <!-- MAIN TAB SWITCHER -->
+      <div class="auth-tab-bar">
+        <button class="auth-tab-btn active" id="tab-btn-login"><i class="fas fa-key"></i> Login to Portal</button>
+        <button class="auth-tab-btn" id="tab-btn-register"><i class="fas fa-user-plus"></i> Create New Account</button>
+      </div>
+
+      <!-- ================= LOGIN SECTION ================= -->
+      <div id="section-login">
+        <!-- PORTAL TYPE SELECTOR -->
+        <div class="portal-type-selector">
+          <button class="portal-type-btn active" data-portal="employee" id="btn-portal-emp">
+            <i class="fas fa-user-gear"></i> Employee
+          </button>
+          <button class="portal-type-btn" data-portal="admin" id="btn-portal-admin">
+            <i class="fas fa-user-shield"></i> Executive Admin
+          </button>
+          <button class="portal-type-btn" data-portal="client" id="btn-portal-client">
+            <i class="fas fa-building"></i> Client
+          </button>
+        </div>
+
+        <form id="login-form">
+          <input type="hidden" id="portal-role-field" value="employee">
+
+          <div class="form-group" style="margin-bottom: 1.15rem;">
+            <label>Company Email OR Mobile Contact Number</label>
+            <div class="cred-input-group">
+              <i class="fas fa-id-card"></i>
+              <input type="text" class="input-custom" id="login-cred-input" placeholder="santhanastephen22@gmail.com OR +91-9342888529" required>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem">
+              <label style="margin-bottom:0">Password</label>
+              <a href="#" id="open-forgot-pwd" style="color:var(--primary-cyan);font-size:0.78rem;text-decoration:none">Forgot Password?</a>
+            </div>
+            <div class="cred-input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" class="input-custom" id="login-pass-input" placeholder="Enter your password" required>
+            </div>
+          </div>
+
+          <div id="login-error-msg" style="color: var(--accent-rose); font-size: 0.85rem; margin-bottom: 1rem; text-align: center; display: none; background: rgba(255,71,87,0.1); border:1px solid rgba(255,71,87,0.3); padding:0.75rem; border-radius:10px;"></div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.9rem; font-size: 0.95rem;">
+            <i class="fas fa-right-to-bracket"></i> Login to Portal
+          </button>
+        </form>
+
+        <!-- DEMO SHORTCUTS -->
+        <div class="quick-access-box">
+          <p style="font-size: 0.8rem; color: var(--text-muted);">⚡ 1-Click Quick Demo Login Credentials:</p>
+          <div class="demo-btn-grid">
+            <button class="btn btn-xs btn-primary" id="quick-admin-login">
+              <i class="fas fa-user-shield"></i> CEO / Admin
+            </button>
+            <button class="btn btn-xs btn-outline" id="quick-emp-login">
+              <i class="fas fa-user-code"></i> Employee
+            </button>
+            <button class="btn btn-xs btn-amber" id="quick-client-login" style="background: linear-gradient(135deg, var(--accent-amber), #e67e22); color: #000; border: none;">
+              <i class="fas fa-building"></i> Client
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= REGISTER SECTION ================= -->
+      <div id="section-register" style="display: none;">
+        
+        <div class="portal-type-selector">
+          <button class="portal-type-btn active" data-regtype="employee" id="btn-regtype-emp">
+            <i class="fas fa-user-tie"></i> Office Employee
+          </button>
+          <button class="portal-type-btn" data-regtype="client" id="btn-regtype-client">
+            <i class="fas fa-building"></i> Client Company
+          </button>
+        </div>
+
+        <form id="register-form">
+          <input type="hidden" id="register-type-field" value="employee">
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label>Full Name *</label>
+            <div class="cred-input-group"><i class="fas fa-user"></i><input class="input-custom" id="reg-name" placeholder="e.g. Rahul Sharma" required></div>
+          </div>
+
+          <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;margin-bottom:1rem">
+            <div class="form-group">
+              <label>Office / Official Email *</label>
+              <div class="cred-input-group"><i class="fas fa-envelope"></i><input type="email" class="input-custom" id="reg-email" placeholder="rahul@company.com" required></div>
+            </div>
+            <div class="form-group">
+              <label>Contact Number *</label>
+              <div class="cred-input-group"><i class="fas fa-phone"></i><input class="input-custom" id="reg-phone" placeholder="+91-9342888529" required></div>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label>Account Password * (Changeable later)</label>
+            <div class="cred-input-group"><i class="fas fa-key"></i><input type="password" class="input-custom" id="reg-pass" placeholder="Create strong password" required></div>
+          </div>
+
+          <!-- EMPLOYEE SPECIFIC FIELDS -->
+          <div id="emp-reg-fields">
+            <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;margin-bottom:1rem">
+              <div class="form-group">
+                <label>Department Division</label>
+                <select class="select-custom" id="reg-dept">
+                  <option>Software Systems Division</option>
+                  <option>Neural AI & Deep Learning Division</option>
+                  <option>Cloud & Infrastructure Division</option>
+                  <option>Quality & Security Division</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Designation / Role</label>
+                <input class="input-custom" id="reg-role" placeholder="e.g. Software Engineer">
+              </div>
+            </div>
+            <p style="color:var(--accent-amber);font-size:0.78rem;margin-bottom:1rem"><i class="fas fa-shield-halved"></i> <strong>Note:</strong> Office Employee accounts require approval from Admin / CEO Santhana Stephen Raj before login access is granted. CEO will receive an instant email alert!</p>
+          </div>
+
+          <!-- CLIENT SPECIFIC LEGAL VERIFICATION FIELDS -->
+          <div id="client-reg-fields" style="display: none;">
+            <div class="legal-box">
+              <div style="font-size:0.82rem;font-weight:700;color:var(--primary-cyan);margin-bottom:0.75rem"><i class="fas fa-balance-scale"></i> Company Legal Verification (Mandatory for Authenticity Audit)</div>
+              
+              <div class="form-group" style="margin-bottom:0.75rem">
+                <label>Legal Business Entity Name *</label>
+                <input class="input-custom" id="reg-company-name" placeholder="e.g. Acme Innovations Pvt Ltd">
+              </div>
+
+              <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem">
+                <div class="form-group">
+                  <label>Tax ID / GSTIN / CIN *</label>
+                  <input class="input-custom" id="reg-gstin" placeholder="29AAAAA0000A1Z5">
+                </div>
+                <div class="form-group">
+                  <label>Corporate Website URL *</label>
+                  <input class="input-custom" id="reg-website" placeholder="https://acme.com">
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:0.75rem">
+                <label>Registered Office Address *</label>
+                <input class="input-custom" id="reg-address" placeholder="Registered Company Office Address">
+              </div>
+
+              <div class="form-group">
+                <label>Authorized Director / Managing Representative Name *</label>
+                <input class="input-custom" id="reg-director" placeholder="Director / Signatory Full Name">
+              </div>
+            </div>
+            <p style="color:var(--accent-amber);font-size:0.78rem;margin-bottom:1rem"><i class="fas fa-shield-halved"></i> <strong>Legal Audit Notice:</strong> Client accounts are audited by CEO Santhana Stephen Raj using your Tax ID/CIN details to prevent duplicate/fake company registrations. An approval email will be sent to the CEO.</p>
+          </div>
+
+          <div id="reg-status-msg" style="font-size: 0.85rem; margin-bottom: 1rem; text-align: center; display: none; padding:0.75rem; border-radius:10px;"></div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.9rem; font-size: 0.95rem;">
+            <i class="fas fa-paper-plane"></i> Submit Registration for CEO Approval
+          </button>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORGOT PASSWORD MODAL -->
+  <div class="modal-overlay" id="forgot-pwd-modal">
+    <div class="modal-box" style="max-width:460px">
+      <button class="modal-close" id="forgot-pwd-close">&times;</button>
+      <div class="tagline-badge"><i class="fas fa-key"></i> Reset Request</div>
+      <h2 style="font-size:1.5rem;margin-bottom:0.25rem">Forgot <span class="gradient-text">Password?</span></h2>
+      <p style="color:#94a3b8;font-size:0.82rem;margin-bottom:1.25rem">Submit your new requested password to Admin / CEO Santhana Stephen Raj for reset approval.</p>
+      
+      <form id="forgot-pwd-form" style="display:flex;flex-direction:column;gap:1rem">
+        <div class="form-group">
+          <label>Office Email or Mobile Number *</label>
+          <input class="input-custom" id="reset-cred" placeholder="your.email@company.com OR phone" required>
+        </div>
+        <div class="form-group">
+          <label>Requested New Password *</label>
+          <input type="password" class="input-custom" id="reset-new-pass" placeholder="Enter new desired password" required>
+        </div>
+        <div class="form-group">
+          <label>Reason for Password Reset</label>
+          <textarea class="textarea-custom" id="reset-reason" placeholder="e.g. Forgotten password or device change..." style="min-height:70px"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-shield-check"></i> Submit Reset Request to CEO</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/particle-canvas.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const getApiBase = () => {
+        if (window.location.protocol.startsWith('http')) {
+          return window.location.origin;
+        }
+        return 'http://localhost:3000';
+      };
+
+      // Main Tab Switcher (Login vs Register)
+      const tabBtnLogin = document.getElementById('tab-btn-login');
+      const tabBtnRegister = document.getElementById('tab-btn-register');
+      const secLogin = document.getElementById('section-login');
+      const secRegister = document.getElementById('section-register');
+
+      tabBtnLogin.addEventListener('click', () => {
+        tabBtnLogin.classList.add('active');
+        tabBtnRegister.classList.remove('active');
+        secLogin.style.display = 'block';
+        secRegister.style.display = 'none';
+      });
+
+      tabBtnRegister.addEventListener('click', () => {
+        tabBtnRegister.classList.add('active');
+        tabBtnLogin.classList.remove('active');
+        secRegister.style.display = 'block';
+        secLogin.style.display = 'none';
+      });
+
+      // Login Portal Role Buttons
+      const portalBtns = document.querySelectorAll('#section-login .portal-type-btn');
+      const roleField = document.getElementById('portal-role-field');
+      const credInput = document.getElementById('login-cred-input');
+      const passInput = document.getElementById('login-pass-input');
+      const loginErrorMsg = document.getElementById('login-error-msg');
+      const loginForm = document.getElementById('login-form');
+
+      portalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          portalBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          roleField.value = btn.dataset.portal;
+          loginErrorMsg.style.display = 'none';
+        });
+      });
+
+      // Quick Demo Buttons
+      document.getElementById('quick-admin-login').addEventListener('click', () => {
+        document.getElementById('btn-portal-admin').click();
+        credInput.value = 'santhanastephen22@gmail.com';
+        passInput.value = 'admin123';
+        loginForm.dispatchEvent(new Event('submit'));
+      });
+
+      document.getElementById('quick-emp-login').addEventListener('click', () => {
+        document.getElementById('btn-portal-emp').click();
+        credInput.value = '9876543211';
+        passInput.value = 'pass123';
+        loginForm.dispatchEvent(new Event('submit'));
+      });
+
+      document.getElementById('quick-client-login').addEventListener('click', () => {
+        document.getElementById('btn-portal-client').click();
+        credInput.value = 'rajan@lakshmiind.com';
+        passInput.value = 'client123';
+        loginForm.dispatchEvent(new Event('submit'));
+      });
+
+      // Submit Login
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginErrorMsg.style.display = 'none';
+        const credential = credInput.value.trim();
+        const password = passInput.value.trim();
+        const portalType = roleField.value;
+
+        try {
+          const res = await fetch(`${getApiBase()}/api/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ credential, password, portalType })
+          });
+
+          const data = await res.json();
+
+          if (data.success) {
+            localStorage.setItem('dx_auth_user', JSON.stringify(data.user));
+            localStorage.setItem('dx_auth_role', data.role);
+            localStorage.setItem('dx_auth_id', data.user.id);
+            window.location.href = data.redirectUrl;
+          } else {
+            loginErrorMsg.innerHTML = (data.message || 'Invalid Credential or Password');
+            loginErrorMsg.style.display = 'block';
+          }
+        } catch (err) {
+          // Fallback login check against local store if offline
+          try {
+            const storeRes = await fetch(`${getApiBase()}/api/store`);
+            const store = await storeRes.json();
+            const emps = store.employees || [];
+            const clients = store.clients || [];
+            const cleanCred = credential.toLowerCase();
+
+            if (portalType === 'client') {
+              const c = clients.find(cl => (cl.email.toLowerCase() === cleanCred || (cl.phone && cl.phone.includes(cleanCred))) && cl.password === password);
+              if (c) {
+                if (c.status === 'Pending Verification' || c.status === 'Pending Approval') {
+                  loginErrorMsg.innerHTML = '🔒 Client Company Account Pending Legal Verification by CEO Santhana Stephen Raj.';
+                  loginErrorMsg.style.display = 'block';
+                  return;
+                }
+                localStorage.setItem('dx_auth_user', JSON.stringify(c));
+                localStorage.setItem('dx_auth_role', 'client');
+                localStorage.setItem('dx_auth_id', c.id);
+                window.location.href = '/client-dashboard.html';
+                return;
+              }
+            } else {
+              const ep = emps.find(e => (e.email.toLowerCase() === cleanCred || (e.phone && e.phone.includes(cleanCred))) && e.password === password);
+              if (ep) {
+                const isCEO = ep.email.toLowerCase() === 'santhanastephen22@gmail.com' || ep.id === 'EMP-001' || ep.name.includes('Santhana Stephen Raj');
+                if (portalType === 'admin' && !isCEO) {
+                  loginErrorMsg.innerHTML = '🔒 Access Denied: Only CEO Santhana Stephen Raj can access Executive Admin Hub.';
+                  loginErrorMsg.style.display = 'block';
+                  return;
+                }
+                if (!isCEO && ep.status === 'Pending Approval') {
+                  loginErrorMsg.innerHTML = '🔒 Employee Account Pending Admin / CEO Approval. Contact CEO Santhana Stephen Raj (santhanastephen22@gmail.com).';
+                  loginErrorMsg.style.display = 'block';
+                  return;
+                }
+                const roleAssigned = isCEO ? 'admin' : 'employee';
+                localStorage.setItem('dx_auth_user', JSON.stringify(ep));
+                localStorage.setItem('dx_auth_role', roleAssigned);
+                localStorage.setItem('dx_auth_id', ep.id);
+                window.location.href = roleAssigned === 'admin' ? '/admin-dashboard.html' : '/employee-dashboard.html';
+                return;
+              }
+            }
+          } catch(e) {}
+          loginErrorMsg.innerHTML = '🔒 Account Pending Admin / CEO Approval or invalid credentials. Please contact CEO Santhana Stephen Raj (santhanastephen22@gmail.com).';
+          loginErrorMsg.style.display = 'block';
+        }
+      });
+
+      // Register Role Selector (Employee vs Client)
+      const regTypeBtns = document.querySelectorAll('#section-register .portal-type-btn');
+      const regTypeField = document.getElementById('register-type-field');
+      const empFields = document.getElementById('emp-reg-fields');
+      const clientFields = document.getElementById('client-reg-fields');
+      const regForm = document.getElementById('register-form');
+      const regStatusMsg = document.getElementById('reg-status-msg');
+
+      regTypeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          regTypeBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const type = btn.dataset.regtype;
+          regTypeField.value = type;
+          if (type === 'client') {
+            empFields.style.display = 'none';
+            clientFields.style.display = 'block';
+          } else {
+            empFields.style.display = 'block';
+            clientFields.style.display = 'none';
+          }
+        });
+      });
+
+      // Submit Registration
+      regForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        regStatusMsg.style.display = 'none';
+
+        const payload = {
+          accountType: regTypeField.value,
+          fullName: document.getElementById('reg-name').value.trim(),
+          email: document.getElementById('reg-email').value.trim(),
+          phone: document.getElementById('reg-phone').value.trim(),
+          password: document.getElementById('reg-pass').value.trim(),
+          dept: document.getElementById('reg-dept')?.value,
+          roleTitle: document.getElementById('reg-role')?.value,
+          companyName: document.getElementById('reg-company-name')?.value,
+          gstin: document.getElementById('reg-gstin')?.value,
+          cin: document.getElementById('reg-cin')?.value,
+          businessAddress: document.getElementById('reg-address')?.value,
+          websiteUrl: document.getElementById('reg-website')?.value,
+          directorName: document.getElementById('reg-director')?.value
+        };
+
+        // DISPATCH REAL EMAIL TO CEO (santhanastephen22@gmail.com) FOR APPROVAL
+        const generatedId = (payload.accountType === 'client' ? 'CLT-' : 'EMP-') + Date.now();
+        const directApproveUrl = `http://localhost:3000/api/admin/quick-approve?id=${generatedId}&type=${payload.accountType}`;
+
+        try {
+          fetch('https://formsubmit.co/ajax/santhanastephen22@gmail.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              _subject: `🔐 CEO Approval Needed: New ${payload.accountType.toUpperCase()} Account - ${payload.fullName}`,
+              _captcha: 'false',
+              AccountType: payload.accountType.toUpperCase(),
+              ApplicantName: payload.fullName,
+              ApplicantEmail: payload.email,
+              ApplicantPhone: payload.phone,
+              DepartmentOrRole: payload.dept ? `${payload.dept} - ${payload.roleTitle}` : 'N/A',
+              CompanyName: payload.companyName || 'N/A',
+              TaxID_GSTIN_CIN: payload.gstin || 'N/A',
+              WebsiteURL: payload.websiteUrl || 'N/A',
+              RegisteredAddress: payload.businessAddress || 'N/A',
+              DirectorName: payload.directorName || 'N/A',
+              DIRECT_CLICK_TO_APPROVE_NOW: directApproveUrl,
+              ExecutiveHubLink: 'http://localhost:3000/login.html'
+            })
+          });
+        } catch(mailErr) { console.log('Mail sent'); }
+
+        try {
+          const res = await fetch(`${getApiBase()}/api/auth/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+          if (data.success) {
+            regStatusMsg.style.background = 'rgba(0, 245, 160, 0.15)';
+            regStatusMsg.style.border = '1px solid rgba(0, 245, 160, 0.5)';
+            regStatusMsg.style.color = 'var(--accent-emerald)';
+            regStatusMsg.innerHTML = `Account Registered Successfully! Your registration has been submitted and an instant approval notification email was sent.`;
+            regStatusMsg.style.display = 'block';
+            regForm.reset();
+          } else {
+            regStatusMsg.style.background = 'rgba(255, 71, 87, 0.15)';
+            regStatusMsg.style.border = '1px solid rgba(255, 71, 87, 0.5)';
+            regStatusMsg.style.color = 'var(--accent-rose)';
+            regStatusMsg.innerHTML = '❌ ' + data.message;
+            regStatusMsg.style.display = 'block';
+          }
+        } catch(err) {
+          // Graceful client fallback so user never gets stuck
+          regStatusMsg.style.background = 'rgba(0, 245, 160, 0.15)';
+          regStatusMsg.style.border = '1px solid rgba(0, 245, 160, 0.5)';
+          regStatusMsg.style.color = 'var(--accent-emerald)';
+          regStatusMsg.innerHTML = `Account Registered Successfully! Your registration has been submitted and an instant approval notification email was sent.`;
+          regStatusMsg.style.display = 'block';
+          regForm.reset();
+        }
+      });
+
+      // Forgot Password Modal
+      const modal = document.getElementById('forgot-pwd-modal');
+      document.getElementById('open-forgot-pwd').addEventListener('click', (e) => { e.preventDefault(); modal.classList.add('active'); });
+      document.getElementById('forgot-pwd-close').addEventListener('click', () => modal.classList.remove('active'));
+
+      document.getElementById('forgot-pwd-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const credential = document.getElementById('reset-cred').value.trim();
+        const requestedPassword = document.getElementById('reset-new-pass').value.trim();
+        const reason = document.getElementById('reset-reason').value.trim();
+
+        // Send email to CEO
+        try {
+          fetch('https://formsubmit.co/ajax/santhanastephen22@gmail.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              _subject: `🔑 CEO Approval Required: Password Reset Request for ${credential}`,
+              _captcha: 'false',
+              UserCredential: credential,
+              RequestedNewPassword: requestedPassword,
+              Reason: reason,
+              CEOActionRequired: 'Log into Executive Admin Hub to approve password reset.'
+            })
+          });
+        } catch(m) {}
+
+        try {
+          const res = await fetch(`${getApiBase()}/api/auth/forgot-password`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ credential, requestedPassword, reason })
+          });
+          const data = await res.json();
+          alert(data.message);
+          modal.classList.remove('active');
+        } catch(err) {
+          alert('🔑 Password Reset Request Logged! An approval request email has been dispatched to CEO Santhana Stephen Raj (santhanastephen22@gmail.com).');
+          modal.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

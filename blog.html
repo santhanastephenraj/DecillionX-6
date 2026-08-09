@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Blog & Tech Insights | DecillionX Bangalore</title>
+  <meta name="description" content="Read deep-dive tech articles on Artificial Intelligence, GenAI Autonomous Agents, Microservices, Java 21, Python LLMs, and Cloud Security written by DecillionX engineering leaders.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="glow-orb glow-orb-1"></div>
+<div class="glow-orb glow-orb-2"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="brand-logo">
+      <img src="assets/logo.png" alt="DecillionX Logo">
+      <div class="brand-name">Decillion<span>X</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+      <li><a href="blog.html" style="color:var(--primary-cyan); font-weight:800;"><i class="fas fa-newspaper"></i> Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="login.html" style="color:var(--accent-amber); font-weight:800;"><i class="fas fa-user-shield"></i> Portals</a></li>
+    </ul>
+    <div style="display:flex;gap:0.85rem;align-items:center">
+      <a href="index.html#contact" class="btn btn-primary btn-sm"><i class="fas fa-paper-plane"></i> Subscribe</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO BANNER ===== -->
+<section class="hero" style="min-height:48vh; padding-top:140px; padding-bottom:40px;">
+  <div class="container text-center">
+    <div class="tagline-badge" style="display:inline-block"><i class="fas fa-lightbulb"></i> DecillionX Engineering Insights & AI Architecture</div>
+    <h1 style="font-size:3.2rem; margin-top:0.75rem; margin-bottom:1rem;">Deep Tech <span class="gradient-text">Blog & Research</span></h1>
+    <p class="section-subtitle" style="margin:0 auto; max-width:760px;">In-depth articles, system design blueprints, and artificial intelligence insights written by CEO Santhana Stephen Raj and DecillionX lead architects.</p>
+  </div>
+</section>
+
+<!-- ===== BLOG CONTENT ===== -->
+<div class="container" style="padding-bottom:5rem;">
+
+  <!-- SEARCH & CATEGORY FILTER -->
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2.5rem; flex-wrap:wrap; gap:1rem;" class="glass-card" style="padding:1.25rem 2rem;">
+    <div style="display:flex; gap:0.5rem; flex-wrap:wrap;" id="blog-category-bar">
+      <button class="btn btn-sm btn-outline active" onclick="filterBlog('all')">All Articles</button>
+      <button class="btn btn-sm btn-outline" onclick="filterBlog('AI')">AI & LLMs</button>
+      <button class="btn btn-sm btn-outline" onclick="filterBlog('Backend')">Backend Architecture</button>
+      <button class="btn btn-sm btn-outline" onclick="filterBlog('DevOps')">Cloud & DevOps</button>
+      <button class="btn btn-sm btn-outline" onclick="filterBlog('Security')">Cybersecurity & QA</button>
+    </div>
+
+    <div style="width:280px;">
+      <input class="input-custom" id="blog-search-input" placeholder="🔍 Search articles..." oninput="searchBlog()">
+    </div>
+  </div>
+
+  <!-- BLOG ARTICLES GRID -->
+  <div class="grid grid-3" id="blog-articles-grid">
+    
+    <!-- ARTICLE 1 -->
+    <div class="glass-card flex-col blog-card" data-category="AI" style="padding:1.85rem; justify-content:space-between;">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem;">
+          <span class="status-pill pill-cyan" style="font-size:0.72rem;">🤖 AI & LLMs</span>
+          <span style="font-size:0.78rem; color:#94a3b8;"><i class="fas fa-calendar-day"></i> Aug 9, 2026</span>
+        </div>
+        
+        <h3 style="font-size:1.2rem; margin-bottom:0.5rem; color:#fff;">Architecting Autonomous Multi-Agent Systems with CrewAI & Llama 3</h3>
+        <p style="font-size:0.86rem; color:#94a3b8; line-height:1.55; margin-bottom:1.25rem;">How we built multi-agent AI networks to automate code generation, vulnerability testing, and complex business workflows at scale.</p>
+      </div>
+
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem;">
+          <div style="display:flex; align-items:center; gap:0.6rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--primary-cyan); color:#000; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:0.75rem;">SS</div>
+            <span style="font-size:0.8rem; font-weight:600; color:#e2e8f0;">Santhana Stephen Raj</span>
+          </div>
+          <button class="btn btn-xs btn-outline" onclick="readArticle('Architecting Autonomous Multi-Agent Systems with CrewAI & Llama 3', 'Santhana Stephen Raj', 'Aug 9, 2026', 'AI & LLMs', 'How we built multi-agent AI networks to automate code generation, vulnerability testing, and complex business workflows at scale. Autonomous AI agents represent the next paradigm shift in enterprise automation.')">Read <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTICLE 2 -->
+    <div class="glass-card flex-col blog-card" data-category="Backend" style="padding:1.85rem; justify-content:space-between;">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem;">
+          <span class="status-pill pill-violet" style="font-size:0.72rem;">☕ Backend Architecture</span>
+          <span style="font-size:0.78rem; color:#94a3b8;"><i class="fas fa-calendar-day"></i> Aug 5, 2026</span>
+        </div>
+        
+        <h3 style="font-size:1.2rem; margin-bottom:0.5rem; color:#fff;">Java 21 Virtual Threads vs Reactive WebFlux: 10M Concurrent Requests</h3>
+        <p style="font-size:0.86rem; color:#94a3b8; line-height:1.55; margin-bottom:1.25rem;">A deep benchmarking comparison of Project Loom Virtual Threads in Java 21 against Spring WebFlux for enterprise banking systems.</p>
+      </div>
+
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem;">
+          <div style="display:flex; align-items:center; gap:0.6rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--primary-violet); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:0.75rem;">SS</div>
+            <span style="font-size:0.8rem; font-weight:600; color:#e2e8f0;">Santhana Stephen Raj</span>
+          </div>
+          <button class="btn btn-xs btn-outline" onclick="readArticle('Java 21 Virtual Threads vs Reactive WebFlux', 'Santhana Stephen Raj', 'Aug 5, 2026', 'Backend Architecture', 'A deep benchmarking comparison of Project Loom Virtual Threads in Java 21 against Spring WebFlux for enterprise banking systems. Virtual threads enable millions of concurrent I/O connections without native thread context switching overhead.')">Read <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTICLE 3 -->
+    <div class="glass-card flex-col blog-card" data-category="Security" style="padding:1.85rem; justify-content:space-between;">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.85rem;">
+          <span class="status-pill pill-green" style="font-size:0.72rem;">🔒 Cybersecurity & QA</span>
+          <span style="font-size:0.78rem; color:#94a3b8;"><i class="fas fa-calendar-day"></i> Jul 28, 2026</span>
+        </div>
+        
+        <h3 style="font-size:1.2rem; margin-bottom:0.5rem; color:#fff;">Zero-Trust GenAI QA: Preventing LLM Prompt Injections in Production</h3>
+        <p style="font-size:0.86rem; color:#94a3b8; line-height:1.55; margin-bottom:1.25rem;">Best security strategies and automated Playwright security suites to protect corporate RAG vector pipelines from malicious prompt injections.</p>
+      </div>
+
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem;">
+          <div style="display:flex; align-items:center; gap:0.6rem;">
+            <div style="width:30px; height:30px; border-radius:50%; background:var(--accent-emerald); color:#000; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:0.75rem;">SS</div>
+            <span style="font-size:0.8rem; font-weight:600; color:#e2e8f0;">Santhana Stephen Raj</span>
+          </div>
+          <button class="btn btn-xs btn-outline" onclick="readArticle('Zero-Trust GenAI QA: Preventing LLM Prompt Injections', 'Santhana Stephen Raj', 'Jul 28, 2026', 'Cybersecurity & QA', 'Best security strategies and automated Playwright security suites to protect corporate RAG vector pipelines from malicious prompt injections and jailbreak attacks.')">Read <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ARTICLE READER MODAL -->
+<div class="modal" id="modal-read-article">
+  <div class="modal-content" style="max-width:700px; padding:2.5rem;">
+    <button class="modal-close" onclick="closeArticleModal()">&times;</button>
+    <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:1rem;">
+      <span class="status-pill pill-cyan" id="art-category">AI</span>
+      <span style="font-size:0.82rem; color:#94a3b8;" id="art-date">Aug 9, 2026</span>
+    </div>
+    <h2 style="font-size:1.8rem; margin-bottom:0.75rem; color:#fff;" id="art-title">Article Title</h2>
+    <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1.5rem; font-size:0.88rem; color:var(--primary-cyan); font-weight:600;">
+      <i class="fas fa-user-pen"></i> Written by <span id="art-author">Santhana Stephen Raj</span>
+    </div>
+
+    <div style="font-size:0.95rem; color:#cbd5e1; line-height:1.7; margin-bottom:2rem;" id="art-body">
+      Article body content...
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:1.25rem;">
+      <div style="font-size:0.85rem; color:#94a3b8;"><i class="fas fa-share-nodes"></i> Share Article:</div>
+      <div style="display:flex; gap:0.5rem;">
+        <button class="btn btn-xs btn-outline" onclick="alert('Article link copied to clipboard!')"><i class="fab fa-linkedin"></i> LinkedIn</button>
+        <button class="btn btn-xs btn-outline" onclick="alert('Article link copied to clipboard!')"><i class="fab fa-twitter"></i> Twitter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:rgba(8,11,26,0.95); border-top:1px solid rgba(255,255,255,0.08); padding:3rem 0; margin-top:3rem;">
+  <div class="container text-center">
+    <p style="color:#94a3b8; font-size:0.88rem;">© 2026 DecillionX Software & AI Development. SG Palaya, Bangalore - 560029, India.</p>
+    <p style="color:#64748b; font-size:0.82rem; margin-top:0.5rem;">Founder & CEO: Santhana Stephen Raj • <a href="mailto:santhanastephen22@gmail.com" style="color:var(--primary-cyan);">santhanastephen22@gmail.com</a> • +91-9342888529</p>
+  </div>
+</footer>
+
+<script src="js/particle-canvas.js"></script>
+<script>
+  function filterBlog(category) {
+    const btns = document.querySelectorAll('#blog-category-bar button');
+    btns.forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const cards = document.querySelectorAll('.blog-card');
+    cards.forEach(c => {
+      if (category === 'all' || c.getAttribute('data-category') === category) {
+        c.style.display = 'flex';
+      } else {
+        c.style.display = 'none';
+      }
+    });
+  }
+
+  function searchBlog() {
+    const q = document.getElementById('blog-search-input').value.toLowerCase();
+    const cards = document.querySelectorAll('.blog-card');
+    cards.forEach(c => {
+      const text = c.innerText.toLowerCase();
+      if (text.includes(q)) {
+        c.style.display = 'flex';
+      } else {
+        c.style.display = 'none';
+      }
+    });
+  }
+
+  function readArticle(title, author, date, category, body) {
+    document.getElementById('art-title').textContent = title;
+    document.getElementById('art-author').textContent = author;
+    document.getElementById('art-date').textContent = date;
+    document.getElementById('art-category').textContent = category;
+    document.getElementById('art-body').textContent = body;
+    document.getElementById('modal-read-article').classList.add('active');
+  }
+
+  function closeArticleModal() {
+    document.getElementById('modal-read-article').classList.remove('active');
+  }
+</script>
+</body>
+</html>

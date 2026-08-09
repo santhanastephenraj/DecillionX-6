@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Admin Hub | CEO Santhana Stephen Raj - DecillionX</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .dashboard-page {
+      padding: 6rem 0 4rem;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="glow-orb glow-orb-2"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.png" alt="DecillionX Logo">
+        <div class="brand-name">Decillion<span>X</span></div>
+      </a>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <span style="font-size: 0.82rem; color: var(--text-muted);">
+          <i class="fas fa-crown" style="color: var(--primary-cyan);"></i> CEO Admin Hub
+        </span>
+        <button class="btn btn-sm btn-outline" id="btn-admin-logout"><i class="fas fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container dashboard-page">
+
+    <!-- HEADER PROFILE -->
+    <div class="portal-header">
+      <div class="portal-user-meta">
+        <div class="portal-avatar" style="background: linear-gradient(135deg, var(--primary-cyan), var(--primary-violet)); color:#fff;">SS</div>
+        <div>
+          <h2 style="font-size: 1.55rem;">Santhana Stephen Raj</h2>
+          <p style="color: var(--primary-cyan); font-size: 0.88rem; font-weight: 700;">Founder & Chief Executive Officer • DecillionX</p>
+          <p style="color: var(--text-dim); font-size: 0.78rem; margin-top: 0.25rem;">
+            <i class="fas fa-location-dot" style="color: var(--primary-cyan);"></i> HQ: SG Palaya, Bangalore - 560029 • <i class="fas fa-envelope"></i> santhanastephen22@gmail.com • <i class="fas fa-phone"></i> +91-9342888529
+          </p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 0.75rem;">
+        <button class="btn btn-primary btn-sm" id="btn-open-create-prj"><i class="fas fa-plus-circle"></i> Launch New Project</button>
+      </div>
+    </div>
+
+    <!-- KPI CARDS (INTERACTIVE & CLICKABLE) -->
+    <div class="kpi-grid">
+      <div class="glass-card kpi-card clickable-kpi" id="card-kpi-projects" style="cursor:pointer; transition: transform 0.2s ease, border-color 0.2s ease;" onclick="switchAdminTab('tab-admin-projects')" title="Click to view Active Client Projects">
+        <div>
+          <span style="color:#94a3b8; font-size:0.82rem;">Active Client Projects <i class="fas fa-arrow-right" style="font-size:0.7rem; color:var(--primary-cyan); margin-left:4px;"></i></span>
+          <div class="kpi-number" id="kpi-projects">0</div>
+        </div>
+        <div class="kpi-icon"><i class="fas fa-diagram-project"></i></div>
+      </div>
+      <div class="glass-card kpi-card clickable-kpi" id="card-kpi-employees" style="cursor:pointer; transition: transform 0.2s ease, border-color 0.2s ease;" onclick="switchAdminTab('tab-admin-emp')" title="Click to view Team Directory & Skills">
+        <div>
+          <span style="color:#94a3b8; font-size:0.82rem;">Total Team Engineers <i class="fas fa-arrow-right" style="font-size:0.7rem; color:var(--primary-cyan); margin-left:4px;"></i></span>
+          <div class="kpi-number" id="kpi-employees">0</div>
+        </div>
+        <div class="kpi-icon violet"><i class="fas fa-users"></i></div>
+      </div>
+      <div class="glass-card kpi-card clickable-kpi" id="card-kpi-present" style="cursor:pointer; transition: transform 0.2s ease, border-color 0.2s ease;" onclick="switchAdminTab('tab-admin-att')" title="Click to view Live Attendance Monitor">
+        <div>
+          <span style="color:#94a3b8; font-size:0.82rem;">Present Today (Bangalore) <i class="fas fa-arrow-right" style="font-size:0.7rem; color:var(--accent-emerald); margin-left:4px;"></i></span>
+          <div class="kpi-number" id="kpi-present" style="color:var(--accent-emerald);">0</div>
+        </div>
+        <div class="kpi-icon emerald"><i class="fas fa-user-check"></i></div>
+      </div>
+      <div class="glass-card kpi-card clickable-kpi" id="card-kpi-approvals" style="cursor:pointer; transition: transform 0.2s ease, border-color 0.2s ease;" onclick="switchAdminTab('tab-admin-approvals')" title="Click to view Pending CEO Approvals">
+        <div>
+          <span style="color:#94a3b8; font-size:0.82rem;">Pending CEO Approvals <i class="fas fa-arrow-right" style="font-size:0.7rem; color:var(--accent-rose); margin-left:4px;"></i></span>
+          <div class="kpi-number" id="kpi-pending-approvals" style="color:var(--accent-rose);">0</div>
+        </div>
+        <div class="kpi-icon rose"><i class="fas fa-shield-halved"></i></div>
+      </div>
+      <div class="glass-card kpi-card clickable-kpi" id="card-kpi-inquiries" style="cursor:pointer; transition: transform 0.2s ease, border-color 0.2s ease;" onclick="switchAdminTab('tab-admin-inbox')" title="Click to view Contact Inquiries Inbox">
+        <div>
+          <span style="color:#94a3b8; font-size:0.82rem;">Contact Inquiries Inbox <i class="fas fa-arrow-right" style="font-size:0.7rem; color:var(--accent-amber); margin-left:4px;"></i></span>
+          <div class="kpi-number" id="kpi-inquiries" style="color:var(--accent-amber);">0</div>
+        </div>
+        <div class="kpi-icon amber"><i class="fas fa-envelope-open-text"></i></div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="portal-tabs-nav">
+      <button class="portal-tab-item active" data-tab="tab-admin-approvals"><i class="fas fa-shield-check"></i> CEO Approvals & Legal Verification <span id="tab-badge-approvals" style="background:var(--accent-rose);color:#fff;border-radius:10px;padding:2px 8px;font-size:0.75rem;margin-left:4px">0</span></button>
+      <button class="portal-tab-item" data-tab="tab-admin-emp"><i class="fas fa-users-gear"></i> Employee Directory & Skills</button>
+      <button class="portal-tab-item" data-tab="tab-admin-att"><i class="fas fa-fingerprint"></i> Live Attendance Monitor</button>
+      <button class="portal-tab-item" data-tab="tab-admin-projects"><i class="fas fa-folder-open"></i> End-to-End Projects Hub</button>
+      <button class="portal-tab-item" data-tab="tab-admin-leaves"><i class="fas fa-calendar-check"></i> Leave Approvals</button>
+      <button class="portal-tab-item" data-tab="tab-admin-timesheets"><i class="fas fa-clock-rotate-left"></i> Timesheets</button>
+      <button class="portal-tab-item" data-tab="tab-admin-inbox"><i class="fas fa-inbox"></i> Client Inquiries Inbox</button>
+      <button class="portal-tab-item" data-tab="tab-admin-careers"><i class="fas fa-briefcase"></i> Careers & Resume Database <span id="badge-job-apps" style="background:var(--primary-cyan);color:#000;border-radius:10px;padding:2px 8px;font-size:0.75rem;margin-left:4px">0</span></button>
+    </div>
+
+    <!-- TAB 1: PENDING CEO APPROVALS & LEGAL VERIFICATION -->
+    <div class="portal-tab-content active" id="tab-admin-approvals">
+      
+      <!-- PENDING EMPLOYEES -->
+      <div class="glass-card" style="padding:1.75rem;margin-bottom:2rem">
+        <h3 style="margin-bottom:0.25rem"><i class="fas fa-user-clock" style="color:var(--primary-cyan)"></i> Pending Employee Registration Approvals</h3>
+        <p style="color:#94a3b8;font-size:0.82rem;margin-bottom:1.25rem">Newly created office employee accounts require approval from CEO Santhana Stephen Raj before login access is granted.</p>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Employee Name</th>
+                <th>Email ID</th>
+                <th>Contact Phone</th>
+                <th>Department & Role</th>
+                <th>Status</th>
+                <th>CEO Action</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-pending-employees">
+              <tr><td colspan="6" style="text-align:center;color:#94a3b8;padding:1.5rem">Loading pending employees...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PENDING CLIENT LEGAL VERIFICATIONS -->
+      <div class="glass-card" style="padding:1.75rem;margin-bottom:2rem">
+        <h3 style="margin-bottom:0.25rem"><i class="fas fa-building-circle-check" style="color:var(--accent-emerald)"></i> Pending Client Company Legal Verifications</h3>
+        <p style="color:#94a3b8;font-size:0.82rem;margin-bottom:1.25rem">Review company legal business details (Tax ID/GSTIN/CIN, website URL, registered office) to verify original vs duplicate business entities before unlocking portal access.</p>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Company Name</th>
+                <th>Director / Contact</th>
+                <th>Tax ID / GSTIN / CIN</th>
+                <th>Corporate Website</th>
+                <th>Registered Address</th>
+                <th>CEO Verification</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-pending-clients">
+              <tr><td colspan="6" style="text-align:center;color:#94a3b8;padding:1.5rem">Loading pending client verifications...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PENDING PASSWORD RESET REQUESTS -->
+      <div class="glass-card" style="padding:1.75rem">
+        <h3 style="margin-bottom:0.25rem"><i class="fas fa-key" style="color:var(--accent-amber)"></i> Pending Password Reset Requests</h3>
+        <p style="color:#94a3b8;font-size:0.82rem;margin-bottom:1.25rem">Employees or Clients who forgot their password submit requests here for CEO approval.</p>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>User Email / Phone</th>
+                <th>Requested New Password</th>
+                <th>Reason</th>
+                <th>Requested Date</th>
+                <th>CEO Approval</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-pending-resets">
+              <tr><td colspan="5" style="text-align:center;color:#94a3b8;padding:1.5rem">No pending password reset requests.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TAB 2: EMPLOYEE DIRECTORY & SKILLS -->
+    <div class="portal-tab-content" id="tab-admin-emp">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+        <h3><i class="fas fa-users"></i> Team Directory & Skill Matrix</h3>
+        <input class="input-custom" id="search-emp-input" placeholder="🔍 Search employee name, skill, or role..." style="max-width:320px;">
+      </div>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Employee Name & ID</th>
+              <th>Role & Division</th>
+              <th>Contact Email / Phone</th>
+              <th>CEO Approval Status</th>
+              <th>Top Skill Competencies</th>
+              <th>Today Attendance</th>
+              <th>CEO Direct Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-admin-emp"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3: LIVE ATTENDANCE MONITOR -->
+    <div class="portal-tab-content" id="tab-admin-att">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+        <h3><i class="fas fa-fingerprint"></i> Daily Bangalore Attendance Monitor (<span id="admin-att-date"></span>)</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Employee Name</th>
+              <th>Clock Type</th>
+              <th>Time</th>
+              <th>Date</th>
+              <th>Verified Location</th>
+            </tr>
+          </thead>
+          <tbody id="table-admin-att"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4: PROJECTS HUB -->
+    <div class="portal-tab-content" id="tab-admin-projects">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+        <h3><i class="fas fa-folder-open"></i> End-to-End Client Projects</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Project ID</th>
+              <th>Title & Client</th>
+              <th>Budget (USD)</th>
+              <th>Lead Architect</th>
+              <th>Progress</th>
+              <th>Status</th>
+              <th>Deadline</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="table-admin-projects"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 5: LEAVE APPROVALS -->
+    <div class="portal-tab-content" id="tab-admin-leaves">
+      <h3 style="margin-bottom:1.25rem;"><i class="fas fa-calendar-check"></i> Employee Leave Requests Queue</h3>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Leave ID</th>
+              <th>Employee Name</th>
+              <th>Leave Type</th>
+              <th>From → To</th>
+              <th>Duration</th>
+              <th>Reason</th>
+              <th>Status</th>
+              <th>CEO Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-admin-leaves"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 6: TIMESHEETS QUEUE -->
+    <div class="portal-tab-content" id="tab-admin-timesheets">
+      <h3 style="margin-bottom:1.25rem;"><i class="fas fa-clock"></i> Weekly Engineering Timesheets</h3>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Timesheet ID</th>
+              <th>Engineer Name</th>
+              <th>Project ID</th>
+              <th>Hours Worked</th>
+              <th>Tasks Completed</th>
+              <th>Submitted Date</th>
+              <th>Status</th>
+              <th>CEO Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-admin-timesheets"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 7: INQUIRIES INBOX -->
+    <div class="portal-tab-content" id="tab-admin-inbox">
+      <h3 style="margin-bottom:1.25rem;"><i class="fas fa-inbox"></i> CEO Contact Form Messages Inbox</h3>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Client Full Name</th>
+              <th>Email Address</th>
+              <th>Phone Number</th>
+              <th>Company</th>
+              <th>Service Needed</th>
+              <th>Message Content</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-admin-inbox"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 8: CAREERS & HIRING MANAGEMENT HUB -->
+    <div class="portal-tab-content" id="tab-admin-careers">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <h3><i class="fas fa-briefcase" style="color:var(--primary-cyan)"></i> Careers & Candidate Resume Database</h3>
+          <p style="font-size:0.85rem; color:#94a3b8; margin:0">Post job openings to the corporate site & manage candidate resumes organized by skills, experience, and company type.</p>
+        </div>
+        <button class="btn btn-primary btn-sm" id="btn-open-post-job"><i class="fas fa-plus-circle"></i> Post New Job Opening</button>
+      </div>
+
+      <!-- CANDIDATE RESUME DATABASE ORGANIZER -->
+      <div class="glass-card" style="padding:1.75rem; margin-bottom:2rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:1rem;">
+          <h4><i class="fas fa-layer-group" style="color:var(--accent-emerald)"></i> Organized Candidate Resumes</h4>
+          
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+            <select class="select-custom" id="filter-candidate-skill" style="padding:0.4rem 0.8rem; font-size:0.8rem;">
+              <option value="all">Filter All Skills</option>
+              <option value="Java">Java 21 & Spring Boot</option>
+              <option value="Python">Python AI / ML & LLMs</option>
+              <option value="QA">GenAI QA & Testing</option>
+              <option value=".NET">.NET 9 & Microservices</option>
+              <option value="Cloud">Cloud DevOps</option>
+            </select>
+
+            <select class="select-custom" id="filter-candidate-exp" style="padding:0.4rem 0.8rem; font-size:0.8rem;">
+              <option value="all">Filter All Experience</option>
+              <option value="0 - 2">0 - 2 Years (Junior)</option>
+              <option value="2 - 5">2 - 5 Years (Mid-Level)</option>
+              <option value="5 - 8">5 - 8 Years (Senior)</option>
+              <option value="8+">8+ Years (Lead / Architect)</option>
+            </select>
+
+            <select class="select-custom" id="filter-candidate-company" style="padding:0.4rem 0.8rem; font-size:0.8rem;">
+              <option value="all">Filter Company Type</option>
+              <option value="Product MNC">Enterprise Product MNC</option>
+              <option value="Startup">Tier-1 Tech Startup</option>
+              <option value="IT Services">Enterprise IT Services</option>
+              <option value="AI Lab">AI Research Lab</option>
+            </select>
+
+            <input class="input-custom" id="search-candidate-input" placeholder="🔍 Search name, email, skills..." style="padding:0.4rem 0.8rem; font-size:0.8rem; width:200px;">
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Applicant Name</th>
+                <th>Target Job Applied</th>
+                <th>Experience Years</th>
+                <th>Primary Skill Set</th>
+                <th>Previous Company Type</th>
+                <th>Applied Date</th>
+                <th>CEO Direct Action</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-admin-job-apps"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ACTIVE JOB OPENINGS TABLE -->
+      <div class="glass-card" style="padding:1.75rem;">
+        <h4 style="margin-bottom:1.25rem;"><i class="fas fa-list-check" style="color:var(--accent-amber)"></i> Active Job Postings on Website</h4>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Job ID & Title</th>
+                <th>Department Division</th>
+                <th>Required Experience</th>
+                <th>Primary Tech Skills</th>
+                <th>Salary Range (USD)</th>
+                <th>Location</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-admin-job-openings"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LAUNCH PROJECT MODAL -->
+  <div class="modal-overlay" id="modal-create-prj">
+    <div class="modal-box">
+      <button class="modal-close" id="close-modal-prj">&times;</button>
+      <div class="tagline-badge"><i class="fas fa-rocket"></i> Launch New Client Engagement</div>
+      <h2 style="font-size:1.6rem; margin-bottom:1.25rem;">Create <span class="gradient-text">New Project</span></h2>
+      <form id="form-create-prj" style="display:flex; flex-direction:column; gap:1.15rem;">
+        <div class="form-group"><label>Project Title *</label><input class="input-custom" id="new-title" placeholder="e.g. Enterprise AI Procurement System" required></div>
+        <div class="form-group"><label>Client Company Name *</label><input class="input-custom" id="new-client" placeholder="e.g. Zenith Tech Solutions" required></div>
+        <div class="form-group"><label>Project Budget ($ USD) *</label><input class="input-custom" id="new-budget" placeholder="e.g. $180,000" required></div>
+        <div class="form-group"><label>Target Deadline *</label><input type="date" class="input-custom" id="new-deadline" required></div>
+        <div class="form-group"><label>Assign Lead Engineer *</label><select class="select-custom" id="new-lead-select"></select></div>
+        <div class="form-group"><label>Project Brief *</label><textarea class="textarea-custom" id="new-desc" placeholder="Scope details..." required style="min-height:80px;"></textarea></div>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-check-circle"></i> Create & Launch Project</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- POST NEW JOB OPENING MODAL -->
+  <div class="modal-overlay" id="modal-post-job">
+    <div class="modal-box" style="max-width:580px;">
+      <button class="modal-close" id="close-modal-job">&times;</button>
+      <div class="tagline-badge"><i class="fas fa-briefcase"></i> CEO Hiring Portal</div>
+      <h2 style="font-size:1.6rem; margin-bottom:1.25rem;">Post <span class="gradient-text">New Job Opening</span></h2>
+      <form id="form-post-job" style="display:flex; flex-direction:column; gap:1.15rem;">
+        <div class="form-group"><label>Job Title *</label><input class="input-custom" id="job-post-title" placeholder="e.g. Senior Java 21 & Microservices Engineer" required></div>
+        
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="form-group"><label>Department Division *</label><input class="input-custom" id="job-post-dept" placeholder="e.g. Software Systems Division" required></div>
+          <div class="form-group"><label>Target Experience *</label><input class="input-custom" id="job-post-exp" placeholder="e.g. 3 - 6 Years" required></div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="form-group"><label>Target Company Type *</label><input class="input-custom" id="job-post-company-type" placeholder="e.g. Enterprise Product MNC" required></div>
+          <div class="form-group"><label>Salary Range ($ USD) *</label><input class="input-custom" id="job-post-salary" placeholder="e.g. $80,000 - $110,000 / year" required></div>
+        </div>
+
+        <div class="form-group"><label>Required Tech Skills (comma separated) *</label><input class="input-custom" id="job-post-skills" placeholder="e.g. Java 21, Spring Boot 3, Kafka, PostgreSQL" required></div>
+        <div class="form-group"><label>Work Location *</label><input class="input-custom" id="job-post-location" value="SG Palaya, Bangalore - 560029" required></div>
+        <div class="form-group"><label>Job Description & Key Responsibilities *</label><textarea class="textarea-custom" id="job-post-desc" placeholder="Describe the key responsibilities, deliverables, and role expectations..." required style="min-height:80px;"></textarea></div>
+
+        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Publish Job Opening & Email CEO Summary</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- VIEW CANDIDATE RESUME MODAL -->
+  <div class="modal-overlay" id="modal-view-resume">
+    <div class="modal-box" style="max-width:640px;">
+      <button class="modal-close" id="close-modal-resume">&times;</button>
+      <div class="tagline-badge"><i class="fas fa-file-invoice"></i> Candidate Resume Profile</div>
+      <h2 style="font-size:1.5rem; margin-bottom:0.25rem;" id="resume-applicant-name">Candidate Name</h2>
+      <div style="font-size:0.86rem; color:var(--primary-cyan); font-weight:600; margin-bottom:1.25rem;" id="resume-target-job">Target Job Applied</div>
+      
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; background:rgba(255,255,255,0.03); padding:1.25rem; border-radius:14px; margin-bottom:1.25rem;">
+        <div><strong>Years of Exp:</strong> <span id="resume-exp" style="color:#a7f3d0"></span></div>
+        <div><strong>Primary Skill:</strong> <span id="resume-skill" style="color:var(--primary-cyan)"></span></div>
+        <div><strong>Previous Company:</strong> <span id="resume-company" style="color:#fde68a"></span></div>
+        <div><strong>Contact Email:</strong> <span id="resume-email" style="color:#fff"></span></div>
+        <div><strong>Mobile Phone:</strong> <span id="resume-phone" style="color:#fff"></span></div>
+        <div><strong>Applied Date:</strong> <span id="resume-date" style="color:#94a3b8"></span></div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:1rem;">
+        <label style="font-weight:700; color:#cbd5e1; font-size:0.82rem;">Pitch & Profile Summary:</label>
+        <div id="resume-pitch" style="font-size:0.88rem; color:#94a3b8; background:rgba(0,0,0,0.3); padding:0.75rem 1rem; border-radius:10px; line-height:1.5;"></div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:1.5rem;">
+        <label style="font-weight:700; color:#cbd5e1; font-size:0.82rem;">Detailed Resume / Work Experience Data:</label>
+        <pre id="resume-full-text" style="font-size:0.84rem; color:#e2e8f0; background:rgba(0,0,0,0.5); padding:1rem; border-radius:10px; white-space:pre-wrap; max-height:220px; overflow-y:auto; font-family:var(--font-mono); border:1px solid rgba(255,255,255,0.1);"></pre>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+        <a id="btn-resume-email" href="#" class="btn btn-sm btn-outline"><i class="fas fa-envelope"></i> Contact Email</a>
+        <button class="btn btn-sm btn-success" onclick="alert('Candidate Shortlisted! An interview invitation alert will be dispatched.')"><i class="fas fa-check-circle"></i> Shortlist Candidate</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/particle-canvas.js"></script>
+  <script>
+    let globalStore = { employees: [], projects: [], attendance: [], leaves: [], timesheets: [], clients: [], contact_inquiries: [], password_resets: [] };
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const userRaw = localStorage.getItem('dx_auth_user');
+      const role = localStorage.getItem('dx_auth_role');
+
+      if (!userRaw) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      const loggedUser = JSON.parse(userRaw);
+      const isCEO = loggedUser.email.toLowerCase() === 'santhanastephen22@gmail.com' || loggedUser.id === 'EMP-001';
+
+      if (!isCEO) {
+        // Fix stale local storage and redirect non-CEO users to their correct workspace
+        if (loggedUser.gstin || loggedUser.cin || loggedUser.directorName) {
+          localStorage.setItem('dx_auth_role', 'client');
+          window.location.href = 'client-dashboard.html';
+        } else {
+          localStorage.setItem('dx_auth_role', 'employee');
+          window.location.href = 'employee-dashboard.html';
+        }
+        return;
+      }
+
+      document.getElementById('btn-admin-logout').addEventListener('click', () => {
+        localStorage.clear();
+        window.location.href = 'login.html';
+      });
+
+      await loadStore();
+      initTabsNav();
+      initAdminUI();
+    });
+
+    async function loadStore() {
+      try {
+        const res = await fetch('http://localhost:3000/api/store');
+        globalStore = await res.json();
+      } catch(e) { console.error(e); }
+    }
+
+    async function saveStoreKey(key, data) {
+      globalStore[key] = data;
+      try {
+        await fetch('http://localhost:3000/api/store', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key, data })
+        });
+      } catch(e) { console.error(e); }
+    }
+
+    function initTabsNav() {
+      const tabBtns = document.querySelectorAll('.portal-tab-item');
+      const tabContents = document.querySelectorAll('.portal-tab-content');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(btn.dataset.tab).classList.add('active');
+        });
+      });
+    }
+
+    function switchAdminTab(tabId) {
+      const btn = document.querySelector(`.portal-tab-item[data-tab="${tabId}"]`);
+      if (btn) btn.click();
+    }
+
+    function initAdminUI() {
+      const emps = globalStore.employees || [];
+      const projs = globalStore.projects || [];
+      const att = globalStore.attendance || [];
+      const leaves = globalStore.leaves || [];
+      const ts = globalStore.timesheets || [];
+      const clients = globalStore.clients || [];
+      const inqs = globalStore.contact_inquiries || [];
+      const resets = globalStore.password_resets || [];
+      const jobs = globalStore.job_openings || [];
+      const apps = globalStore.job_applications || [];
+
+      // Pending CEO approvals count
+      const pendingEmps = emps.filter(e => e.status === 'Pending Approval');
+      const pendingClients = clients.filter(c => c.status === 'Pending Verification' || c.status === 'Pending Approval');
+      const pendingResets = resets.filter(r => r.status === 'Pending Approval');
+      const totalPendingCEO = pendingEmps.length + pendingClients.length + pendingResets.length;
+
+      // KPIs - Only count approved non-CEO engineers and active approved projects
+      const approvedEngineers = emps.filter(e => e.id !== 'EMP-001' && (e.status === 'Approved' || e.email.toLowerCase() !== 'santhanastephen22@gmail.com'));
+      const activeProjects = projs.filter(p => p.status === 'on-track' || p.status === 'in-review' || p.status === 'Approved');
+
+      document.getElementById('kpi-projects').textContent = activeProjects.length;
+      document.getElementById('kpi-employees').textContent = approvedEngineers.length;
+
+      const todayStr = new Date().toISOString().split('T')[0];
+      const todayAtt = att.filter(a => a.date === todayStr && a.type === 'in');
+      const presentCount = new Set(todayAtt.map(a => a.empId)).size;
+      document.getElementById('kpi-present').textContent = presentCount;
+
+      document.getElementById('kpi-pending-approvals').textContent = totalPendingCEO;
+      document.getElementById('badge-pending-approvals').textContent = totalPendingCEO;
+      document.getElementById('kpi-inquiries').textContent = inqs.length;
+      document.getElementById('badge-job-apps').textContent = apps.length;
+
+      // Render Tables
+      renderPendingApprovals(pendingEmps, pendingClients, pendingResets);
+      renderEmployeeTable(emps, todayAtt);
+      renderAttendanceLogs(att);
+      renderProjectsHub(projs);
+      renderLeavesQueue(leaves);
+      renderTimesheetsQueue(ts);
+      renderInbox(inqs);
+      renderCareersHub(jobs, apps);
+
+      initCreateProjectModal(emps);
+      initPostJobModal();
+    }
+
+    function renderPendingApprovals(pendingEmps, pendingClients, pendingResets) {
+      // 1. Employees
+      const tbodyEmps = document.getElementById('tbody-pending-employees');
+      tbodyEmps.innerHTML = pendingEmps.map((e) => `
+        <tr>
+          <td><strong>${e.name}</strong></td>
+          <td>${e.email}</td>
+          <td>${e.phone || 'N/A'}</td>
+          <td>${e.dept} • ${e.role}</td>
+          <td><span class="status-pill pill-amber">Pending CEO Approval</span></td>
+          <td>
+            <button class="btn btn-xs btn-success" onclick="approveEmp('${e.id}')"><i class="fas fa-check-circle"></i> Approve Account</button>
+            <button class="btn btn-xs btn-primary" onclick="inspectUserWorkspace('${e.id}', 'employee')" style="margin-left:4px"><i class="fas fa-eye"></i> View Workspace</button>
+          </td>
+        </tr>
+      `).join('') || '<tr><td colspan="6" style="text-align:center;color:#94a3b8;padding:1.5rem;">No pending employee accounts.</td></tr>';
+
+      // 2. Clients
+      const tbodyClients = document.getElementById('tbody-pending-clients');
+      tbodyClients.innerHTML = pendingClients.map((c) => `
+        <tr>
+          <td><strong>${c.name}</strong></td>
+          <td>${c.contact} (${c.directorName || 'N/A'})</td>
+          <td><strong style="color:var(--primary-cyan);font-family:var(--font-mono);">${c.gstin || c.cin || 'Legal ID'}</strong></td>
+          <td><a href="${c.websiteUrl}" target="_blank" style="color:var(--accent-emerald);">${c.websiteUrl || 'Website'}</a></td>
+          <td style="font-size:0.8rem;max-width:200px;">${c.businessAddress || 'Address'}</td>
+          <td>
+            <button class="btn btn-xs btn-success" onclick="approveClient('${c.id}')"><i class="fas fa-building-circle-check"></i> Verify & Approve Company</button>
+            <button class="btn btn-xs btn-primary" onclick="inspectUserWorkspace('${c.id}', 'client')" style="margin-left:4px"><i class="fas fa-building"></i> View Portal</button>
+          </td>
+        </tr>
+      `).join('') || '<tr><td colspan="6" style="text-align:center;color:#94a3b8;padding:1.5rem;">No pending client company verifications.</td></tr>';
+
+      // 3. Resets
+      const tbodyResets = document.getElementById('tbody-pending-resets');
+      tbodyResets.innerHTML = pendingResets.map((r) => `
+        <tr>
+          <td><strong>${r.userCredential}</strong></td>
+          <td><code style="background:rgba(255,255,255,0.1);padding:3px 8px;border-radius:6px;color:var(--primary-cyan);">${r.requestedPassword}</code></td>
+          <td>${r.reason}</td>
+          <td>${r.requestedDate}</td>
+          <td>
+            <button class="btn btn-xs btn-success" onclick="approveReset('${r.id}')"><i class="fas fa-key"></i> Approve Reset</button>
+          </td>
+        </tr>
+      `).join('') || '<tr><td colspan="5" style="text-align:center;color:#94a3b8;padding:1.5rem;">No password reset requests pending.</td></tr>';
+    }
+
+    async function approveEmp(empId) {
+      const emps = globalStore.employees || [];
+      const emp = emps.find(e => e.id === empId);
+      if (emp) {
+        emp.status = 'Approved';
+        await saveStoreKey('employees', emps);
+        alert(`✅ Employee account approved for ${emp.name}! They can now log in to the portal.`);
+        initAdminUI();
+      }
+    }
+
+    async function approveClient(clientId) {
+      const clients = globalStore.clients || [];
+      const c = clients.find(cl => cl.id === clientId);
+      if (c) {
+        c.status = 'Approved';
+        await saveStoreKey('clients', clients);
+        alert(`🏢 Client company verified and approved for ${c.name}! Portal access is unlocked.`);
+        initAdminUI();
+      }
+    }
+
+    async function approveReset(resetId) {
+      const resets = globalStore.password_resets || [];
+      const rIdx = resets.findIndex(r => r.id === resetId);
+      if (rIdx !== -1) {
+        const r = resets[rIdx];
+        const cred = r.userCredential.toLowerCase();
+        
+        // Update employee or client password
+        const emps = globalStore.employees || [];
+        const clients = globalStore.clients || [];
+        const emp = emps.find(e => e.email.toLowerCase() === cred || (e.phone && e.phone.includes(cred)));
+        const clt = clients.find(c => c.email.toLowerCase() === cred || (c.phone && c.phone.includes(cred)));
+
+        if (emp) { emp.password = r.requestedPassword; await saveStoreKey('employees', emps); }
+        if (clt) { clt.password = r.requestedPassword; await saveStoreKey('clients', clients); }
+
+        resets.splice(rIdx, 1);
+        await saveStoreKey('password_resets', resets);
+        alert(`🔑 Password reset approved for ${r.userCredential}. New password is now active!`);
+        initAdminUI();
+      }
+    }
+
+    function inspectUserWorkspace(id, type) {
+      if (type === 'client') {
+        const clients = globalStore.clients || [];
+        const c = clients.find(cl => cl.id === id);
+        if (c) {
+          localStorage.setItem('dx_auth_user', JSON.stringify(c));
+          localStorage.setItem('dx_auth_role', 'client');
+          localStorage.setItem('dx_auth_id', c.id);
+          localStorage.setItem('dx_ceo_inspect_mode', 'true');
+          window.open('/client-dashboard.html', '_blank');
+        }
+      } else {
+        const emps = globalStore.employees || [];
+        const e = emps.find(ep => ep.id === id);
+        if (e) {
+          localStorage.setItem('dx_auth_user', JSON.stringify(e));
+          localStorage.setItem('dx_auth_role', 'employee');
+          localStorage.setItem('dx_auth_id', e.id);
+          localStorage.setItem('dx_ceo_inspect_mode', 'true');
+          window.open('/employee-dashboard.html', '_blank');
+        }
+      }
+    }
+
+    function renderEmployeeTable(emps, todayAtt) {
+      const tbody = document.getElementById('table-admin-emp');
+      const searchInput = document.getElementById('search-emp-input');
+      const todayPresentSet = new Set(todayAtt.map(a => a.empId));
+
+      function filterAndDraw() {
+        const q = searchInput.value.toLowerCase().trim();
+        const filtered = emps.filter(e => {
+          const nameMatch = (e.name || '').toLowerCase().includes(q);
+          const emailMatch = (e.email || '').toLowerCase().includes(q);
+          const phoneMatch = (e.phone || '').toLowerCase().includes(q);
+          const roleMatch = (e.role || '').toLowerCase().includes(q);
+          const deptMatch = (e.dept || '').toLowerCase().includes(q);
+          const idMatch = (e.id || '').toLowerCase().includes(q);
+          const statusMatch = (e.status || 'Pending Approval').toLowerCase().includes(q) || (q.includes('approved') && (e.status === 'Approved' || e.id === 'EMP-001'));
+          const skillMatch = (e.skills || []).some(s => s.name.toLowerCase().includes(q));
+
+          return nameMatch || emailMatch || phoneMatch || roleMatch || deptMatch || idMatch || statusMatch || skillMatch;
+        });
+
+        tbody.innerHTML = filtered.map(e => {
+          const isApproved = e.status === 'Approved' || e.id === 'EMP-001' || e.email.toLowerCase() === 'santhanastephen22@gmail.com';
+          return `
+            <tr>
+              <td>
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                  <div class="portal-avatar" style="width:36px; height:36px; font-size:0.8rem; background:rgba(0,242,254,0.15); color:var(--primary-cyan); border:1px solid var(--primary-cyan);">${e.avatar || 'EP'}</div>
+                  <div>
+                    <strong>${e.name}</strong>
+                    <div style="font-size:0.75rem; color:#94a3b8;"><code style="color:var(--primary-cyan);">${e.id}</code> • Joined ${e.joinDate || '2026'}</div>
+                  </div>
+                </div>
+              </td>
+              <td><strong>${e.role}</strong><div style="font-size:0.76rem; color:#94a3b8;">${e.dept}</div></td>
+              <td><div style="font-size:0.82rem;">📧 ${e.email}</div><div style="font-size:0.78rem; color:var(--primary-cyan);">📱 ${e.phone || 'N/A'}</div></td>
+              <td>
+                <span class="status-pill ${isApproved ? 'pill-green' : 'pill-amber'}">
+                  ${isApproved ? '🟢 Approved by CEO' : '⏳ Pending CEO Approval'}
+                </span>
+              </td>
+              <td>
+                <div style="display:flex; flex-wrap:wrap; gap:0.3rem;">
+                  ${(e.skills && e.skills.length > 0) ? e.skills.slice(0, 3).map(s => `<span class="tech-tag">${s.name} (${s.level}%)</span>`).join('') : '<span style="color:#64748b;font-size:0.78rem;">General Tech</span>'}
+                </div>
+              </td>
+              <td><span class="status-pill ${todayPresentSet.has(e.id) ? 'pill-green' : 'pill-red'}">${todayPresentSet.has(e.id) ? 'Present (Bangalore HQ)' : 'Absent / Not Clocked'}</span></td>
+              <td>
+                <button class="btn btn-xs btn-primary" onclick="inspectUserWorkspace('${e.id}', 'employee')"><i class="fas fa-eye"></i> View Workspace</button>
+                ${!isApproved ? `<button class="btn btn-xs btn-success" onclick="approveEmp('${e.id}')" style="margin-left:4px"><i class="fas fa-check"></i> Approve</button>` : ''}
+              </td>
+            </tr>
+          `;
+        }).join('') || '<tr><td colspan="7" style="text-align:center;color:#94a3b8;padding:2rem;">No matching employees found for search term.</td></tr>';
+      }
+
+      searchInput.oninput = filterAndDraw;
+      filterAndDraw();
+    }
+
+    function renderAttendanceLogs(att) {
+      const tbody = document.getElementById('table-admin-att');
+      const sorted = [...att].reverse();
+      tbody.innerHTML = sorted.map(r => `
+        <tr>
+          <td><strong>${r.empName}</strong></td>
+          <td><span class="status-pill ${r.type === 'in' ? 'pill-green' : 'pill-amber'}">${r.type === 'in' ? 'Clock In' : 'Clock Out'}</span></td>
+          <td><strong style="font-family:var(--font-mono);">${r.time}</strong></td>
+          <td>${r.date}</td>
+          <td><i class="fas fa-location-dot" style="color:var(--primary-cyan);"></i> ${r.notes || 'SG Palaya, Bangalore 560029'}</td>
+        </tr>
+      `).join('') || '<tr><td colspan="5" style="text-align:center;color:#94a3b8;padding:2rem;">No attendance records.</td></tr>';
+    }
+
+    function renderProjectsHub(projs) {
+      const tbody = document.getElementById('table-admin-projects');
+      tbody.innerHTML = projs.map((p) => `
+        <tr>
+          <td><strong style="font-family:var(--font-mono);">${p.id}</strong></td>
+          <td><strong>${p.title}</strong><div style="font-size:0.76rem; color:#94a3b8;">Client: ${p.client}</div></td>
+          <td><strong style="color:var(--primary-cyan);">${p.budget}</strong></td>
+          <td>${p.lead}</td>
+          <td>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <div class="progress-bar-container" style="width:80px;"><div class="progress-bar-fill" style="width:${p.progress}%;"></div></div>
+              <span style="font-size:0.82rem;">${p.progress}%</span>
+            </div>
+          </td>
+          <td><span class="status-pill ${p.status === 'on-track' ? 'pill-green' : 'pill-amber'}">${p.status}</span></td>
+          <td>${p.deadline}</td>
+          <td><button class="btn btn-xs btn-outline" onclick="assignEngineer('${p.id}')"><i class="fas fa-user-plus"></i> Assign Team</button></td>
+        </tr>
+      `).join('');
+    }
+
+    function renderLeavesQueue(leaves) {
+      const tbody = document.getElementById('table-admin-leaves');
+      tbody.innerHTML = leaves.map((l, idx) => `
+        <tr>
+          <td>${l.id}</td>
+          <td><strong>${l.empName}</strong></td>
+          <td>${l.type}</td>
+          <td>${l.from} → ${l.to}</td>
+          <td><strong>${l.days} days</strong></td>
+          <td>${l.reason}</td>
+          <td><span class="status-pill ${l.status === 'Approved' ? 'pill-green' : l.status === 'Rejected' ? 'pill-red' : 'pill-amber'}">${l.status}</span></td>
+          <td>
+            ${l.status === 'Pending' ? `
+              <button class="btn btn-xs btn-success" onclick="reviewLeave(${idx}, 'Approved')" style="margin-right:0.3rem;"><i class="fas fa-check"></i> Approve</button>
+              <button class="btn btn-xs btn-danger" onclick="reviewLeave(${idx}, 'Rejected')"><i class="fas fa-times"></i> Reject</button>
+            ` : '<span style="color:#64748b; font-size:0.8rem;">Reviewed</span>'}
+          </td>
+        </tr>
+      `).join('') || '<tr><td colspan="8" style="text-align:center;color:#94a3b8;padding:2rem;">No leave requests pending.</td></tr>';
+    }
+
+    async function reviewLeave(idx, status) {
+      const leaves = globalStore.leaves || [];
+      leaves[idx].status = status;
+      await saveStoreKey('leaves', leaves);
+      initAdminUI();
+    }
+
+    function renderTimesheetsQueue(ts) {
+      const tbody = document.getElementById('table-admin-timesheets');
+      tbody.innerHTML = ts.map((t, idx) => `
+        <tr>
+          <td>${t.id}</td>
+          <td><strong>${t.empName}</strong></td>
+          <td>${t.project}</td>
+          <td><strong>${t.hours} hrs</strong></td>
+          <td style="max-width:220px; overflow:hidden; text-overflow:ellipsis;">${t.tasks}</td>
+          <td>${t.date}</td>
+          <td><span class="status-pill ${t.status === 'Approved' ? 'pill-green' : 'pill-amber'}">${t.status}</span></td>
+          <td>
+            ${t.status === 'Pending' ? `<button class="btn btn-xs btn-success" onclick="approveTS(${idx})"><i class="fas fa-check"></i> Approve</button>` : '<span style="color:#64748b; font-size:0.8rem;">Approved</span>'}
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function approveTS(idx) {
+      const ts = globalStore.timesheets || [];
+      ts[idx].status = 'Approved';
+      await saveStoreKey('timesheets', ts);
+      initAdminUI();
+    }
+
+    function renderInbox(inqs) {
+      const tbody = document.getElementById('tbody-admin-inbox');
+      tbody.innerHTML = inqs.map((i) => `
+        <tr>
+          <td>${i.date}</td>
+          <td><strong>${i.fullName}</strong></td>
+          <td>${i.email}</td>
+          <td>${i.phone || 'N/A'}</td>
+          <td>${i.company || 'N/A'}</td>
+          <td><span class="tech-tag">${i.serviceNeeded}</span></td>
+          <td style="max-width:250px;font-size:0.82rem;color:#cbd5e1;">${i.messageText}</td>
+        </tr>
+      `).join('') || '<tr><td colspan="7" style="text-align:center;color:#94a3b8;padding:2rem;">No contact messages in inbox.</td></tr>';
+    }
+
+    async function assignEngineer(prjId) {
+      const name = prompt('Enter engineer name to assign to project ' + prjId + ':');
+      if (!name) return;
+      const projs = globalStore.projects || [];
+      const prj = projs.find(p => p.id === prjId);
+      if (prj && !prj.team.includes(name)) {
+        prj.team.push(name);
+        await saveStoreKey('projects', projs);
+        initAdminUI();
+        alert(`Assigned ${name} to ${prj.title}`);
+      }
+    }
+
+    function initCreateProjectModal(emps) {
+      const modal = document.getElementById('modal-create-prj');
+      const openBtn = document.getElementById('btn-open-create-prj');
+      const closeBtn = document.getElementById('close-modal-prj');
+      const leadSelect = document.getElementById('new-lead-select');
+
+      leadSelect.innerHTML = emps.map(e => `<option value="${e.name}">${e.name} (${e.role})</option>`).join('');
+
+      openBtn.onclick = () => modal.classList.add('active');
+      closeBtn.onclick = () => modal.classList.remove('active');
+
+      document.getElementById('form-create-prj').onsubmit = async (e) => {
+        e.preventDefault();
+        const projs = globalStore.projects || [];
+        const leadName = leadSelect.value;
+        const newPrj = {
+          id: 'PRJ-' + String(projs.length + 101).padStart(3, '0'),
+          title: document.getElementById('new-title').value,
+          client: document.getElementById('new-client').value,
+          clientId: 'CLT-CUSTOM',
+          budget: document.getElementById('new-budget').value,
+          progress: 0,
+          status: 'on-track',
+          startDate: new Date().toISOString().split('T')[0],
+          deadline: document.getElementById('new-deadline').value,
+          lead: leadName,
+          team: [leadName],
+          desc: document.getElementById('new-desc').value,
+          milestones: [
+            { name: 'Phase 1 - Requirements & Architecture', done: false },
+            { name: 'Phase 2 - Development', done: false },
+            { name: 'Phase 3 - Deployment', done: false }
+          ]
+        };
+
+        projs.unshift(newPrj);
+        await saveStoreKey('projects', projs);
+        modal.classList.remove('active');
+        initAdminUI();
+        e.target.reset();
+      };
+    }
+
+    function renderCareersHub(jobs, applications) {
+      // 1. Render Active Job Openings
+      const tbodyJobs = document.getElementById('tbody-admin-job-openings');
+      if (tbodyJobs) {
+        tbodyJobs.innerHTML = jobs.map(j => `
+          <tr>
+            <td><strong>${j.title}</strong><div style="font-size:0.75rem; color:#94a3b8;"><code style="color:var(--primary-cyan);">${j.id}</code> • Posted ${j.postedDate || '2026'}</div></td>
+            <td>${j.dept}</td>
+            <td><span class="status-pill pill-cyan">${j.experience}</span></td>
+            <td>${(Array.isArray(j.skills) ? j.skills : (j.skills||'').split(',')).map(s=>`<span class="tech-tag" style="font-size:0.72rem">${s.trim()}</span>`).join(' ')}</td>
+            <td><strong style="color:var(--accent-emerald); font-family:var(--font-mono);">${j.salary}</strong></td>
+            <td style="font-size:0.8rem">${j.location}</td>
+            <td><span class="status-pill pill-green">🟢 Active on Website</span></td>
+          </tr>
+        `).join('') || '<tr><td colspan="7" style="text-align:center; color:#94a3b8; padding:1.5rem">No active job postings. Click "Post New Job Opening" to publish one.</td></tr>';
+      }
+
+      // 2. Render Applicant Resumes Database with Multi-Filter
+      const tbodyApps = document.getElementById('tbody-admin-job-apps');
+      const filterSkill = document.getElementById('filter-candidate-skill');
+      const filterExp = document.getElementById('filter-candidate-exp');
+      const filterCompany = document.getElementById('filter-candidate-company');
+      const searchInput = document.getElementById('search-candidate-input');
+
+      function filterAndDrawApps() {
+        const q = (searchInput ? searchInput.value : '').toLowerCase().trim();
+        const selSkill = filterSkill ? filterSkill.value : 'all';
+        const selExp = filterExp ? filterExp.value : 'all';
+        const selCompany = filterCompany ? filterCompany.value : 'all';
+
+        const filtered = applications.filter(a => {
+          const matchQ = (a.fullName || '').toLowerCase().includes(q) ||
+                         (a.email || '').toLowerCase().includes(q) ||
+                         (a.primarySkill || '').toLowerCase().includes(q) ||
+                         (a.jobTitle || '').toLowerCase().includes(q);
+
+          const matchSkill = selSkill === 'all' || (a.primarySkill || '').toLowerCase().includes(selSkill.toLowerCase());
+          const matchExp = selExp === 'all' || (a.experienceYears || '').includes(selExp);
+          const matchCompany = selCompany === 'all' || (a.companyType || '').toLowerCase().includes(selCompany.toLowerCase());
+
+          return matchQ && matchSkill && matchExp && matchCompany;
+        });
+
+        if (tbodyApps) {
+          tbodyApps.innerHTML = filtered.map(a => `
+            <tr>
+              <td>
+                <strong>${a.fullName}</strong>
+                <div style="font-size:0.76rem; color:#94a3b8;">📧 ${a.email} • 📱 ${a.phone}</div>
+              </td>
+              <td><strong>${a.jobTitle}</strong></td>
+              <td><span class="status-pill pill-green" style="font-size:0.75rem">${a.experienceYears}</span></td>
+              <td><strong style="color:var(--primary-cyan); font-size:0.82rem;">${a.primarySkill}</strong></td>
+              <td><span class="status-pill pill-violet" style="font-size:0.75rem">${a.companyType}</span></td>
+              <td style="font-size:0.8rem">${a.appliedDate}</td>
+              <td>
+                <button class="btn btn-xs btn-primary" onclick="viewCandidateResume('${a.id}')"><i class="fas fa-file-lines"></i> View Resume</button>
+                <a href="mailto:${a.email}" class="btn btn-xs btn-outline" style="margin-left:4px"><i class="fas fa-envelope"></i> Email</a>
+              </td>
+            </tr>
+          `).join('') || '<tr><td colspan="7" style="text-align:center; color:#94a3b8; padding:2rem">No candidate resumes match the current filters.</td></tr>';
+        }
+      }
+
+      if (filterSkill) filterSkill.onchange = filterAndDrawApps;
+      if (filterExp) filterExp.onchange = filterAndDrawApps;
+      if (filterCompany) filterCompany.onchange = filterAndDrawApps;
+      if (searchInput) searchInput.oninput = filterAndDrawApps;
+
+      filterAndDrawApps();
+    }
+
+    function viewCandidateResume(appId) {
+      const apps = globalStore.job_applications || [];
+      const app = apps.find(a => a.id === appId);
+      if (!app) return;
+
+      document.getElementById('resume-applicant-name').textContent = app.fullName;
+      document.getElementById('resume-target-job').textContent = `Target Role: ${app.jobTitle}`;
+      document.getElementById('resume-exp').textContent = app.experienceYears;
+      document.getElementById('resume-skill').textContent = app.primarySkill;
+      document.getElementById('resume-company').textContent = app.companyType;
+      document.getElementById('resume-email').textContent = app.email;
+      document.getElementById('resume-phone').textContent = app.phone;
+      document.getElementById('resume-date').textContent = app.appliedDate;
+      document.getElementById('resume-pitch').textContent = app.coverNote || 'N/A';
+      document.getElementById('resume-full-text').textContent = app.resumeContent || 'N/A';
+      document.getElementById('btn-resume-email').href = `mailto:${app.email}`;
+
+      document.getElementById('modal-view-resume').classList.add('active');
+    }
+
+    function initPostJobModal() {
+      const modal = document.getElementById('modal-post-job');
+      const openBtn = document.getElementById('btn-open-post-job');
+      const closeBtn = document.getElementById('close-modal-job');
+      const form = document.getElementById('form-post-job');
+
+      if (openBtn) openBtn.onclick = () => modal.classList.add('active');
+      if (closeBtn) closeBtn.onclick = () => modal.classList.remove('active');
+
+      const closeResumeBtn = document.getElementById('close-modal-resume');
+      if (closeResumeBtn) closeResumeBtn.onclick = () => document.getElementById('modal-view-resume').classList.remove('active');
+
+      if (form) {
+        form.onsubmit = async (e) => {
+          e.preventDefault();
+          const payload = {
+            title: document.getElementById('job-post-title').value,
+            dept: document.getElementById('job-post-dept').value,
+            experience: document.getElementById('job-post-exp').value,
+            companyType: document.getElementById('job-post-company-type').value,
+            salary: document.getElementById('job-post-salary').value,
+            skills: document.getElementById('job-post-skills').value,
+            location: document.getElementById('job-post-location').value,
+            description: document.getElementById('job-post-desc').value
+          };
+
+          try {
+            const res = await fetch('http://localhost:3000/api/careers/jobs', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (data.success) {
+              alert('💼 Job opening posted successfully and published live to website Careers section!');
+              modal.classList.remove('active');
+              form.reset();
+              await loadStore();
+              initAdminUI();
+            } else {
+              alert(data.message || 'Error posting job.');
+            }
+          } catch(err) {
+            alert('Network error posting job.');
+          }
+        };
+      }
+    }
+  </script>
+</body>
+</html>

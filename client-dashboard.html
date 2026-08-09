@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Portal | DecillionX Enterprise Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .dashboard-page {
+      padding: 6rem 0 4rem;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="glow-orb glow-orb-3"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.png" alt="DecillionX Logo">
+        <div class="brand-name">Decillion<span>X</span></div>
+      </a>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <span style="font-size: 0.82rem; color: var(--text-muted);" id="client-header-contact">
+          <i class="fas fa-building" style="color: var(--accent-amber);"></i> Client Workspace
+        </span>
+        <button class="btn btn-sm btn-outline" id="btn-client-logout"><i class="fas fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container dashboard-page">
+
+    <!-- HEADER PROFILE -->
+    <div class="portal-header">
+      <div class="portal-user-meta">
+        <div class="portal-avatar" id="client-logo-avatar" style="background: linear-gradient(135deg, var(--accent-amber), #e67e22); color:#000;">CL</div>
+        <div>
+          <h2 style="font-size: 1.5rem;" id="client-name-title">Client Company Name</h2>
+          <p style="color: var(--primary-cyan); font-size: 0.88rem;" id="client-contact-title">Contact Person • Client</p>
+          <p style="color: var(--text-dim); font-size: 0.78rem; margin-top: 0.2rem;">
+            <i class="fas fa-handshake" style="color: var(--accent-amber);"></i> Enterprise Client Partner • DecillionX Bangalore HQ
+          </p>
+        </div>
+      </div>
+      <div>
+        <span class="status-pill pill-green"><i class="fas fa-shield-check"></i> Legal Status: Verified & Approved</span>
+      </div>
+    </div>
+
+    <!-- CEO INSPECTION MODE BANNER -->
+    <div id="ceo-inspect-banner" class="glass-card" style="display:none; margin-bottom: 1.5rem; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.5); padding: 1rem 1.5rem; justify-content: space-between; align-items: center;">
+      <div style="display:flex; align-items:center; gap:0.75rem; color:#f59e0b; font-weight:700;">
+        <i class="fas fa-eye" style="font-size:1.4rem;"></i>
+        <span>👁️ CEO EXECUTIVE INSPECTION MODE: Viewing client portal as CEO Santhana Stephen Raj.</span>
+      </div>
+      <button class="btn btn-xs btn-amber" onclick="exitCEOInspect()"><i class="fas fa-arrow-left"></i> Return to CEO Admin Hub</button>
+    </div>
+
+    <!-- COMPANY SUCCESS NOTE CARD (NO LOCATION, NO EMAIL, NO PHONE) -->
+    <div class="glass-card" style="margin-bottom: 1.75rem; background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(139, 92, 246, 0.05)); border: 1px solid rgba(245, 158, 11, 0.3); padding: 1.5rem 2rem;">
+      <div style="display:flex; align-items:center; gap:1.25rem;">
+        <div style="background: linear-gradient(135deg, #f59e0b, #e67e22); width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#000; font-size:1.5rem; font-weight:bold; flex-shrink:0;">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <div>
+          <h3 style="color:#f59e0b; margin-bottom:0.25rem; font-size:1.15rem;"><i class="fas fa-award"></i> DecillionX Enterprise Client Partnership & Success Note</h3>
+          <p style="color:#e2e8f0; font-size:0.88rem; margin:0; line-height:1.55;">
+            Welcome to the <strong>DecillionX Enterprise Client Portal</strong>. We are committed to accelerating your corporate growth through high-velocity software engineering, proprietary AI integration, transparent milestone delivery, and enterprise security compliance.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="portal-tabs-nav">
+      <button class="portal-tab-item active" data-tab="tab-client-projects"><i class="fas fa-diagram-project"></i> Active Projects & Milestones</button>
+      <button class="portal-tab-item" data-tab="tab-client-legal"><i class="fas fa-building-circle-check"></i> Company Legal Verification Profile</button>
+      <button class="portal-tab-item" data-tab="tab-client-invoices"><i class="fas fa-file-invoice-dollar"></i> Invoices & Billing Receipts</button>
+      <button class="portal-tab-item" data-tab="tab-client-tickets"><i class="fas fa-headset"></i> Support Ticketing System</button>
+    </div>
+
+    <!-- TAB 1: PROJECTS -->
+    <div class="portal-tab-content active" id="tab-client-projects">
+      <h3 style="margin-bottom: 1.5rem;">Engagements & Live Milestones Tracker</h3>
+      <div id="client-projects-container"></div>
+    </div>
+
+    <!-- TAB 2: LEGAL VERIFICATION PROFILE -->
+    <div class="portal-tab-content" id="tab-client-legal">
+      <div class="glass-card" style="padding:2rem">
+        <h3 style="margin-bottom:0.25rem"><i class="fas fa-building-shield" style="color:var(--accent-amber)"></i> Verified Corporate Legal Record</h3>
+        <p style="color:#94a3b8;font-size:0.85rem;margin-bottom:1.5rem">These legal parameters were verified and approved by CEO Santhana Stephen Raj to ensure non-duplicate corporate authenticity.</p>
+
+        <form id="form-client-legal" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+          <div class="form-group">
+            <label>Legal Business Entity Name *</label>
+            <input class="input-custom" id="clt-legal-name" required>
+          </div>
+
+          <div class="form-group">
+            <label>Corporate Tax ID / GSTIN / CIN *</label>
+            <input class="input-custom" id="clt-legal-gstin" required>
+          </div>
+
+          <div class="form-group">
+            <label>Corporate Website URL *</label>
+            <input class="input-custom" id="clt-legal-url" required>
+          </div>
+
+          <div class="form-group">
+            <label>Managing Director / Authorized Representative *</label>
+            <input class="input-custom" id="clt-legal-director" required>
+          </div>
+
+          <div class="form-group" style="grid-column:1 / -1">
+            <label>Registered Office Business Address *</label>
+            <input class="input-custom" id="clt-legal-address" required>
+          </div>
+
+          <div style="grid-column:1 / -1;text-align:right;margin-top:0.5rem">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Verified Legal Information</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- TAB 3: INVOICES -->
+    <div class="portal-tab-content" id="tab-client-invoices">
+      <h3 style="margin-bottom: 1.5rem;">Financial Invoices & Payment Summary</h3>
+      <div id="client-invoices-container"></div>
+    </div>
+
+    <!-- TAB 4: TICKETS -->
+    <div class="portal-tab-content" id="tab-client-tickets">
+      <div style="display: grid; grid-template-columns: 340px 1fr; gap: 2rem; align-items: start;">
+        <div class="glass-card" style="padding: 2rem;">
+          <h4 style="margin-bottom: 1.25rem;"><i class="fas fa-ticket" style="color: var(--primary-cyan);"></i> Raise a Support Ticket</h4>
+          <form id="form-raise-ticket" style="display: flex; flex-direction: column; gap: 1.15rem;">
+            <div class="form-group">
+              <label>Subject / Topic</label>
+              <input class="input-custom" id="ticket-subj-input" placeholder="e.g. Request feature modification..." required>
+            </div>
+            <div class="form-group">
+              <label>Priority</label>
+              <select class="select-custom" id="ticket-prio-select">
+                <option>Low</option>
+                <option selected>Medium</option>
+                <option>High - Urgent</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Detailed Query</label>
+              <textarea class="textarea-custom" id="ticket-msg-input" placeholder="Explain your requirement..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Support Ticket</button>
+          </form>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom: 1.25rem;">My Raised Tickets</h3>
+          <div id="client-tickets-list"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/particle-canvas.js"></script>
+  <script>
+    let currentClient = null;
+    let globalStore = { projects: [], invoices: [], tickets: [], clients: [] };
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const userRaw = localStorage.getItem('dx_auth_user');
+
+      if (!userRaw) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      currentClient = JSON.parse(userRaw);
+      const isCEO = (currentClient.email || '').toLowerCase() === 'santhanastephen22@gmail.com' || currentClient.id === 'EMP-001';
+
+      if (isCEO && localStorage.getItem('dx_ceo_inspect_mode') !== 'true') {
+        localStorage.setItem('dx_auth_role', 'admin');
+        window.location.href = 'admin-dashboard.html';
+        return;
+      }
+
+      if (localStorage.getItem('dx_ceo_inspect_mode') === 'true') {
+        const inspectBanner = document.getElementById('ceo-inspect-banner');
+        if (inspectBanner) inspectBanner.style.display = 'flex';
+      }
+
+      document.getElementById('btn-client-logout').addEventListener('click', () => {
+        localStorage.clear();
+        window.location.href = 'login.html';
+      });
+
+      await loadStore();
+      initClientHeader();
+      initTabsNav();
+      renderClientProjects();
+      initClientLegal();
+      renderClientInvoices();
+      initTickets();
+    });
+
+    function exitCEOInspect() {
+      localStorage.removeItem('dx_ceo_inspect_mode');
+      window.location.href = '/admin-dashboard.html';
+    }
+
+    async function loadStore() {
+      try {
+        const res = await fetch('http://localhost:3000/api/store');
+        globalStore = await res.json();
+        const latestClt = (globalStore.clients || []).find(c => c.id === currentClient.id);
+        if (latestClt) currentClient = latestClt;
+      } catch(e) { console.error(e); }
+    }
+
+    async function saveStoreKey(key, data) {
+      globalStore[key] = data;
+      try {
+        await fetch('http://localhost:3000/api/store', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key, data })
+        });
+      } catch(e) { console.error(e); }
+    }
+
+    function initClientHeader() {
+      document.getElementById('client-name-title').textContent = currentClient.name;
+      document.getElementById('client-contact-title').textContent = `${currentClient.contact} • ${currentClient.email}`;
+      document.getElementById('client-logo-avatar').textContent = currentClient.logo || currentClient.name.slice(0,2).toUpperCase();
+      document.getElementById('client-header-contact').innerHTML = `<i class="fas fa-building" style="color: var(--accent-amber);"></i> ${currentClient.name}`;
+    }
+
+    function initTabsNav() {
+      const tabBtns = document.querySelectorAll('.portal-tab-item');
+      const tabContents = document.querySelectorAll('.portal-tab-content');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(btn.dataset.tab).classList.add('active');
+        });
+      });
+    }
+
+    function initClientLegal() {
+      document.getElementById('clt-legal-name').value = currentClient.name || '';
+      document.getElementById('clt-legal-gstin').value = currentClient.gstin || '';
+      document.getElementById('clt-legal-url').value = currentClient.websiteUrl || '';
+      document.getElementById('clt-legal-director').value = currentClient.directorName || currentClient.contact || '';
+      document.getElementById('clt-legal-address').value = currentClient.businessAddress || '';
+
+      document.getElementById('form-client-legal').onsubmit = async (e) => {
+        e.preventDefault();
+        const clients = globalStore.clients || [];
+        const clt = clients.find(c => c.id === currentClient.id);
+        if (clt) {
+          clt.name = document.getElementById('clt-legal-name').value;
+          clt.gstin = document.getElementById('clt-legal-gstin').value;
+          clt.websiteUrl = document.getElementById('clt-legal-url').value;
+          clt.directorName = document.getElementById('clt-legal-director').value;
+          clt.businessAddress = document.getElementById('clt-legal-address').value;
+          await saveStoreKey('clients', clients);
+          alert('✅ Company Legal Verification Profile saved successfully!');
+        }
+      };
+    }
+
+    function renderClientProjects() {
+      const container = document.getElementById('client-projects-container');
+      const allPrjs = globalStore.projects || [];
+      const myPrjs = allPrjs.filter(p => p.clientId === currentClient.id || currentClient.projects.includes(p.id) || p.client.toLowerCase().includes(currentClient.name.toLowerCase()));
+
+      container.innerHTML = myPrjs.length ? myPrjs.map(p => `
+        <div class="glass-card project-progress-card" style="margin-bottom: 2rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+            <div>
+              <span style="font-family:var(--font-mono); font-size:0.8rem; color:#94a3b8;">${p.id}</span>
+              <h3 style="font-size:1.3rem; margin-top:0.15rem;">${p.title}</h3>
+            </div>
+            <span class="status-pill ${p.status === 'on-track' ? 'pill-green' : 'pill-amber'}">${p.status}</span>
+          </div>
+
+          <p style="font-size:0.92rem; color:#cbd5e1; margin-bottom:1.25rem;">${p.desc}</p>
+
+          <div style="margin-bottom:1.5rem;">
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.4rem;">
+              <span>Overall Progress</span>
+              <strong style="color:var(--primary-cyan);">${p.progress}%</strong>
+            </div>
+            <div class="progress-bar-container" style="height:10px;"><div class="progress-bar-fill" style="width:${p.progress}%"></div></div>
+          </div>
+
+          <h4 style="font-size:0.95rem; margin-bottom:0.75rem;"><i class="fas fa-tasks" style="color:var(--primary-cyan);"></i> Delivery Milestones</h4>
+          <div style="display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.5rem;">
+            ${(p.milestones || []).map(m => `
+              <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.85rem; color:${m.done ? 'var(--accent-emerald)' : '#94a3b8'};">
+                <i class="fas ${m.done ? 'fa-check-circle' : 'fa-circle-dot'}"></i>
+                <span>${m.name}</span>
+              </div>
+            `).join('')}
+          </div>
+
+          <div style="display:flex; gap:1.5rem; font-size:0.82rem; color:#94a3b8; border-top:1px solid var(--border-glass); padding-top:1rem; flex-wrap:wrap;">
+            <span><i class="fas fa-user-tie"></i> Lead Architect: ${p.lead}</span>
+            <span><i class="fas fa-coins"></i> Budget: ${p.budget}</span>
+            <span><i class="fas fa-calendar"></i> Target Delivery: ${p.deadline}</span>
+          </div>
+        </div>
+      `).join('') : '<p style="color:#94a3b8;">No active project engagements listed.</p>';
+    }
+
+    function renderClientInvoices() {
+      const container = document.getElementById('client-invoices-container');
+      const allInvs = globalStore.invoices || [];
+      const myInvs = allInvs.filter(i => i.clientId === currentClient.id);
+
+      container.innerHTML = myInvs.length ? `
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Invoice ID</th>
+                <th>Milestone / Description</th>
+                <th>Amount (USD)</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+                <th>Payment Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${myInvs.map(i => `
+                <tr>
+                  <td><strong style="font-family:var(--font-mono);">${i.id}</strong></td>
+                  <td>${i.desc}</td>
+                  <td><strong style="color:var(--primary-cyan); font-family:var(--font-mono);">${i.amount}</strong></td>
+                  <td>${i.date}</td>
+                  <td>${i.due}</td>
+                  <td><span class="status-pill ${i.status === 'Paid' ? 'pill-green' : 'pill-amber'}">${i.status}</span></td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      ` : '<p style="color:#94a3b8;">No invoices generated yet.</p>';
+    }
+
+    function initTickets() {
+      renderTicketsList();
+
+      document.getElementById('form-raise-ticket').onsubmit = async (e) => {
+        e.preventDefault();
+        const tickets = globalStore.tickets || [];
+        tickets.unshift({
+          id: 'TCK-' + Date.now(),
+          clientId: currentClient.id,
+          clientName: currentClient.name,
+          subject: document.getElementById('ticket-subj-input').value,
+          priority: document.getElementById('ticket-prio-select').value,
+          message: document.getElementById('ticket-msg-input').value,
+          date: new Date().toLocaleDateString('en-IN'),
+          status: 'Open'
+        });
+
+        await saveStoreKey('tickets', tickets);
+        renderTicketsList();
+        e.target.reset();
+        alert('✅ Support ticket raised successfully! Our team will respond shortly.');
+      };
+    }
+
+    function renderTicketsList() {
+      const list = document.getElementById('client-tickets-list');
+      const myTickets = (globalStore.tickets || []).filter(t => t.clientId === currentClient.id);
+
+      list.innerHTML = myTickets.length ? myTickets.map(t => `
+        <div class="glass-card" style="padding:1.25rem; margin-bottom:1rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+            <strong>${t.subject}</strong>
+            <span class="status-pill ${t.status === 'Open' ? 'pill-amber' : 'pill-green'}">${t.status}</span>
+          </div>
+          <p style="font-size:0.85rem; color:#94a3b8; margin-bottom:0.75rem;">${t.message}</p>
+          <div style="display:flex; justify-content:space-between; font-size:0.78rem; color:#64748b;">
+            <span>Priority: ${t.priority}</span>
+            <span>Date: ${t.date}</span>
+          </div>
+        </div>
+      `).join('') : '<p style="color:#94a3b8;">No tickets raised yet.</p>';
+    }
+  </script>
+</body>
+</html>

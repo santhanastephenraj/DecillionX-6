@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industries | Healthcare, FinTech, Retail, Manufacturing & SaaS – DecillionX</title>
+  <meta name="description" content="Explore DecillionX industry solutions across 11 verticals: Healthcare, Finance, Retail, E-commerce, Education, Manufacturing, Supply Chain, Real Estate, Travel, SaaS, and Startups.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="glow-orb glow-orb-1"></div>
+<div class="glow-orb glow-orb-2"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="brand-logo">
+      <img src="assets/logo.png" alt="DecillionX Logo">
+      <div class="brand-name">Decillion<span>X</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="industries.html" style="color:var(--primary-cyan); font-weight:800;"><i class="fas fa-industry"></i> Industries</a></li>
+      <li><a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="login.html" style="color:var(--accent-amber); font-weight:800;"><i class="fas fa-user-shield"></i> Portals</a></li>
+    </ul>
+    <div style="display:flex;gap:0.85rem;align-items:center">
+      <a href="index.html#contact" class="btn btn-primary btn-sm"><i class="fas fa-paper-plane"></i> Get Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO BANNER ===== -->
+<section class="hero" style="min-height:48vh; padding-top:140px; padding-bottom:40px;">
+  <div class="container text-center">
+    <div class="tagline-badge" style="display:inline-block"><i class="fas fa-city"></i> Sector-Specific Digital Transformation</div>
+    <h1 style="font-size:3.2rem; margin-top:0.75rem; margin-bottom:1rem;">Industry Solutions <span class="gradient-text">& Domain Expertise</span></h1>
+    <p class="section-subtitle" style="margin:0 auto; max-width:760px;">We architect domain-tailored software systems, compliant data pipelines, and AI intelligence engines across 11 key enterprise sectors.</p>
+  </div>
+</section>
+
+<!-- ===== INDUSTRIES GRID ===== -->
+<div class="container" style="padding-bottom:5rem;">
+  <div class="grid grid-3">
+
+    <!-- 1. Healthcare -->
+    <div class="glass-card" style="padding:2rem;">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(0,245,160,0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-heart-pulse"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">Healthcare & MedTech</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">HIPAA-compliant EHR systems, AI diagnostic medical imaging, patient portals, and telemedicine video infrastructure.</p>
+    </div>
+
+    <!-- 2. Finance -->
+    <div class="glass-card" style="padding:2rem;">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(0,242,254,0.15); color:var(--primary-cyan); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-building-columns"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">Finance, Banking & FinTech</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">High-frequency payment gateways, AI fraud detection algorithms, KYC automation, and banking core integrations.</p>
+    </div>
+
+    <!-- 3. Retail -->
+    <div class="glass-card" style="padding:2rem;">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,184,0,0.15); color:var(--accent-amber); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-store"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">Retail & Smart Commerce</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">POS integrations, omnichannel inventory management, automated customer loyalty systems, and AI demand forecasting.</p>
+    </div>
+
+    <!-- 4. E-commerce -->
+    <div class="glass-card" style="padding:2rem;">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(121,40,202,0.15); color:var(--primary-violet); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-cart-shopping"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">E-Commerce Platforms</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">Multi-vendor e-commerce marketplaces, custom checkout workflows, AI recommendation engines, and logistics tracking.</p>
+    </div>
+
+    <!-- 5. Education -->
+    <div class="glass-card" style="padding:2rem;">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,71,87,0.15); color:var(--accent-rose); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">Education & EdTech</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">Interactive Learning Management Systems (LMS), virtual classrooms, proctored examination engines, and AI tutors.</p>
+    </div>
+
+    <!-- 6. Manufacturing -->
+    <div class="glass-card" style="padding:2rem;">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(0,242,254,0.15); color:var(--primary-cyan); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-industry"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">Smart Manufacturing 4.0</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">IoT sensor data telemetry, predictive machine maintenance, shop-floor ERP, and automated quality control.</p>
+    </div>
+
+    <!-- 7. Logistics -->
+    <div class="glass-card" style="padding:2rem;">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(0,245,160,0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-truck-fast"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">Logistics & Supply Chain</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">GPS fleet tracking, AI route optimization algorithms, warehouse management systems (WMS), and shipment dispatch.</p>
+    </div>
+
+    <!-- 8. Real Estate -->
+    <div class="glass-card" style="padding:2rem;">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,184,0,0.15); color:var(--accent-amber); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-city"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">Real Estate & PropTech</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">Property management portals, VR 3D virtual tours, tenant billing automation, and real estate CRM systems.</p>
+    </div>
+
+    <!-- 9. Travel -->
+    <div class="glass-card" style="padding:2rem;">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(121,40,202,0.15); color:var(--primary-violet); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-plane-departure"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">Travel & Hospitality Tech</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">Flight & hotel reservation GDS engines, dynamic pricing algorithms, tour operator portals, and itinerary apps.</p>
+    </div>
+
+    <!-- 10. SaaS -->
+    <div class="glass-card" style="padding:2rem;">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(0,242,254,0.15); color:var(--primary-cyan); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-cloud-bolt"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">Multi-Tenant SaaS Products</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">Multi-tenant database schema isolation, automated subscription billing, user role permissioning, and analytics.</p>
+    </div>
+
+    <!-- 11. Startups -->
+    <div class="glass-card" style="padding:2rem; grid-column:span 2;" class="mobile-span-1">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(0,245,160,0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:1rem;">
+        <i class="fas fa-rocket"></i>
+      </div>
+      <h3 style="font-size:1.3rem; margin-bottom:0.5rem; color:#fff;">High-Growth Tech Startups</h3>
+      <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6;">Rapid MVP product engineering, scalable cloud infrastructure setup, investor-ready tech architecture, and fast agile sprints.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:rgba(8,11,26,0.95); border-top:1px solid rgba(255,255,255,0.08); padding:3rem 0; margin-top:3rem;">
+  <div class="container text-center">
+    <p style="color:#94a3b8; font-size:0.88rem;">© 2026 DecillionX Software & AI Development. SG Palaya, Bangalore - 560029, India.</p>
+    <p style="color:#64748b; font-size:0.82rem; margin-top:0.5rem;">Founder & CEO: Santhana Stephen Raj • <a href="mailto:santhanastephen22@gmail.com" style="color:var(--primary-cyan);">santhanastephen22@gmail.com</a> • +91-9342888529</p>
+  </div>
+</footer>
+
+<script src="js/particle-canvas.js"></script>
+</body>
+</html>

@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DecillionX | Custom Software & AI Development Company – Bangalore</title>
+  <meta name="description" content="DecillionX is a premier Custom Software & AI Development company located in SG Palaya, Bangalore 560029. Founded by Santhana Stephen Raj. We build ERP, CRM, SaaS, AI/ML systems and mobile apps.">
+  <meta name="keywords" content="DecillionX, Software Development Bangalore, AI Development Bangalore, Custom ERP, CRM Development, Machine Learning, Web App Development, SaaS Bangalore, Santhana Stephen Raj">
+  <meta property="og:title" content="DecillionX | Custom Software & AI Development – Bangalore">
+  <meta property="og:description" content="Enterprise software and AI solutions. SG Palaya, Bangalore. CEO: Santhana Stephen Raj.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="glow-orb glow-orb-1"></div>
+<div class="glow-orb glow-orb-2"></div>
+<div class="glow-orb glow-orb-3"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <a href="#" class="brand-logo" onclick="hideAllPortals()">
+      <img src="assets/logo.png" alt="DecillionX Logo">
+      <div class="brand-name">Decillion<span>X</span></div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html#hero">Home</a></li>
+        <li><a href="about.html"><i class="fas fa-crown"></i> About Us</a></li>
+        <li>
+          <a href="services.html">Services <i class="fas fa-chevron-down" style="font-size:0.7rem;opacity:0.7"></i></a>
+          <div class="nav-dropdown">
+            <a href="services.html"><i class="fas fa-desktop" style="color:var(--primary-cyan)"></i> 13 Specialized Services</a>
+            <a href="services.html"><i class="fas fa-code" style="color:var(--primary-violet)"></i> Custom Software & ERP</a>
+            <a href="services.html"><i class="fas fa-brain" style="color:var(--accent-emerald)"></i> AI & ML Systems</a>
+            <a href="services.html"><i class="fas fa-cloud" style="color:var(--accent-amber)"></i> Cloud & DevOps Solutions</a>
+          </div>
+        </li>
+        <li>
+          <a href="industries.html" style="color:var(--primary-cyan); font-weight:700;"><i class="fas fa-industry"></i> Industries <i class="fas fa-chevron-down" style="font-size:0.7rem;opacity:0.7"></i></a>
+          <div class="nav-dropdown">
+            <a href="industries.html"><i class="fas fa-city" style="color:var(--primary-cyan)"></i> 11 Industry Solutions</a>
+            <a href="industries.html"><i class="fas fa-heart-pulse" style="color:var(--accent-emerald)"></i> Healthcare & MedTech</a>
+            <a href="industries.html"><i class="fas fa-building-columns" style="color:var(--primary-violet)"></i> FinTech & Banking</a>
+            <a href="industries.html"><i class="fas fa-cart-shopping" style="color:var(--accent-amber)"></i> E-Commerce & Logistics</a>
+            <a href="industries.html"><i class="fas fa-industry" style="color:var(--accent-rose)"></i> Smart Manufacturing 4.0</a>
+          </div>
+        </li>
+        <li><a href="careers.html" style="color:var(--accent-emerald); font-weight:700;"><i class="fas fa-briefcase"></i> Careers</a></li>
+        <li><a href="blog.html"><i class="fas fa-newspaper"></i> Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="login.html" style="color:var(--accent-amber); font-weight:800;"><i class="fas fa-user-shield"></i> Portals</a></li>
+      </ul>
+    <div style="display:flex;gap:0.85rem;align-items:center">
+      <div id="nav-user-indicator" class="nav-user-indicator" style="display:none"></div>
+      <a href="#" class="btn btn-primary btn-sm open-quote-modal"><i class="fas fa-paper-plane"></i> Get Quote</a>
+      <button class="mobile-nav-toggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== MAIN SITE CONTENT ===== -->
+<div id="main-site">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="tagline-badge"><span class="badge-pulse"></span>Based in Bangalore · Trusted Globally</div>
+        <h1>Custom <span class="gradient-text">Software & AI</span> Engineering for Your Business.</h1>
+        <p>DecillionX builds enterprise-grade ERP, CRM, SaaS platforms, AI/ML automation, and mobile applications — tailored for your business needs, delivered from Bangalore.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary"><i class="fas fa-bolt"></i> Start Your Project</a>
+          <a href="login.html" class="btn btn-outline"><i class="fas fa-key"></i> Employee & Client Portals</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><h3>50+</h3><p>Projects Delivered</p></div>
+          <div class="stat-item"><h3>100%</h3><p>Client Satisfaction</p></div>
+          <div class="stat-item"><h3>5+</h3><p>Years of Experience</p></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/hero-visual.png" alt="DecillionX Software & AI Solutions" class="hero-visual-img">
+        <div class="floating-badge floating-badge-1">
+          <div class="badge-icon"><i class="fas fa-code"></i></div>
+          <div class="badge-info"><h4>Custom Software Dev</h4><p>ERP · CRM · SaaS · Web</p></div>
+        </div>
+        <div class="floating-badge floating-badge-2">
+          <div class="badge-icon"><i class="fas fa-brain"></i></div>
+          <div class="badge-info"><h4>AI & ML Engineering</h4><p>LLMs · CV · Automation</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="tagline-badge"><i class="fas fa-cubes"></i> What We Build</div>
+        <h2>Our Core <span class="gradient-text">Services</span></h2>
+        <p>From custom enterprise software to cutting-edge AI systems, DecillionX delivers end-to-end technology solutions that transform businesses.</p>
+      </div>
+      <div class="services-grid">
+        <div class="glass-card service-card">
+          <div class="service-icon"><i class="fas fa-desktop"></i></div>
+          <h3>Custom Software Development</h3>
+          <p>Fully tailored ERP, CRM, HRMS, inventory, billing & workflow automation systems built for your exact business process.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Enterprise ERP & CRM Platforms</li>
+            <li><i class="fas fa-check"></i> HRMS & Payroll Management</li>
+            <li><i class="fas fa-check"></i> Inventory & Supply Chain Systems</li>
+            <li><i class="fas fa-check"></i> Multi-Role Workflow Automation</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">Node.js</span><span class="tech-tag">React</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">REST APIs</span></div>
+        </div>
+        <div class="glass-card service-card" style="border-color:rgba(0,245,160,0.4)">
+          <div class="service-icon" style="color:var(--accent-emerald)"><i class="fas fa-brain"></i></div>
+          <h3>AI, Machine Learning & GenAI LLM Services</h3>
+          <p>End-to-end Generative AI, custom LLM fine-tuning, RAG document search engines, autonomous multi-agent workflows, computer vision, and predictive ML systems.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check" style="color:var(--accent-emerald)"></i> Custom LLM Fine-Tuning (Llama 3.1, Mistral, DeepSeek, GPT-4o)</li>
+            <li><i class="fas fa-check" style="color:var(--accent-emerald)"></i> Enterprise RAG & Vector Search (Pinecone, Milvus, LangChain)</li>
+            <li><i class="fas fa-check" style="color:var(--accent-emerald)"></i> Autonomous Multi-Agent AI Systems (CrewAI, AutoGen, LangGraph)</li>
+            <li><i class="fas fa-check" style="color:var(--accent-emerald)"></i> Computer Vision, Facial Recognition & OCR (OpenCV, YOLOv8)</li>
+            <li><i class="fas fa-check" style="color:var(--accent-emerald)"></i> Voice AI & Multimodal Processing (Whisper, ElevenLabs)</li>
+            <li><i class="fas fa-check" style="color:var(--accent-emerald)"></i> Predictive ML & Demand Analytics (PyTorch, Scikit-Learn)</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">LLMs</span><span class="tech-tag">RAG Architecture</span><span class="tech-tag">PyTorch</span><span class="tech-tag">Pinecone</span><span class="tech-tag">LangChain</span></div>
+        </div>
+        <div class="glass-card service-card">
+          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Web & Mobile App Development</h3>
+          <p>High-performance, cross-platform web and mobile applications engineered for speed, scalability, and exceptional user experience.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> React & Next.js Web Applications</li>
+            <li><i class="fas fa-check"></i> React Native Cross-Platform Mobile</li>
+            <li><i class="fas fa-check"></i> Progressive Web Apps (PWA)</li>
+            <li><i class="fas fa-check"></i> Admin Panels & Dashboards</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">Next.js</span><span class="tech-tag">React Native</span><span class="tech-tag">TypeScript</span><span class="tech-tag">GraphQL</span></div>
+        </div>
+        <div class="glass-card service-card">
+          <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+          <h3>Cloud & SaaS Architecture</h3>
+          <p>Scalable multi-tenant SaaS platforms, cloud-native microservices, automated CI/CD pipelines, and 99.9% uptime infrastructure.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> SaaS Platform Engineering</li>
+            <li><i class="fas fa-check"></i> AWS / Azure Cloud Deployment</li>
+            <li><i class="fas fa-check"></i> Kubernetes & Docker Orchestration</li>
+            <li><i class="fas fa-check"></i> Automated DevOps Pipelines</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">AWS</span><span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Terraform</span></div>
+        </div>
+        <div class="glass-card service-card">
+          <div class="service-icon"><i class="fas fa-database"></i></div>
+          <h3>Data Engineering & Analytics</h3>
+          <p>End-to-end data pipeline design, business intelligence dashboards, real-time analytics, and data lake architecture.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> ETL Pipeline Development</li>
+            <li><i class="fas fa-check"></i> Power BI & Custom BI Dashboards</li>
+            <li><i class="fas fa-check"></i> Real-Time Data Streaming</li>
+            <li><i class="fas fa-check"></i> Data Warehouse Architecture</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">Apache Kafka</span><span class="tech-tag">Spark</span><span class="tech-tag">Snowflake</span><span class="tech-tag">Airflow</span></div>
+        </div>
+        <div class="glass-card service-card" style="border-color:rgba(0,242,254,0.4)">
+          <div class="service-icon" style="color:var(--primary-cyan)"><i class="fas fa-shield-alt"></i></div>
+          <h3>GenAI QA, Security & Quality Assurance</h3>
+          <p>Specialized Generative AI quality assurance, LLM hallucination benchmarking, prompt safety red-teaming, VAPT security audits, and automated testing.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check" style="color:var(--primary-cyan)"></i> GenAI QA & Hallucination Testing (Ragas, TruLens, DeepEval)</li>
+            <li><i class="fas fa-check" style="color:var(--primary-cyan)"></i> Prompt Robustness, Guardrails & AI Red-Teaming</li>
+            <li><i class="fas fa-check" style="color:var(--primary-cyan)"></i> End-to-End Automated QA (Playwright, Selenium)</li>
+            <li><i class="fas fa-check" style="color:var(--primary-cyan)"></i> VAPT Penetration Security & OWASP Top 10 Audits</li>
+            <li><i class="fas fa-check" style="color:var(--primary-cyan)"></i> Performance Load Testing & SLA Benchmarking (JMeter)</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">GenAI QA</span><span class="tech-tag">Ragas / TruLens</span><span class="tech-tag">Playwright</span><span class="tech-tag">Selenium</span><span class="tech-tag">VAPT</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY STRUCTURE -->
+  <section class="structure-section" id="structure">
+    <div class="container">
+      <div class="section-header">
+        <div class="tagline-badge"><i class="fas fa-sitemap"></i> Our Organisation</div>
+        <h2>Company <span class="gradient-text">Structure & Leadership</span></h2>
+        <p>A lean, high-performance team driven by engineering excellence — from strategic leadership to delivery specialists.</p>
+      </div>
+
+      <div class="org-chart">
+        <!-- CEO -->
+        <div class="org-level">
+          <div class="glass-card org-node org-node-ceo">
+            <div class="org-node-avatar">SS</div>
+            <h4>Santhana Stephen Raj</h4>
+            <p>Founder & Chief Executive Officer</p>
+          </div>
+        </div>
+        <div class="org-connector-v"></div>
+
+        <!-- Management Layer -->
+        <div class="org-level">
+          <div class="glass-card org-node org-node-mgmt">
+            <div class="org-node-avatar" style="background:linear-gradient(135deg,#7f00ff,#b000ff)">SE</div>
+            <h4>Principal Software Architect</h4>
+            <p>Enterprise Systems Division</p>
+            <small style="color:var(--primary-cyan);font-size:0.7rem;display:block;margin-top:0.3rem">Software Engineering</small>
+          </div>
+          <div class="glass-card org-node org-node-mgmt" style="border-color:rgba(0,245,160,0.4)">
+            <div class="org-node-avatar" style="background:linear-gradient(135deg,#00f5a0,#00b894);color:#000">AI</div>
+            <h4>Chief AI & LLM Scientist</h4>
+            <p>Neural Systems Division</p>
+            <small style="color:var(--accent-emerald);font-size:0.7rem;display:block;margin-top:0.3rem">AI & Deep Learning</small>
+          </div>
+          <div class="glass-card org-node org-node-mgmt" style="border-color:rgba(255,183,3,0.4)">
+            <div class="org-node-avatar" style="background:linear-gradient(135deg,#ffb703,#e67e22);color:#000">CL</div>
+            <h4>Head of Cloud Infrastructure</h4>
+            <p>DevOps & Microservices</p>
+            <small style="color:var(--accent-amber);font-size:0.7rem;display:block;margin-top:0.3rem">Cloud Engineering</small>
+          </div>
+        </div>
+        <div class="org-connector-v"></div>
+
+        <!-- Team Layer -->
+        <div class="org-level">
+          <div class="glass-card org-node org-node-lead">
+            <div class="org-node-avatar" style="width:34px;height:34px;font-size:0.75rem">FS</div>
+            <h4 style="font-size:0.85rem">Lead Full-Stack Specialist</h4>
+            <p>Web & Mobile Applications</p>
+          </div>
+          <div class="glass-card org-node org-node-lead">
+            <div class="org-node-avatar" style="width:34px;height:34px;font-size:0.75rem">QA</div>
+            <h4 style="font-size:0.85rem">Lead Quality & Security Specialist</h4>
+            <p>Automated QA & VAPT Security</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company Strategy Section -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:4rem">
+        <div class="glass-card" style="padding:2rem">
+          <div style="font-size:2rem;color:var(--primary-cyan);margin-bottom:1rem"><i class="fas fa-eye"></i></div>
+          <h3 style="margin-bottom:0.75rem">Our Vision</h3>
+          <p style="color:#94a3b8;font-size:0.95rem">To become the most trusted software & AI development partner for businesses across India — enabling them to scale faster, operate smarter, and compete globally.</p>
+        </div>
+        <div class="glass-card" style="padding:2rem">
+          <div style="font-size:2rem;color:var(--accent-emerald);margin-bottom:1rem"><i class="fas fa-rocket"></i></div>
+          <h3 style="margin-bottom:0.75rem">Our Mission</h3>
+          <p style="color:#94a3b8;font-size:0.95rem">To deliver high-quality, on-time, and cost-effective custom software and AI solutions that solve real business challenges with precision and innovation.</p>
+        </div>
+        <div class="glass-card" style="padding:2rem">
+          <div style="font-size:2rem;color:var(--accent-amber);margin-bottom:1rem"><i class="fas fa-gem"></i></div>
+          <h3 style="margin-bottom:0.75rem">Our Values</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem">
+            <li style="font-size:0.9rem;color:#94a3b8"><i class="fas fa-check" style="color:var(--accent-amber);margin-right:0.5rem"></i>Client-First Delivery</li>
+            <li style="font-size:0.9rem;color:#94a3b8"><i class="fas fa-check" style="color:var(--accent-amber);margin-right:0.5rem"></i>Engineering Excellence</li>
+            <li style="font-size:0.9rem;color:#94a3b8"><i class="fas fa-check" style="color:var(--accent-amber);margin-right:0.5rem"></i>Transparency & Integrity</li>
+            <li style="font-size:0.9rem;color:#94a3b8"><i class="fas fa-check" style="color:var(--accent-amber);margin-right:0.5rem"></i>Continuous Innovation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI SANDBOX -->
+  <section class="sandbox-section" id="ai-sandbox">
+    <div class="container">
+      <div class="section-header">
+        <div class="tagline-badge"><i class="fas fa-code"></i> Live Tech Showcase</div>
+        <h2>See Our <span class="gradient-text">Engineering Stack</span> In Action</h2>
+        <p>A live look at the code frameworks and methodologies our engineers use every day.</p>
+      </div>
+      <div class="glass-card sandbox-container">
+        <div class="sandbox-tabs">
+          <button class="tab-btn active" data-tab="software">
+            <i class="fas fa-desktop"></i>
+            <div><h4>Software Dev</h4><p>ERP & CRM Systems</p></div>
+          </button>
+          <button class="tab-btn" data-tab="ai">
+            <i class="fas fa-brain"></i>
+            <div><h4>AI & LLM</h4><p>Agent Workflows</p></div>
+          </button>
+          <button class="tab-btn" data-tab="mobile">
+            <i class="fas fa-mobile-alt"></i>
+            <div><h4>Web & Mobile</h4><p>App Engineering</p></div>
+          </button>
+        </div>
+        <div class="sandbox-display">
+          <div class="sandbox-header">
+            <h3 id="sandbox-title" style="font-size:1.05rem">Custom ERP & CRM Software Development</h3>
+            <div class="status-indicator"><span class="status-dot"></span>DecillionX Dev Server</div>
+          </div>
+          <div class="sandbox-console" id="sandbox-code-display">
+<span class="code-keyword">import</span> { DecillionX, ERPBuilder } <span class="code-keyword">from</span> <span class="code-string">'@decillionx/software-core'</span>;
+<span class="code-comment">// Build AI-powered Enterprise Resource Planning System</span>
+<span class="code-keyword">const</span> erp = <span class="code-keyword">new</span> ERPBuilder({ modules: [<span class="code-string">'Inventory'</span>, <span class="code-string">'HR'</span>, <span class="code-string">'Finance'</span>] });
+<span class="code-keyword">const</span> platform = <span class="code-keyword">await</span> erp.<span class="code-function">deploy</span>({ cloud: <span class="code-string">'AWS'</span>, region: <span class="code-string">'ap-south-1'</span> });
+console.log(platform.status); <span class="code-comment">// → { deployed: true, uptime: '99.99%' }</span>
+          </div>
+          <div class="sandbox-controls">
+            <span style="font-size:0.82rem;color:#94a3b8"><i class="fas fa-terminal"></i> DecillionX Engine v4.0 · Bangalore</span>
+            <button class="btn btn-primary btn-sm" id="run-sandbox-btn"><i class="fas fa-play"></i> Run Simulation</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="tech-section" id="tech-stack">
+    <div class="container">
+      <div class="section-header">
+        <div class="tagline-badge"><i class="fas fa-laptop-code"></i> Enterprise Technology Matrix</div>
+        <h2>Technologies We <span class="gradient-text">Master</span></h2>
+        <p>Specialized engineering stacks across Java, Python, .NET, AI/ML, and QA Automation — powering mission-critical software globally.</p>
+      </div>
+      <div class="tech-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Stack</button>
+        <button class="filter-btn" data-filter="java"><i class="fab fa-java"></i> Java</button>
+        <button class="filter-btn" data-filter="python"><i class="fab fa-python"></i> Python</button>
+        <button class="filter-btn" data-filter="dotnet"><i class="fas fa-code"></i> .NET Core</button>
+        <button class="filter-btn" data-filter="ai"><i class="fas fa-brain"></i> AI & ML</button>
+        <button class="filter-btn" data-filter="qa"><i class="fas fa-vial"></i> QA & Testing</button>
+        <button class="filter-btn" data-filter="cloud"><i class="fab fa-aws"></i> Cloud & Web</button>
+      </div>
+      <div class="tech-matrix">
+        <!-- JAVA -->
+        <div class="glass-card tech-item" data-category="java"><i class="fab fa-java" style="color:#f89820;"></i><h4>Java 21</h4><p>Enterprise Core</p></div>
+        <div class="glass-card tech-item" data-category="java"><i class="fas fa-leaf" style="color:#6db33f;"></i><h4>Spring Boot 3</h4><p>Microservices</p></div>
+        <div class="glass-card tech-item" data-category="java"><i class="fas fa-cubes" style="color:#4facfe;"></i><h4>Hibernate ORM</h4><p>Data Access</p></div>
+
+        <!-- PYTHON -->
+        <div class="glass-card tech-item" data-category="python"><i class="fab fa-python" style="color:#3776ab;"></i><h4>Python 3.12</h4><p>Data & AI Core</p></div>
+        <div class="glass-card tech-item" data-category="python"><i class="fas fa-bolt" style="color:#009688;"></i><h4>FastAPI</h4><p>High-Speed REST</p></div>
+        <div class="glass-card tech-item" data-category="python"><i class="fas fa-code-branch" style="color:#092e20;"></i><h4>Django</h4><p>Full-Stack Web</p></div>
+
+        <!-- .NET -->
+        <div class="glass-card tech-item" data-category="dotnet"><i class="fas fa-code" style="color:#512bd4;"></i><h4>C# / .NET 9</h4><p>Enterprise .NET</p></div>
+        <div class="glass-card tech-item" data-category="dotnet"><i class="fas fa-globe" style="color:#00f2fe;"></i><h4>ASP.NET Core</h4><p>Web APIs</p></div>
+        <div class="glass-card tech-item" data-category="dotnet"><i class="fab fa-windows" style="color:#0078d4;"></i><h4>Azure Cloud</h4><p>.NET Hosting</p></div>
+
+        <!-- AI / ML & LLMs -->
+        <div class="glass-card tech-item" data-category="ai"><i class="fas fa-robot" style="color:#00f5a0;"></i><h4>LLM Fine-Tuning</h4><p>Llama 3.1 & DeepSeek</p></div>
+        <div class="glass-card tech-item" data-category="ai"><i class="fas fa-project-diagram" style="color:#00f2fe;"></i><h4>Multi-Agent AI</h4><p>CrewAI & AutoGen</p></div>
+        <div class="glass-card tech-item" data-category="ai"><i class="fas fa-brain" style="color:#ee4c2c;"></i><h4>RAG Architecture</h4><p>Pinecone & Milvus</p></div>
+        <div class="glass-card tech-item" data-category="ai"><i class="fas fa-eye" style="color:#ffb703;"></i><h4>Computer Vision</h4><p>OpenCV & YOLOv8</p></div>
+        <div class="glass-card tech-item" data-category="ai"><i class="fas fa-microphone-alt" style="color:#a855f7;"></i><h4>Speech & Voice AI</h4><p>Whisper & Multimodal</p></div>
+
+        <!-- QA & TESTING (GENAI QA INCLUDED) -->
+        <div class="glass-card tech-item" data-category="qa" style="border-color:rgba(0,245,160,0.5)"><i class="fas fa-microchip" style="color:#00f5a0;"></i><h4>GenAI QA</h4><p>Hallucination & Red-Team</p></div>
+        <div class="glass-card tech-item" data-category="qa"><i class="fas fa-vial" style="color:#00f2fe;"></i><h4>Playwright</h4><p>End-to-End QA</p></div>
+        <div class="glass-card tech-item" data-category="qa"><i class="fas fa-check-double" style="color:#00f5a0;"></i><h4>Selenium</h4><p>Web Automation</p></div>
+        <div class="glass-card tech-item" data-category="qa"><i class="fas fa-shield-alt" style="color:#ff4757;"></i><h4>VAPT Security</h4><p>Penetration Audit</p></div>
+        <div class="glass-card tech-item" data-category="qa"><i class="fas fa-tachometer-alt" style="color:#ffb703;"></i><h4>JMeter QA</h4><p>Load Testing</p></div>
+
+        <!-- CLOUD & WEB -->
+        <div class="glass-card tech-item" data-category="cloud"><i class="fab fa-aws" style="color:#ff9900;"></i><h4>AWS Cloud</h4><p>Infrastructure</p></div>
+        <div class="glass-card tech-item" data-category="cloud"><i class="fab fa-docker" style="color:#2496ed;"></i><h4>Docker & K8s</h4><p>Containers</p></div>
+        <div class="glass-card tech-item" data-category="cloud"><i class="fab fa-react" style="color:#61dafb;"></i><h4>Next.js & React</h4><p>Frontend Core</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO / CASE STUDIES -->
+  <section class="cases-section" id="case-studies">
+    <div class="container">
+      <div class="section-header">
+        <div class="tagline-badge"><i class="fas fa-briefcase"></i> Our Portfolio</div>
+        <h2>Projects We've <span class="gradient-text">Delivered</span></h2>
+        <p>Real-world software and AI projects that transformed operations for our clients across industries.</p>
+      </div>
+      <div class="cases-grid">
+        <div class="glass-card case-card">
+          <span class="case-badge">Manufacturing · ERP</span>
+          <h3>AI-Powered ERP for Lakshmi Industries</h3>
+          <p>Custom-built ERP with AI demand forecasting, inventory automation, HRMS & financial reporting. Replaced legacy systems entirely.</p>
+          <div class="case-metric">$220,000 Project</div>
+          <p style="font-size:0.82rem;color:#94a3b8;margin-top:0.5rem">40% reduction in manual operational overhead.</p>
+        </div>
+        <div class="glass-card case-card">
+          <span class="case-badge">SaaS · Billing & CRM</span>
+          <h3>Cloud SaaS Billing Platform – TechBridge</h3>
+          <p>Multi-tenant SaaS billing engine with subscription management, invoicing automation, analytics portal & CRM integration.</p>
+          <div class="case-metric">$150,000 Project</div>
+          <p style="font-size:0.82rem;color:#94a3b8;margin-top:0.5rem">Reduced billing cycle time by 72%.</p>
+        </div>
+        <div class="glass-card case-card">
+          <span class="case-badge">Legal · AI Document Intelligence</span>
+          <h3>AI Smart Document Search – Nalanda Law Firm</h3>
+          <p>LLM-powered document parsing, risk analysis, semantic contract search, and automated clause summarisation system.</p>
+          <div class="case-metric">$120,000 Project</div>
+          <p style="font-size:0.82rem;color:#94a3b8;margin-top:0.5rem">Legal research time reduced by 65%.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COST ESTIMATOR -->
+  <section class="estimator-section" id="estimator">
+    <div class="container">
+      <div class="glass-card estimator-box">
+        <div class="estimator-controls">
+          <div>
+            <div class="tagline-badge"><i class="fas fa-calculator"></i> Project Estimator</div>
+            <h2 style="font-size:2rem">Estimate Your <span class="gradient-text">Project Cost</span></h2>
+            <p style="color:#94a3b8;font-size:0.92rem;margin-top:0.5rem">Get an instant ballpark investment range for your custom software or AI project.</p>
+          </div>
+          <div class="form-group">
+            <label>Project Timeline <span class="value-badge" id="scope-val">8 Weeks</span></label>
+            <input type="range" min="4" max="24" step="2" value="8" class="range-slider" id="scope-slider">
+          </div>
+          <div class="form-group">
+            <label>Project Type & AI Complexity</label>
+            <select class="select-custom" id="ai-tier-select">
+              <option value="1.0">Standard Web / Mobile App</option>
+              <option value="1.5" selected>ERP / CRM / SaaS Platform</option>
+              <option value="2.2">AI/ML System + Custom LLM Integration</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Platform & Infrastructure</label>
+            <select class="select-custom" id="platform-select">
+              <option value="1.0">Web Application Only</option>
+              <option value="1.3" selected>Web + Mobile + Cloud Deployment</option>
+              <option value="1.8">Enterprise Multi-Cloud SaaS</option>
+            </select>
+          </div>
+        </div>
+        <div class="estimator-results">
+          <div>
+            <span style="font-size:0.82rem;color:#94a3b8;text-transform:uppercase">Estimated Investment</span>
+            <div class="estimate-price"><h3 id="est-price-display">₹4,80,000 – ₹6,00,000</h3></div>
+          </div>
+          <div class="estimate-details">
+            <div class="est-item"><h5>Timeline</h5><p id="est-time-display">8 – 11 Weeks</p></div>
+            <div class="est-item"><h5>Projected ROI</h5><p id="est-roi-display">4.2x Efficiency</p></div>
+          </div>
+          <button class="btn btn-primary open-quote-modal" style="width:100%"><i class="fas fa-file-invoice"></i> Request Custom Proposal</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div>
+            <div class="tagline-badge"><i class="fas fa-map-marker-alt"></i> Bangalore, India</div>
+            <h2>Let's Build Something <span class="gradient-text">Great Together</span></h2>
+            <p style="color:#94a3b8;margin-top:0.5rem">Reach out to us with your project requirements and our team will respond within one business day.</p>
+            <div style="display:flex;align-items:center;gap:1rem;margin-top:1.5rem;padding:1rem 1.25rem;background:rgba(0,242,254,0.06);border:1px solid rgba(0,242,254,0.25);border-radius:12px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--primary-cyan),var(--primary-violet));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:#fff;flex-shrink:0;">SS</div>
+              <div>
+                <h4 style="font-size:1.05rem;margin:0">Santhana Stephen Raj</h4>
+                <p style="color:var(--primary-cyan);font-size:0.8rem;margin:0">Founder & CEO, DecillionX</p>
+              </div>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="info-text"><h4>Office Location</h4><p>SG Palaya, Bangalore – 560029<br>Karnataka, India</p></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+            <div class="info-text"><h4>Email Us</h4><p>santhanastephen22@gmail.com</p></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-clock"></i></div>
+            <div class="info-text"><h4>Business Hours</h4><p>Mon – Sat: 9:00 AM – 7:00 PM IST</p></div>
+          </div>
+        </div>
+        <div class="glass-card contact-form">
+          <h3 style="font-size:1.5rem;margin-bottom:0.4rem">Send Us a Message</h3>
+          <p style="color:#94a3b8;font-size:0.88rem;margin-bottom:1.25rem">We'll get back to you within 24 hours.</p>
+          <form id="main-contact-form">
+            <div class="form-row">
+              <input class="input-custom" type="text" placeholder="Your Full Name *" required>
+              <input class="input-custom" type="email" placeholder="Email Address *" required>
+            </div>
+            <div class="form-row" style="margin-top:1.25rem">
+              <input class="input-custom" type="tel" placeholder="Phone Number">
+              <input class="input-custom" type="text" placeholder="Company Name">
+            </div>
+            <select class="select-custom" required style="margin-top:1.25rem">
+              <option value="" disabled selected>What can we help you build? *</option>
+              <option>Custom Software / ERP / CRM</option>
+              <option>AI / ML System</option>
+              <option>Web or Mobile Application</option>
+              <option>Cloud / SaaS Platform</option>
+              <option>Data Engineering & Analytics</option>
+              <option>Other</option>
+            </select>
+            <textarea class="textarea-custom" placeholder="Describe your project or requirement..." required style="margin-top:1.25rem"></textarea>
+            <button type="submit" class="btn btn-primary" style="margin-top:1.25rem;width:100%"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="brand-logo"><img src="assets/logo.png" alt="DecillionX Logo"><div class="brand-name">Decillion<span>X</span></div></a>
+          <p>Custom Software & AI Development Company. SG Palaya, Bangalore – 560029.</p>
+          <p style="margin-top:0">📧 santhanastephen22@gmail.com</p>
+          <div style="margin-top:1rem;display:flex;align-items:center;gap:0.75rem">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary-cyan),var(--primary-violet));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.8rem;color:#fff">SS</div>
+            <div><p style="color:#fff;font-size:0.85rem;font-weight:700;margin:0">Santhana Stephen Raj</p><p style="color:var(--primary-cyan);font-size:0.72rem;margin:0">Founder & CEO</p></div>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Custom Software Development</a></li>
+            <li><a href="#services">AI & Machine Learning</a></li>
+            <li><a href="#services">Web & Mobile Apps</a></li>
+            <li><a href="#services">Cloud & SaaS Architecture</a></li>
+            <li><a href="#services">Data Engineering</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#hero">About Us</a></li>
+            <li><a href="#structure">Our Team</a></li>
+            <li><a href="#case-studies">Portfolio</a></li>
+            <li><a href="#estimator">Project Estimator</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Portals</h4>
+          <ul>
+            <li><a href="login.html">Employee Skill Portal</a></li>
+            <li><a href="login.html">Executive Admin Hub</a></li>
+            <li><a href="login.html">Client Portal</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 DecillionX. All Rights Reserved. SG Palaya, Bangalore – 560029.</p>
+        <p style="font-size:0.78rem">Founded & led by <strong>Santhana Stephen Raj</strong>, CEO & Founder</p>
+      </div>
+    </div>
+  </footer>
+</div>
+<!-- END MAIN SITE -->
+
+<!-- =========================================
+     EMPLOYEE PORTAL
+     ========================================= -->
+<section class="container portal-section" id="employee-portal">
+  <div class="portal-header">
+    <div class="portal-user-meta">
+      <div class="portal-avatar" id="emp-portal-avatar">AR</div>
+      <div>
+        <h2 style="font-size:1.45rem" id="emp-profile-name">Employee Name</h2>
+        <p style="color:var(--primary-cyan);font-size:0.85rem" id="emp-profile-role">Role · Department</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+      <span style="font-size:0.8rem;color:#94a3b8;align-self:center"><i class="fas fa-map-marker-alt" style="color:var(--primary-cyan)"></i> DecillionX · Bangalore 560029</span>
+      <button class="btn btn-sm btn-outline" onclick="logout()"><i class="fas fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </div>
+
+  <div class="portal-tabs-nav">
+    <button class="portal-tab-item active" data-target="emp-tab-attendance"><i class="fas fa-fingerprint"></i> Attendance</button>
+    <button class="portal-tab-item" data-target="emp-tab-skills"><i class="fas fa-award"></i> My Skills</button>
+    <button class="portal-tab-item" data-target="emp-tab-projects"><i class="fas fa-briefcase"></i> My Projects</button>
+    <button class="portal-tab-item" data-target="emp-tab-timesheet"><i class="fas fa-clock"></i> Timesheet</button>
+    <button class="portal-tab-item" data-target="emp-tab-leave"><i class="fas fa-calendar-minus"></i> Leave Requests</button>
+  </div>
+
+  <!-- ATTENDANCE TAB -->
+  <div class="portal-tab-content active" id="emp-tab-attendance">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;flex-wrap:wrap">
+      <div class="glass-card attendance-clock-box">
+        <div class="tagline-badge" style="justify-content:center"><i class="fas fa-fingerprint"></i> Attendance Tracker</div>
+        <div class="date-display" id="att-date-display">Loading...</div>
+        <div class="clock-display" id="clock-time">00:00:00</div>
+        <p style="color:#94a3b8;font-size:0.85rem">DecillionX · SG Palaya, Bangalore 560029</p>
+        <div class="clock-btn-row">
+          <button class="btn btn-success" id="clock-in-btn"><i class="fas fa-door-open"></i> Clock In</button>
+          <button class="btn btn-danger" id="clock-out-btn" disabled><i class="fas fa-door-closed"></i> Clock Out</button>
+        </div>
+        <div class="clock-status-bar" id="clock-status-bar">⏳ Not yet clocked in today.</div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:1.25rem">Attendance History</h3>
+        <div class="data-table-wrapper">
+          <table class="custom-table">
+            <thead><tr><th>Date</th><th>Action</th><th>Time</th><th>Notes</th></tr></thead>
+            <tbody id="att-history-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS TAB -->
+  <div class="portal-tab-content" id="emp-tab-skills">
+    <div class="glass-card" style="padding:1.75rem;margin-bottom:2rem">
+      <h4 style="margin-bottom:1rem"><i class="fas fa-plus-circle" style="color:var(--primary-cyan)"></i> Add New Skill</h4>
+      <form id="add-skill-form" style="display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:1rem;align-items:end">
+        <div class="form-group"><label>Skill Name</label><input class="input-custom" id="new-skill-name" placeholder="e.g. React, Python, AWS..." required></div>
+        <div class="form-group"><label>Category</label>
+          <select class="select-custom" id="new-skill-cat">
+            <option value="AI">AI / ML</option><option value="Frontend">Frontend</option><option value="Backend">Backend</option>
+            <option value="Cloud">Cloud</option><option value="DevOps">DevOps</option><option value="QA">QA / Testing</option><option value="Database">Database</option><option value="Management">Management</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Proficiency %</label><input class="input-custom" type="number" id="new-skill-level" placeholder="1–100" min="1" max="100" required></div>
+        <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i> Save</button>
+      </form>
+    </div>
+    <div class="skill-card-grid" id="emp-skills-list"></div>
+  </div>
+
+  <!-- PROJECTS TAB -->
+  <div class="portal-tab-content" id="emp-tab-projects">
+    <h3 style="margin-bottom:1.5rem">My Active Project Assignments</h3>
+    <div id="emp-projects-container"></div>
+  </div>
+
+  <!-- TIMESHEET TAB -->
+  <div class="portal-tab-content" id="emp-tab-timesheet">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start">
+      <div class="glass-card" style="padding:2rem;min-width:320px">
+        <h4 style="margin-bottom:1.25rem"><i class="fas fa-clock" style="color:var(--primary-cyan)"></i> Log Weekly Hours</h4>
+        <form id="emp-ts-form" style="display:flex;flex-direction:column;gap:1.15rem">
+          <div class="form-group"><label>Project</label><select class="select-custom" id="ts-project-select"></select></div>
+          <div class="form-group"><label>Hours Worked</label><input class="input-custom" type="number" id="ts-hours" min="1" max="80" value="40" required></div>
+          <div class="form-group"><label>Work Summary / Deliverables</label><textarea class="textarea-custom" id="ts-tasks" placeholder="Describe what you completed this week..." required></textarea></div>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Timesheet</button>
+        </form>
+      </div>
+      <div>
+        <h3 style="margin-bottom:1.25rem">Submitted Timesheets</h3>
+        <div class="data-table-wrapper">
+          <table class="custom-table">
+            <thead><tr><th>ID</th><th>Date</th><th>Project</th><th>Hours</th><th>Tasks</th><th>Status</th></tr></thead>
+            <tbody id="emp-ts-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEAVE TAB -->
+  <div class="portal-tab-content" id="emp-tab-leave">
+    <div class="leave-balance-grid">
+      <div class="glass-card leave-balance-card"><div class="leave-balance-number">30</div><div class="leave-balance-label">Total Annual Leave Days</div></div>
+      <div class="glass-card leave-balance-card"><div class="leave-balance-number" id="used-leave" style="color:var(--accent-rose)">0</div><div class="leave-balance-label">Days Used</div></div>
+      <div class="glass-card leave-balance-card"><div class="leave-balance-number" id="remain-leave" style="color:var(--accent-emerald)">30</div><div class="leave-balance-label">Days Remaining</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;margin-top:1.5rem">
+      <div class="glass-card" style="padding:2rem;min-width:320px">
+        <h4 style="margin-bottom:1.25rem"><i class="fas fa-calendar-plus" style="color:var(--primary-cyan)"></i> Apply for Leave</h4>
+        <form id="emp-leave-form" style="display:flex;flex-direction:column;gap:1.15rem">
+          <div class="form-group"><label>Leave Type</label>
+            <select class="select-custom" id="leave-type">
+              <option>Annual Leave</option><option>Sick Leave</option><option>Emergency Leave</option><option>Maternity / Paternity Leave</option>
+            </select>
+          </div>
+          <div class="form-group"><label>From Date</label><input class="input-custom" type="date" id="leave-from" required></div>
+          <div class="form-group"><label>To Date</label><input class="input-custom" type="date" id="leave-to" required></div>
+          <div class="form-group"><label>Reason</label><textarea class="textarea-custom" id="leave-reason" placeholder="Brief reason for leave..." required style="min-height:80px"></textarea></div>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Leave Request</button>
+        </form>
+      </div>
+      <div>
+        <h3 style="margin-bottom:1.25rem">My Leave Applications</h3>
+        <div class="data-table-wrapper">
+          <table class="custom-table">
+            <thead><tr><th>ID</th><th>Type</th><th>Duration</th><th>Days</th><th>Reason</th><th>Status</th></tr></thead>
+            <tbody id="emp-leave-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+     ADMIN / EXECUTIVE PORTAL
+     ========================================= -->
+<section class="container portal-section" id="admin-portal">
+  <div class="portal-header">
+    <div class="portal-user-meta">
+      <div class="portal-avatar" style="background:var(--primary-violet)">DX</div>
+      <div>
+        <h2 style="font-size:1.45rem">Executive Management Hub</h2>
+        <p style="color:var(--primary-cyan);font-size:0.85rem">DecillionX · SG Palaya, Bangalore 560029 · santhanastephen22@gmail.com</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap">
+      <button class="btn btn-sm btn-primary" id="open-create-prj-modal"><i class="fas fa-plus"></i> New Project</button>
+      <button class="btn btn-sm btn-outline" onclick="logout()"><i class="fas fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </div>
+
+  <!-- KPI Row -->
+  <div class="kpi-grid">
+    <div class="glass-card kpi-card"><div><span style="color:#94a3b8;font-size:0.82rem">Active Projects</span><div class="kpi-number" id="admin-kpi-projects">0</div></div><div class="kpi-icon"><i class="fas fa-diagram-project"></i></div></div>
+    <div class="glass-card kpi-card"><div><span style="color:#94a3b8;font-size:0.82rem">Team Members</span><div class="kpi-number" id="admin-kpi-employees">0</div></div><div class="kpi-icon violet"><i class="fas fa-users"></i></div></div>
+    <div class="glass-card kpi-card"><div><span style="color:#94a3b8;font-size:0.82rem">Present Today</span><div class="kpi-number" id="admin-kpi-present" style="color:var(--accent-emerald)">0</div></div><div class="kpi-icon emerald"><i class="fas fa-user-check"></i></div></div>
+    <div class="glass-card kpi-card"><div><span style="color:#94a3b8;font-size:0.82rem">Pending Leaves</span><div class="kpi-number" id="admin-kpi-pending-leaves" style="color:var(--accent-amber)">0</div></div><div class="kpi-icon amber"><i class="fas fa-calendar-xmark"></i></div></div>
+    <div class="glass-card kpi-card"><div><span style="color:#94a3b8;font-size:0.82rem">Pending Timesheets</span><div class="kpi-number" id="admin-kpi-pending-ts" style="color:var(--accent-rose)">0</div></div><div class="kpi-icon rose"><i class="fas fa-clock"></i></div></div>
+  </div>
+
+  <div class="portal-tabs-nav">
+    <button class="portal-tab-item active" data-target="admin-tab-employees"><i class="fas fa-users-gear"></i> Employees & Skills</button>
+    <button class="portal-tab-item" data-target="admin-tab-projects"><i class="fas fa-folder-open"></i> Projects Hub</button>
+    <button class="portal-tab-item" data-target="admin-tab-attendance"><i class="fas fa-fingerprint"></i> Today's Attendance</button>
+    <button class="portal-tab-item" data-target="admin-tab-leaves"><i class="fas fa-calendar-check"></i> Leave Approvals</button>
+    <button class="portal-tab-item" data-target="admin-tab-timesheets"><i class="fas fa-clipboard-list"></i> Timesheet Review</button>
+  </div>
+
+  <!-- EMPLOYEES TAB -->
+  <div class="portal-tab-content active" id="admin-tab-employees">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
+      <h3>Employee Directory & Skill Matrix</h3>
+      <input class="input-custom" id="admin-emp-search" placeholder="Search by name, role, or skill..." style="max-width:300px">
+    </div>
+    <div class="data-table-wrapper">
+      <table class="custom-table">
+        <thead><tr><th>Employee</th><th>Role</th><th>Department</th><th>Key Skills</th><th>Today's Status</th><th>Performance</th></tr></thead>
+        <tbody id="admin-emp-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PROJECTS TAB -->
+  <div class="portal-tab-content" id="admin-tab-projects">
+    <h3 style="margin-bottom:1.5rem">Client Projects – End-to-End Tracker</h3>
+    <div class="data-table-wrapper">
+      <table class="custom-table">
+        <thead><tr><th>ID</th><th>Project & Client</th><th>Budget</th><th>Lead</th><th>Progress</th><th>Status</th><th>Deadline</th><th>Actions</th></tr></thead>
+        <tbody id="admin-prj-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ATTENDANCE TAB -->
+  <div class="portal-tab-content" id="admin-tab-attendance">
+    <h3 style="margin-bottom:1.5rem">Today's Attendance Log – <span style="color:var(--primary-cyan);font-family:var(--font-mono);font-size:0.95rem" id="admin-att-date"></span></h3>
+    <div class="data-table-wrapper">
+      <table class="custom-table">
+        <thead><tr><th>Employee</th><th>Action</th><th>Time</th><th>Date</th></tr></thead>
+        <tbody id="admin-att-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- LEAVES TAB -->
+  <div class="portal-tab-content" id="admin-tab-leaves">
+    <h3 style="margin-bottom:1.5rem">Leave Request Approval Queue</h3>
+    <div class="data-table-wrapper">
+      <table class="custom-table">
+        <thead><tr><th>ID</th><th>Employee</th><th>Leave Type</th><th>Duration</th><th>Reason</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody id="admin-leave-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TIMESHEETS TAB -->
+  <div class="portal-tab-content" id="admin-tab-timesheets">
+    <h3 style="margin-bottom:1.5rem">Weekly Timesheet Review & Approval</h3>
+    <div class="data-table-wrapper">
+      <table class="custom-table">
+        <thead><tr><th>ID</th><th>Employee</th><th>Project</th><th>Hours</th><th>Summary</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody id="admin-ts-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+     CLIENT PORTAL
+     ========================================= -->
+<section class="container portal-section" id="client-portal">
+  <div class="portal-header">
+    <div class="portal-user-meta">
+      <div class="portal-avatar" id="client-portal-avatar" style="background:linear-gradient(135deg,var(--accent-amber),#e67e22);color:#000">LI</div>
+      <div>
+        <h2 style="font-size:1.45rem" id="client-name">Client Name</h2>
+        <p style="color:var(--primary-cyan);font-size:0.85rem" id="client-contact">Contact Person</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:0.75rem;align-items:center">
+      <span style="font-size:0.8rem;color:#94a3b8"><i class="fas fa-envelope" style="color:var(--primary-cyan)"></i> santhanastephen22@gmail.com</span>
+      <button class="btn btn-sm btn-outline" onclick="logout()"><i class="fas fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </div>
+
+  <div class="portal-tabs-nav">
+    <button class="portal-tab-item active" data-target="client-tab-projects"><i class="fas fa-diagram-project"></i> My Projects</button>
+    <button class="portal-tab-item" data-target="client-tab-invoices"><i class="fas fa-file-invoice-dollar"></i> Invoices & Billing</button>
+    <button class="portal-tab-item" data-target="client-tab-support"><i class="fas fa-headset"></i> Raise Support Ticket</button>
+  </div>
+
+  <div class="portal-tab-content active" id="client-tab-projects">
+    <h3 style="margin-bottom:1.5rem">Your Active Projects</h3>
+    <div id="client-prj-container"></div>
+  </div>
+
+  <div class="portal-tab-content" id="client-tab-invoices">
+    <h3 style="margin-bottom:1.5rem">Invoice & Payment History</h3>
+    <div id="client-inv-container"></div>
+  </div>
+
+  <div class="portal-tab-content" id="client-tab-support">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start">
+      <div class="glass-card" style="padding:2rem;min-width:340px">
+        <h4 style="margin-bottom:1.25rem"><i class="fas fa-ticket" style="color:var(--primary-cyan)"></i> Raise a Support Ticket</h4>
+        <form id="client-ticket-form" style="display:flex;flex-direction:column;gap:1.15rem">
+          <div class="form-group"><label>Subject</label><input class="input-custom" id="ticket-subject" placeholder="Brief issue description..." required></div>
+          <div class="form-group"><label>Priority Level</label>
+            <select class="select-custom" id="ticket-priority"><option>Low</option><option selected>Medium</option><option>High</option></select>
+          </div>
+          <div class="form-group"><label>Detailed Message</label><textarea class="textarea-custom" id="ticket-message" placeholder="Describe the issue or query in detail..." required></textarea></div>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Ticket</button>
+        </form>
+      </div>
+      <div>
+        <h3 style="margin-bottom:1.25rem">My Support Tickets</h3>
+        <div id="client-tickets-list"><p style="color:#94a3b8">No tickets raised yet.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING CHATBOT -->
+<div class="chatbot-widget" id="chatbot-widget">
+  <div class="chatbot-window" id="chatbot-window">
+    <div class="chat-header">
+      <div class="chat-bot-info">
+        <div class="chat-bot-avatar">DX</div>
+        <div><h4 style="font-size:0.92rem">DecillionX AI Assistant</h4><span style="font-size:0.7rem;color:var(--accent-emerald)">Online · SG Palaya, Bangalore</span></div>
+      </div>
+      <button id="close-chat" style="background:none;border:none;color:#94a3b8;cursor:pointer;font-size:1.1rem"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="msg msg-bot">Hi! Welcome to DecillionX Bangalore. Founded & led by CEO Santhana Stephen Raj. How can I assist your software or AI project today? 👋</div>
+    </div>
+    <div class="chat-quick-chips" id="chat-quick-chips">
+      <button class="chat-chip" data-ask="services">⚡ Our Services</button>
+      <button class="chat-chip" data-ask="estimator">💰 Cost Estimator</button>
+      <button class="chat-chip" data-ask="location">📍 Bangalore HQ</button>
+      <button class="chat-chip" data-ask="ceo">👔 CEO Info</button>
+      <button class="chat-chip" data-ask="contact">✉️ Email CEO</button>
+    </div>
+    <div class="chat-input-area">
+      <input class="chat-input" id="chat-input" placeholder="Type or click prompt above...">
+      <button class="chat-send-btn" id="chat-send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <button class="chatbot-toggle" id="chatbot-toggle"><i class="fas fa-robot"></i></button>
+</div>
+
+<!-- PORTAL LOGIN MODAL -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="login-modal-close">&times;</button>
+    <div class="tagline-badge"><i class="fas fa-lock"></i> Secure Portal Access</div>
+    <h2 style="font-size:1.7rem;margin-bottom:0.25rem">DecillionX <span class="gradient-text">Portal Login</span></h2>
+    <p style="color:#94a3b8;font-size:0.85rem;margin-bottom:1.5rem">DecillionX Portals · santhanastephen22@gmail.com</p>
+    <form id="portal-login-form" style="display:flex;flex-direction:column;gap:1.15rem">
+      <div class="form-group">
+        <label>Portal Type</label>
+        <select class="select-custom" id="login-role">
+          <option value="employee">Employee Portal (Attendance, Skills, Timesheet, Leave)</option>
+          <option value="admin">Admin / Executive Management Hub</option>
+          <option value="client">Client Portal (Projects, Invoices, Support)</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Email Address</label><input class="input-custom" type="email" id="login-email" placeholder="your.email@company.com" required></div>
+      <div class="form-group"><label>Password</label><input class="input-custom" type="password" id="login-pass" placeholder="Enter your password" required></div>
+      <p id="login-error" style="color:var(--accent-rose);font-size:0.85rem;min-height:1.2em"></p>
+      <button type="submit" class="btn btn-primary"><i class="fas fa-right-to-bracket"></i> Login to Portal</button>
+    </form>
+    <div style="border-top:1px solid var(--border-glass);margin-top:1.5rem;padding-top:1.25rem">
+      <p style="font-size:0.8rem;color:#94a3b8;text-align:center;margin-bottom:0.75rem">⚡ Quick Demo Access:</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem">
+        <button class="btn btn-xs btn-outline" id="demo-emp"><i class="fas fa-user-code"></i> Employee</button>
+        <button class="btn btn-xs btn-primary" id="demo-admin"><i class="fas fa-user-shield"></i> Admin</button>
+        <button class="btn btn-xs btn-amber" id="demo-client" style="background:linear-gradient(135deg,var(--accent-amber),#e67e22);color:#000;border:none"><i class="fas fa-building"></i> Client</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CREATE PROJECT MODAL (ADMIN) -->
+<div class="modal-overlay" id="create-prj-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="create-prj-modal-close">&times;</button>
+    <div class="tagline-badge"><i class="fas fa-folder-plus"></i> New Client Engagement</div>
+    <h2 style="font-size:1.65rem;margin-bottom:1.25rem">Create <span class="gradient-text">New Project</span></h2>
+    <form id="admin-create-prj-form" style="display:flex;flex-direction:column;gap:1.15rem">
+      <div class="form-group"><label>Project Title</label><input class="input-custom" id="new-prj-title" placeholder="e.g. AI Inventory Management System" required></div>
+      <div class="form-group"><label>Client Name</label><input class="input-custom" id="new-prj-client" placeholder="e.g. Mahesh Industries Pvt Ltd" required></div>
+      <div class="form-group"><label>Project Budget</label><input class="input-custom" id="new-prj-budget" placeholder="e.g. $100,000" required></div>
+      <div class="form-group"><label>Project Deadline</label><input class="input-custom" type="date" id="new-prj-deadline" required></div>
+      <div class="form-group"><label>Assign Lead Engineer</label><select class="select-custom" id="new-prj-lead-select"></select></div>
+      <div class="form-group"><label>Project Description</label><textarea class="textarea-custom" id="new-prj-desc" placeholder="Brief overview of what we are building..." required style="min-height:80px"></textarea></div>
+      <button type="submit" class="btn btn-primary"><i class="fas fa-rocket"></i> Create & Launch Project</button>
+    </form>
+  </div>
+</div>
+
+<!-- CORPORATE PROPOSAL REQUEST MODAL -->
+<div class="modal-overlay" id="quote-modal">
+  <div class="modal-box" style="max-width:680px; padding:2.25rem;">
+    <button class="modal-close" id="modal-close-btn">&times;</button>
+    <div style="text-align:center; margin-bottom:1.25rem;">
+      <div class="tagline-badge" style="display:inline-block"><i class="fas fa-file-contract"></i> Executive Proposal Request</div>
+      <h2 style="font-size:1.8rem; margin-top:0.35rem; margin-bottom:0.25rem">Request a <span class="gradient-text">Custom Corporate Proposal</span></h2>
+      <p style="color:#94a3b8; font-size:0.85rem;">Dispatches a comprehensive proposal model directly to CEO Santhana Stephen Raj (<span style="color:var(--primary-cyan)">santhanastephen22@gmail.com</span>).</p>
+    </div>
+
+    <form id="modal-quote-form" style="display:flex; flex-direction:column; gap:1.15rem">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem">
+        <div class="form-group">
+          <label style="font-size:0.8rem; font-weight:600; color:#e2e8f0; margin-bottom:4px; display:block">Client Full Name *</label>
+          <input class="input-custom" id="prop-name" placeholder="e.g. Santhana Stephen Raj" required>
+        </div>
+        <div class="form-group">
+          <label style="font-size:0.8rem; font-weight:600; color:#e2e8f0; margin-bottom:4px; display:block">Corporate / Business Name *</label>
+          <input class="input-custom" id="prop-company" placeholder="e.g. DecillionX Tech Solutions" required>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem">
+        <div class="form-group">
+          <label style="font-size:0.8rem; font-weight:600; color:#e2e8f0; margin-bottom:4px; display:block">Business Email Address *</label>
+          <input class="input-custom" type="email" id="prop-email" placeholder="e.g. client@company.com" required>
+        </div>
+        <div class="form-group">
+          <label style="font-size:0.8rem; font-weight:600; color:#e2e8f0; margin-bottom:4px; display:block">Contact Mobile Phone *</label>
+          <input class="input-custom" id="prop-phone" placeholder="e.g. +91-9342888529" required>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem">
+        <div class="form-group">
+          <label style="font-size:0.8rem; font-weight:600; color:#e2e8f0; margin-bottom:4px; display:block">Target Industry Sector *</label>
+          <select class="select-custom" id="prop-industry" required>
+            <option value="Healthcare & MedTech">Healthcare & MedTech</option>
+            <option value="Finance, Banking & FinTech">Finance, Banking & FinTech</option>
+            <option value="Retail & Smart Commerce">Retail & Smart Commerce</option>
+            <option value="E-Commerce & Logistics">E-Commerce & Logistics</option>
+            <option value="Education & EdTech">Education & EdTech</option>
+            <option value="Smart Manufacturing 4.0">Smart Manufacturing 4.0</option>
+            <option value="Logistics & Supply Chain">Logistics & Supply Chain</option>
+            <option value="Real Estate & PropTech">Real Estate & PropTech</option>
+            <option value="Travel & Hospitality Tech">Travel & Hospitality Tech</option>
+            <option value="Multi-Tenant SaaS Products">Multi-Tenant SaaS Products</option>
+            <option value="High-Growth Tech Startup" selected>High-Growth Tech Startup</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label style="font-size:0.8rem; font-weight:600; color:#e2e8f0; margin-bottom:4px; display:block">Engineering Service Required *</label>
+          <select class="select-custom" id="prop-service" required>
+            <option value="Custom Enterprise Software & ERP" selected>Custom Enterprise Software & ERP</option>
+            <option value="AI & Machine Learning Development">AI & Machine Learning Development</option>
+            <option value="Generative AI & LLM Agents">Generative AI & LLM Agents</option>
+            <option value="Web Application Development">Web Application Development</option>
+            <option value="Mobile App Development (iOS/Android)">Mobile App Development (iOS/Android)</option>
+            <option value="Cloud Architecture & Multi-Cloud DevOps">Cloud Architecture & Multi-Cloud DevOps</option>
+            <option value="Cybersecurity & VAPT Audits">Cybersecurity & VAPT Audits</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem">
+        <div class="form-group">
+          <label style="font-size:0.8rem; font-weight:600; color:#e2e8f0; margin-bottom:4px; display:block">Estimated Budget Range *</label>
+          <select class="select-custom" id="prop-budget" required>
+            <option value="$10,000 - $25,000 USD">$10,000 – $25,000 USD</option>
+            <option value="$25,000 - $50,000 USD" selected>$25,000 – $50,000 USD</option>
+            <option value="$50,000 - $100,000 USD">$50,000 – $100,000 USD</option>
+            <option value="$100,000+ Enterprise Tier">$100,000+ Enterprise Tier</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label style="font-size:0.8rem; font-weight:600; color:#e2e8f0; margin-bottom:4px; display:block">Target Start & Kickoff Timeline *</label>
+          <input class="input-custom" id="prop-timeline" placeholder="e.g. Immediate / Within 2 Weeks" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label style="font-size:0.8rem; font-weight:600; color:#e2e8f0; margin-bottom:4px; display:block">Scope of Deliverables & Tech Architecture Requirements *</label>
+        <textarea class="textarea-custom" id="prop-deliverables" rows="2" placeholder="List your key module deliverables, tech stack preferences, and system components..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label style="font-size:0.8rem; font-weight:600; color:#e2e8f0; margin-bottom:4px; display:block">Business Objectives & Functional Specifications *</label>
+        <textarea class="textarea-custom" id="prop-objectives" rows="2" placeholder="Describe core business goals, target metrics, operational bottlenecks, or integration requirements..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="padding:0.9rem; font-weight:bold; font-size:0.95rem; margin-top:0.25rem;"><i class="fas fa-paper-plane"></i> Submit Proposal Request & Alert CEO Email</button>
+      <div id="prop-status-msg" style="display:none; padding:0.85rem; border-radius:10px; text-align:center; font-weight:600; font-size:0.88rem;"></div>
+    </form>
+  </div>
+</div>
+
+<script src="js/particle-canvas.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Set live date in attendance tab
+  document.addEventListener('DOMContentLoaded', () => {
+    const el = document.getElementById('att-date-display');
+    const adminDate = document.getElementById('admin-att-date');
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+    if (el) el.textContent = dateStr;
+    if (adminDate) adminDate.textContent = now.toISOString().split('T')[0];
+  });
+</script>
+</body>
+</html>
