@@ -33,6 +33,7 @@ let currentUserId = null;
 document.addEventListener('DOMContentLoaded', async () => {
   await initDatabase();
   initNavbar();
+  initMobileNav();
   initAISandbox();
   initTechFilter();
   initCostEstimator();
@@ -430,6 +431,40 @@ function initAIChatbot() {
            `• Ask <strong>"Pricing"</strong> for USD cost estimates<br>` +
            `• Ask <strong>"Company Structure"</strong> for org hierarchy`;
   }
+}
+
+/* ---- MOBILE NAVIGATION DRAWER ---- */
+function initMobileNav() {
+  const toggles = document.querySelectorAll('.mobile-nav-toggle');
+  const drawer = document.getElementById('mobile-nav-drawer');
+  const overlay = document.getElementById('mobile-drawer-overlay');
+  const closeBtn = document.getElementById('mobile-drawer-close');
+
+  if (!drawer) return;
+
+  function openDrawer() {
+    drawer.classList.add('active');
+    if (overlay) overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  toggles.forEach(t => t.addEventListener('click', (e) => {
+    e.preventDefault();
+    openDrawer();
+  }));
+
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (overlay) overlay.addEventListener('click', closeDrawer);
+
+  drawer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => closeDrawer());
+  });
 }
 
 /* ---- MODALS ---- */
