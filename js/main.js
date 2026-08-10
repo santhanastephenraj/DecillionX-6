@@ -1,7 +1,7 @@
 /* ====================================================
    DECILLIONX — Main Application Script
    Company: DecillionX, SG Palaya, Bangalore 560029
-   CEO: Santhana Stephen Raj (santhanastephen22@gmail.com)
+   CEO: Santhana Stephen Raj (stephen@decillionx.com)
    ==================================================== */
 
 let globalDB = { employees: [], projects: [], clients: [], attendance: [], leaves: [], timesheets: [], invoices: [], tickets: [], contact_inquiries: [] };
@@ -276,7 +276,7 @@ function initAIChatbot() {
              `• <strong>Founder & CEO:</strong> Mr. Santhana Stephen Raj<br>` +
              `• <strong>Core Focus:</strong> Custom Software (ERP, CRM, HRMS), AI & LLM Systems (RAG, PyTorch, LangChain), and Web & Mobile Apps.<br>` +
              `• <strong>Global Currency:</strong> Engagement costs in $ USD.<br>` +
-             `• <strong>Official Email:</strong> santhanastephen22@gmail.com`;
+             `• <strong>Official Email:</strong> stephen@decillionx.com`;
     }
 
     // 2. Company Structure / Hierarchy / Divisions / Org Chart
@@ -303,7 +303,7 @@ function initAIChatbot() {
              `• <strong>Name:</strong> Santhana Stephen Raj<br>` +
              `• <strong>Title:</strong> Founder & Chief Executive Officer<br>` +
              `• <strong>Bangalore HQ:</strong> SG Palaya, Bangalore - 560029, Karnataka, India<br>` +
-             `• <strong>Direct Email:</strong> santhanastephen22@gmail.com<br>` +
+             `• <strong>Direct Email:</strong> stephen@decillionx.com<br>` +
              `• <strong>Direct Phone:</strong> +91-9342888529`;
     }
 
@@ -314,15 +314,15 @@ function initAIChatbot() {
              `SG Palaya, Bangalore - 560029<br>` +
              `Karnataka, India.<br><br>` +
              `⏰ <strong>Hours:</strong> Monday – Saturday, 9:00 AM – 7:00 PM IST<br>` +
-             `📧 <strong>Email:</strong> santhanastephen22@gmail.com`;
+             `📧 <strong>Email:</strong> stephen@decillionx.com`;
     }
 
     // 6. Contact & Direct Email Delivery
     if (q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('mobile') || q.includes('reach') || q.includes('call') || q.includes('inquiry') || q.includes('message') || q.includes('jio')) {
       return `<strong>✉️ Direct Contact Options:</strong><br>` +
-             `• <strong>CEO Email:</strong> santhanastephen22@gmail.com<br>` +
+             `• <strong>CEO Email:</strong> stephen@decillionx.com<br>` +
              `• <strong>CEO Phone:</strong> +91-9342888529<br>` +
-             `• <strong>Live Form:</strong> Submit the <em>"Send Us a Message"</em> form below—email is sent live to santhanastephen22@gmail.com and logged in SQLite!`;
+             `• <strong>Live Form:</strong> Submit the <em>"Send Us a Message"</em> form below—email is sent live to stephen@decillionx.com and logged in SQLite!`;
     }
 
     // 7. End-to-End Development Services
@@ -415,7 +415,7 @@ function initAIChatbot() {
       return `<strong>🚀 How to Start Your Project:</strong><br>` +
              `1) Fill out <strong>"Send Us a Message"</strong> below—email is sent live to CEO Santhana Stephen Raj.<br>` +
              `2) Click <strong>"Get Quote"</strong> in the header for a proposal.<br>` +
-             `3) Email CEO directly at <strong>santhanastephen22@gmail.com</strong>.<br>` +
+             `3) Email CEO directly at <strong>stephen@decillionx.com</strong>.<br>` +
              `We schedule a strategy call within 24 hours!`;
     }
 
@@ -472,7 +472,7 @@ function initModals() {
             <div style="font-size:3.5rem; color:var(--accent-emerald); margin-bottom:1rem"><i class="fas fa-check-circle"></i></div>
             <h2 style="margin-bottom:0.5rem; color:#fff">Corporate Proposal Request Submitted!</h2>
             <p style="color:#cbd5e1; font-size:0.92rem; max-width:540px; margin:0.5rem auto 1.5rem auto; line-height:1.6">
-              A comprehensive proposal model alert has been dispatched directly to CEO Santhana Stephen Raj (<span style="color:var(--primary-cyan)">santhanastephen22@gmail.com</span>) and stored in the DecillionX CRM Database.
+              A comprehensive proposal model alert has been dispatched directly to CEO Santhana Stephen Raj (<span style="color:var(--primary-cyan)">stephen@decillionx.com</span>) and stored in the DecillionX CRM Database.
             </p>
             <button class="btn btn-primary" onclick="document.getElementById('quote-modal').classList.remove('active')"><i class="fas fa-xmark"></i> Close Window</button>
           </div>
@@ -523,7 +523,7 @@ function initContactForm() {
       serviceNeeded,
       messageText,
       date: new Date().toLocaleDateString('en-IN'),
-      deliveredTo: 'santhanastephen22@gmail.com',
+      deliveredTo: 'stephen@decillionx.com',
       status: 'Delivered'
     };
 
@@ -531,9 +531,9 @@ function initContactForm() {
     currentInquiries.unshift(inquiry);
     await saveDB('contact_inquiries', currentInquiries);
 
-    // 2. Real Email Dispatch to santhanastephen22@gmail.com via FormSubmit API
+    // 2. Real Email Dispatch to stephen@decillionx.com via FormSubmit API
     try {
-      await fetch('https://formsubmit.co/ajax/santhanastephen22@gmail.com', {
+      await fetch('https://formsubmit.co/ajax/stephen@decillionx.com', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -548,7 +548,7 @@ function initContactForm() {
           CompanyName: company,
           ServiceRequested: serviceNeeded,
           Message: messageText,
-          DeliveredTo: 'santhanastephen22@gmail.com'
+          DeliveredTo: 'stephen@decillionx.com'
         })
       });
     } catch(err) {
@@ -559,7 +559,7 @@ function initContactForm() {
     btn.style.background = 'var(--accent-emerald)';
     btn.style.color = '#000';
 
-    showToast(`✅ Email sent to santhanastephen22@gmail.com & saved in CEO Admin Hub!`, 'success');
+    showToast(`✅ Email sent to stephen@decillionx.com & saved in CEO Admin Hub!`, 'success');
     form.reset();
 
     setTimeout(() => {

@@ -19,13 +19,13 @@ function sendCEONotification(subject, details) {
       _subject: `[DecillionX Enterprise Alert] ${subject}`,
       _template: 'table',
       _captcha: 'false',
-      DeliveredTo: 'santhanastephen22@gmail.com',
+      DeliveredTo: 'stephen@decillionx.com',
       ...details
     });
 
     const req = https.request({
       hostname: 'formsubmit.co',
-      path: '/ajax/santhanastephen22@gmail.com',
+      path: '/ajax/stephen@decillionx.com',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ function seedInitialData() {
         id: 'EMP-001',
         name: 'Santhana Stephen Raj',
         role: 'Founder & Chief Executive Officer',
-        email: 'santhanastephen22@gmail.com',
+        email: 'stephen@decillionx.com',
         phone: '+91-9342888529',
         avatar: 'SS',
         dept: 'Executive Management',
@@ -153,7 +153,7 @@ function seedInitialData() {
     audit_logs: [
       {
         id: 'LOG-001',
-        user: 'santhanastephen22@gmail.com',
+        user: 'stephen@decillionx.com',
         role: 'Founder & CEO',
         action: 'System Security Initialization & Enterprise RBAC Audit Active',
         timestamp: new Date().toISOString(),
@@ -323,7 +323,7 @@ app.post('/api/auth/login', (req, res) => {
       });
 
       if (employee) {
-        const isCEO = employee.email.toLowerCase() === 'santhanastephen22@gmail.com' || employee.id === 'EMP-001' || employee.name.includes('Santhana Stephen Raj');
+        const isCEO = employee.email.toLowerCase() === 'stephen@decillionx.com' || employee.id === 'EMP-001' || employee.name.includes('Santhana Stephen Raj');
 
         if (portalType === 'admin' && !isCEO) {
           return res.status(403).json({
@@ -365,7 +365,7 @@ app.post('/api/auth/register', (req, res) => {
   const generatedId = (accountType === 'client' ? 'CLT-' : 'EMP-') + Date.now();
   const directApprovalLink = `http://localhost:3000/api/admin/quick-approve?id=${generatedId}&type=${accountType}`;
 
-  // DISPATCH BACKEND MAIL NOTIFICATION TO CEO (santhanastephen22@gmail.com) WITH 1-CLICK APPROVAL LINK
+  // DISPATCH BACKEND MAIL NOTIFICATION TO CEO (stephen@decillionx.com) WITH 1-CLICK APPROVAL LINK
   sendCEONotification(`🔐 CEO Approval Needed: New ${accountType.toUpperCase()} Account - ${fullName}`, {
     AccountType: accountType.toUpperCase(),
     ApplicantName: fullName,
@@ -583,7 +583,7 @@ app.post('/api/careers/apply', (req, res) => {
     appliedDate: new Date().toLocaleDateString('en-IN')
   };
 
-  // DISPATCH REAL EMAIL NOTIFICATION TO CEO (santhanastephen22@gmail.com) WITH CANDIDATE PROFILE & RESUME
+  // DISPATCH REAL EMAIL NOTIFICATION TO CEO (stephen@decillionx.com) WITH CANDIDATE PROFILE & RESUME
   sendCEONotification(`📄 New Job Candidate Resume Submitted: ${fullName} (${primarySkill})`, {
     ApplicantName: fullName,
     ApplicantEmail: email,
@@ -654,7 +654,7 @@ app.post('/api/proposals/request', (req, res) => {
     submittedDate: new Date().toLocaleDateString('en-IN')
   };
 
-  // DISPATCH REAL EMAIL NOTIFICATION TO CEO (santhanastephen22@gmail.com) WITH FULL PROPOSAL MODEL DETAILS
+  // DISPATCH REAL EMAIL NOTIFICATION TO CEO (stephen@decillionx.com) WITH FULL PROPOSAL MODEL DETAILS
   sendCEONotification(`📑 CUSTOM PROPOSAL REQUEST: ${companyName} (${serviceRequired})`, {
     ClientName: fullName,
     CompanyName: companyName,

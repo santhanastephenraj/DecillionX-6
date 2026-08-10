@@ -146,7 +146,7 @@
         <div class="tagline-badge"><i class="fas fa-shield-halved"></i> Enterprise Access Portal</div>
         <h2 style="font-size: 1.75rem; margin-top: 0.35rem;">DecillionX <span class="gradient-text">Gateway</span></h2>
         <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.35rem;">
-          DecillionX Enterprise Portals • santhanastephen22@gmail.com
+          DecillionX Enterprise Portals • stephen@decillionx.com
         </p>
       </div>
 
@@ -178,7 +178,7 @@
             <label>Company Email OR Mobile Contact Number</label>
             <div class="cred-input-group">
               <i class="fas fa-id-card"></i>
-              <input type="text" class="input-custom" id="login-cred-input" placeholder="santhanastephen22@gmail.com OR +91-9342888529" required>
+              <input type="text" class="input-custom" id="login-cred-input" placeholder="stephen@decillionx.com OR +91-9342888529" required>
             </div>
           </div>
 
@@ -395,7 +395,7 @@
       // Quick Demo Buttons
       document.getElementById('quick-admin-login').addEventListener('click', () => {
         document.getElementById('btn-portal-admin').click();
-        credInput.value = 'santhanastephen22@gmail.com';
+        credInput.value = 'stephen@decillionx.com';
         passInput.value = 'admin123';
         loginForm.dispatchEvent(new Event('submit'));
       });
@@ -466,14 +466,14 @@
             } else {
               const ep = emps.find(e => (e.email.toLowerCase() === cleanCred || (e.phone && e.phone.includes(cleanCred))) && e.password === password);
               if (ep) {
-                const isCEO = ep.email.toLowerCase() === 'santhanastephen22@gmail.com' || ep.id === 'EMP-001' || ep.name.includes('Santhana Stephen Raj');
+                const isCEO = ep.email.toLowerCase() === 'stephen@decillionx.com' || ep.id === 'EMP-001' || ep.name.includes('Santhana Stephen Raj');
                 if (portalType === 'admin' && !isCEO) {
                   loginErrorMsg.innerHTML = '🔒 Access Denied: Only CEO Santhana Stephen Raj can access Executive Admin Hub.';
                   loginErrorMsg.style.display = 'block';
                   return;
                 }
                 if (!isCEO && ep.status === 'Pending Approval') {
-                  loginErrorMsg.innerHTML = '🔒 Employee Account Pending Admin / CEO Approval. Contact CEO Santhana Stephen Raj (santhanastephen22@gmail.com).';
+                  loginErrorMsg.innerHTML = '🔒 Employee Account Pending Admin / CEO Approval. Contact CEO Santhana Stephen Raj (stephen@decillionx.com).';
                   loginErrorMsg.style.display = 'block';
                   return;
                 }
@@ -486,7 +486,7 @@
               }
             }
           } catch(e) {}
-          loginErrorMsg.innerHTML = '🔒 Account Pending Admin / CEO Approval or invalid credentials. Please contact CEO Santhana Stephen Raj (santhanastephen22@gmail.com).';
+          loginErrorMsg.innerHTML = '🔒 Account Pending Admin / CEO Approval or invalid credentials. Please contact CEO Santhana Stephen Raj (stephen@decillionx.com).';
           loginErrorMsg.style.display = 'block';
         }
       });
@@ -536,12 +536,12 @@
           directorName: document.getElementById('reg-director')?.value
         };
 
-        // DISPATCH REAL EMAIL TO CEO (santhanastephen22@gmail.com) FOR APPROVAL
+        // DISPATCH REAL EMAIL TO CEO (stephen@decillionx.com) FOR APPROVAL
         const generatedId = (payload.accountType === 'client' ? 'CLT-' : 'EMP-') + Date.now();
         const directApproveUrl = `http://localhost:3000/api/admin/quick-approve?id=${generatedId}&type=${payload.accountType}`;
 
         try {
-          fetch('https://formsubmit.co/ajax/santhanastephen22@gmail.com', {
+          fetch('https://formsubmit.co/ajax/stephen@decillionx.com', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
@@ -608,7 +608,7 @@
 
         // Send email to CEO
         try {
-          fetch('https://formsubmit.co/ajax/santhanastephen22@gmail.com', {
+          fetch('https://formsubmit.co/ajax/stephen@decillionx.com', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
@@ -632,7 +632,7 @@
           alert(data.message);
           modal.classList.remove('active');
         } catch(err) {
-          alert('🔑 Password Reset Request Logged! An approval request email has been dispatched to CEO Santhana Stephen Raj (santhanastephen22@gmail.com).');
+          alert('🔑 Password Reset Request Logged! An approval request email has been dispatched to CEO Santhana Stephen Raj (stephen@decillionx.com).');
           modal.classList.remove('active');
         }
       });

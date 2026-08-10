@@ -102,7 +102,7 @@
             <button class="btn btn-danger" id="btn-clock-out" disabled><i class="fas fa-door-closed"></i> Clock Out</button>
           </div>
           <div class="clock-status-bar" id="att-status-text">⏳ Loading attendance state...</div>
-          <p style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.75rem"><i class="fas fa-envelope-circle-check"></i> Clocking In/Out dispatches live attendance alert to CEO Email (santhanastephen22@gmail.com).</p>
+          <p style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.75rem"><i class="fas fa-envelope-circle-check"></i> Clocking In/Out dispatches live attendance alert to CEO Email (stephen@decillionx.com).</p>
         </div>
 
         <div>
@@ -322,7 +322,7 @@
       }
 
       currentUser = JSON.parse(userRaw);
-      const isCEO = currentUser.email.toLowerCase() === 'santhanastephen22@gmail.com' || currentUser.id === 'EMP-001';
+      const isCEO = currentUser.email.toLowerCase() === 'stephen@decillionx.com' || currentUser.id === 'EMP-001';
 
       if (isCEO && localStorage.getItem('dx_ceo_inspect_mode') !== 'true') {
         localStorage.setItem('dx_auth_role', 'admin');
@@ -459,9 +459,9 @@
       attList.unshift(newRec);
       await saveStoreKey('attendance', attList);
 
-      // DISPATCH LIVE EMAIL TO CEO (santhanastephen22@gmail.com)
+      // DISPATCH LIVE EMAIL TO CEO (stephen@decillionx.com)
       try {
-        await fetch('https://formsubmit.co/ajax/santhanastephen22@gmail.com', {
+        await fetch('https://formsubmit.co/ajax/stephen@decillionx.com', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
@@ -473,12 +473,12 @@
             ClockType: type === 'in' ? 'CLOCK IN' : 'CLOCK OUT',
             Timestamp: `${dateStr} at ${timeStr}`,
             VerifiedLocation: 'SG Palaya, Bangalore 560029',
-            DeliveredTo: 'santhanastephen22@gmail.com'
+            DeliveredTo: 'stephen@decillionx.com'
           })
         });
       } catch(e) { console.log('Attendance mail dispatched'); }
 
-      alert(`✅ Attendance ${type === 'in' ? 'Clocked In' : 'Clocked Out'} successfully!\nReal Email Notification dispatched to CEO Santhana Stephen Raj (santhanastephen22@gmail.com).`);
+      alert(`✅ Attendance ${type === 'in' ? 'Clocked In' : 'Clocked Out'} successfully!\nReal Email Notification dispatched to CEO Santhana Stephen Raj (stephen@decillionx.com).`);
       initAttendanceClock();
     }
 

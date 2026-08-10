@@ -183,7 +183,7 @@
       }
 
       currentClient = JSON.parse(userRaw);
-      const isCEO = (currentClient.email || '').toLowerCase() === 'santhanastephen22@gmail.com' || currentClient.id === 'EMP-001';
+      const isCEO = (currentClient.email || '').toLowerCase() === 'stephen@decillionx.com' || currentClient.id === 'EMP-001';
 
       if (isCEO && localStorage.getItem('dx_ceo_inspect_mode') !== 'true') {
         localStorage.setItem('dx_auth_role', 'admin');

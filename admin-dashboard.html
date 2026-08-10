@@ -44,7 +44,7 @@
           <h2 style="font-size: 1.55rem;">Santhana Stephen Raj</h2>
           <p style="color: var(--primary-cyan); font-size: 0.88rem; font-weight: 700;">Founder & Chief Executive Officer • DecillionX</p>
           <p style="color: var(--text-dim); font-size: 0.78rem; margin-top: 0.25rem;">
-            <i class="fas fa-location-dot" style="color: var(--primary-cyan);"></i> HQ: SG Palaya, Bangalore - 560029 • <i class="fas fa-envelope"></i> santhanastephen22@gmail.com • <i class="fas fa-phone"></i> +91-9342888529
+            <i class="fas fa-location-dot" style="color: var(--primary-cyan);"></i> HQ: SG Palaya, Bangalore - 560029 • <i class="fas fa-envelope"></i> stephen@decillionx.com • <i class="fas fa-phone"></i> +91-9342888529
           </p>
         </div>
       </div>
@@ -492,7 +492,7 @@
       }
 
       const loggedUser = JSON.parse(userRaw);
-      const isCEO = loggedUser.email.toLowerCase() === 'santhanastephen22@gmail.com' || loggedUser.id === 'EMP-001';
+      const isCEO = loggedUser.email.toLowerCase() === 'stephen@decillionx.com' || loggedUser.id === 'EMP-001';
 
       if (!isCEO) {
         // Fix stale local storage and redirect non-CEO users to their correct workspace
@@ -571,7 +571,7 @@
       const totalPendingCEO = pendingEmps.length + pendingClients.length + pendingResets.length;
 
       // KPIs - Only count approved non-CEO engineers and active approved projects
-      const approvedEngineers = emps.filter(e => e.id !== 'EMP-001' && (e.status === 'Approved' || e.email.toLowerCase() !== 'santhanastephen22@gmail.com'));
+      const approvedEngineers = emps.filter(e => e.id !== 'EMP-001' && (e.status === 'Approved' || e.email.toLowerCase() !== 'stephen@decillionx.com'));
       const activeProjects = projs.filter(p => p.status === 'on-track' || p.status === 'in-review' || p.status === 'Approved');
 
       document.getElementById('kpi-projects').textContent = activeProjects.length;
@@ -739,7 +739,7 @@
         });
 
         tbody.innerHTML = filtered.map(e => {
-          const isApproved = e.status === 'Approved' || e.id === 'EMP-001' || e.email.toLowerCase() === 'santhanastephen22@gmail.com';
+          const isApproved = e.status === 'Approved' || e.id === 'EMP-001' || e.email.toLowerCase() === 'stephen@decillionx.com';
           return `
             <tr>
               <td>
