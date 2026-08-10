@@ -82,12 +82,13 @@ h1,h2,h3,h4,h5 { color:#fff; font-weight:700; letter-spacing:-0.02em; }
 .btn-sm { padding:0.6rem 1.25rem; font-size:0.875rem; }
 .btn-xs { padding:0.35rem 0.85rem; font-size:0.78rem; }
 
-/* Header & Navigation Architecture */
-.site-header { position:fixed; top:0; left:0; right:0; z-index:1000; transition:var(--ease); }
+/* Header & Navigation Architecture (Translucent Glassmorphism) */
+.site-header { position:fixed; top:0; left:0; right:0; z-index:1000; transition:var(--ease); background:rgba(6, 8, 20, 0.45); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid rgba(255, 255, 255, 0.08); }
+.site-header.scrolled { background:rgba(6, 8, 20, 0.88); backdrop-filter:blur(28px); -webkit-backdrop-filter:blur(28px); border-bottom:1px solid rgba(0, 242, 254, 0.2); box-shadow:0 10px 30px rgba(0,0,0,0.6); }
 .site-header ~ #main-site, .site-header ~ .container, .site-header ~ body { padding-top:115px; }
 
 /* Top Header Bar */
-.top-bar { background:rgba(3, 5, 16, 0.98); border-bottom:1px solid rgba(255, 255, 255, 0.07); padding:0.45rem 0; font-size:0.8rem; color:#94a3b8; backdrop-filter:blur(16px); }
+.top-bar { background:rgba(255, 255, 255, 0.02); border-bottom:1px solid rgba(255, 255, 255, 0.05); padding:0.4rem 0; font-size:0.8rem; color:#94a3b8; }
 .top-bar-container { display:flex; justify-content:space-between; align-items:center; }
 .top-bar-info { display:flex; align-items:center; gap:1.4rem; }
 .top-bar-info a { color:#94a3b8; text-decoration:none; transition:var(--ease); display:inline-flex; align-items:center; gap:0.45rem; font-weight:500; font-size:0.8rem; }
@@ -98,9 +99,9 @@ h1,h2,h3,h4,h5 { color:#fff; font-weight:700; letter-spacing:-0.02em; }
 .top-bar-login:hover { background:var(--accent-amber); color:#000; box-shadow:0 0 15px rgba(255,184,0,0.4); }
 
 /* Standalone & Portal Navbar Positioning */
-.navbar { position:fixed; top:0; left:0; right:0; z-index:1000; padding:0.85rem 0; background:rgba(6, 8, 18, 0.94); backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px); border-bottom:1px solid var(--border-glass); transition:var(--ease); }
-.site-header .navbar { position:relative; top:auto; left:auto; right:auto; border-bottom:none; }
-.navbar.scrolled { background:rgba(6,8,18,0.98); padding:0.65rem 0; box-shadow:0 10px 30px rgba(0,0,0,0.5); }
+.navbar { position:fixed; top:0; left:0; right:0; z-index:1000; padding:0.85rem 0; background:rgba(6, 8, 20, 0.6); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--border-glass); transition:var(--ease); }
+.site-header .navbar { position:relative; top:auto; left:auto; right:auto; border-bottom:none; background:transparent; backdrop-filter:none; -webkit-backdrop-filter:none; }
+.navbar.scrolled { background:rgba(6,8,20,0.92); padding:0.65rem 0; box-shadow:0 10px 30px rgba(0,0,0,0.5); }
 
 /* Portal Page Containers Padding */
 .login-wrapper { margin-top:85px; }

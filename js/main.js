@@ -45,8 +45,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 /* ---- NAVBAR ---- */
 function initNavbar() {
+  const header = document.querySelector('.site-header');
   const nav = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  window.addEventListener('scroll', () => {
+    const isScrolled = window.scrollY > 40;
+    if (header) header.classList.toggle('scrolled', isScrolled);
+    if (nav) nav.classList.toggle('scrolled', isScrolled);
+  });
 }
 
 function hideAllPortals() {
