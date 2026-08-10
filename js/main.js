@@ -472,7 +472,7 @@ function initModals() {
             <div style="font-size:3.5rem; color:var(--accent-emerald); margin-bottom:1rem"><i class="fas fa-check-circle"></i></div>
             <h2 style="margin-bottom:0.5rem; color:#fff">Corporate Proposal Request Submitted!</h2>
             <p style="color:#cbd5e1; font-size:0.92rem; max-width:540px; margin:0.5rem auto 1.5rem auto; line-height:1.6">
-              A comprehensive proposal model alert has been dispatched directly to CEO Santhana Stephen Raj (<span style="color:var(--primary-cyan)">stephen@decillionx.com</span>) and stored in the DecillionX CRM Database.
+              A comprehensive proposal model alert has been dispatched directly to Sales (<span style="color:var(--primary-cyan)">sales@decillionx.com</span>) with CEO executive oversight (<span style="color:var(--primary-cyan)">stephen@decillionx.com</span>) and stored in the DecillionX CRM Database.
             </p>
             <button class="btn btn-primary" onclick="document.getElementById('quote-modal').classList.remove('active')"><i class="fas fa-xmark"></i> Close Window</button>
           </div>
@@ -480,12 +480,12 @@ function initModals() {
       } else {
         alert(data.message || 'Error submitting proposal request.');
         btn.disabled = false;
-        btn.innerHTML = `<i class="fas fa-paper-plane"></i> Submit Proposal Request & Alert CEO Email`;
+        btn.innerHTML = `<i class="fas fa-paper-plane"></i> Submit Proposal Request & Alert Sales Team`;
       }
     } catch(err) {
       alert('Network error dispatching proposal request.');
       btn.disabled = false;
-      btn.innerHTML = `<i class="fas fa-paper-plane"></i> Submit Proposal Request & Alert CEO Email`;
+      btn.innerHTML = `<i class="fas fa-paper-plane"></i> Submit Proposal Request & Alert Sales Team`;
     }
   });
 }
@@ -510,7 +510,7 @@ function initContactForm() {
 
     const btn = form.querySelector('button[type=submit]');
     const origText = btn.innerHTML;
-    btn.innerHTML = `<i class="fas fa-paper-plane fa-spin"></i> Dispatching Email to CEO...`;
+    btn.innerHTML = `<i class="fas fa-paper-plane fa-spin"></i> Dispatching Email to Info Team...`;
     btn.disabled = true;
 
     // 1. Local Database Persistence
@@ -523,7 +523,7 @@ function initContactForm() {
       serviceNeeded,
       messageText,
       date: new Date().toLocaleDateString('en-IN'),
-      deliveredTo: 'stephen@decillionx.com',
+      deliveredTo: 'info@decillionx.com',
       status: 'Delivered'
     };
 
@@ -531,16 +531,16 @@ function initContactForm() {
     currentInquiries.unshift(inquiry);
     await saveDB('contact_inquiries', currentInquiries);
 
-    // 2. Real Email Dispatch to stephen@decillionx.com via FormSubmit API
+    // 2. Real Email Dispatch to info@decillionx.com via FormSubmit API
     try {
-      await fetch('https://formsubmit.co/ajax/stephen@decillionx.com', {
+      await fetch('https://formsubmit.co/ajax/info@decillionx.com', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: `🚀 New Client Inquiry from ${fullName} (${company || 'DecillionX Website'})`,
+          _subject: `🚀 New General Inquiry from ${fullName} (${company || 'DecillionX Website'})`,
           _captcha: 'false',
           FullName: fullName,
           ClientEmail: email,
@@ -548,18 +548,19 @@ function initContactForm() {
           CompanyName: company,
           ServiceRequested: serviceNeeded,
           Message: messageText,
-          DeliveredTo: 'stephen@decillionx.com'
+          DepartmentInbox: 'info@decillionx.com',
+          CEOExecutiveCC: 'stephen@decillionx.com'
         })
       });
     } catch(err) {
       console.log('FormSubmit API notice:', err);
     }
 
-    btn.innerHTML = `<i class="fas fa-check-circle"></i> Email Dispatched to CEO!`;
+    btn.innerHTML = `<i class="fas fa-check-circle"></i> Email Dispatched to info@decillionx.com!`;
     btn.style.background = 'var(--accent-emerald)';
     btn.style.color = '#000';
 
-    showToast(`✅ Email sent to stephen@decillionx.com & saved in CEO Admin Hub!`, 'success');
+    showToast(`✅ Email sent to info@decillionx.com & saved in CEO Admin Hub!`, 'success');
     form.reset();
 
     setTimeout(() => {

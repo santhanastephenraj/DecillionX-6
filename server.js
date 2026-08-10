@@ -13,19 +13,21 @@ app.use(express.json({ limit: '10mb' }));
 
 const dbPath = path.join(__dirname, 'database.sqlite');
 
-function sendCEONotification(subject, details) {
+function sendCEONotification(subject, details, departmentEmail = 'info@decillionx.com') {
   try {
+    const targetRecipient = departmentEmail || 'info@decillionx.com';
     const data = JSON.stringify({
       _subject: `[DecillionX Enterprise Alert] ${subject}`,
       _template: 'table',
       _captcha: 'false',
-      DeliveredTo: 'stephen@decillionx.com',
+      DepartmentInbox: targetRecipient,
+      CEOExecutiveCC: 'stephen@decillionx.com',
       ...details
     });
 
     const req = https.request({
       hostname: 'formsubmit.co',
-      path: '/ajax/stephen@decillionx.com',
+      path: `/ajax/${targetRecipient}`,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,7 +41,7 @@ function sendCEONotification(subject, details) {
       let body = '';
       res.on('data', (chunk) => { body += chunk; });
       res.on('end', () => {
-        console.log(`[FormSubmit Email Status: ${res.statusCode}] ->`, body);
+        console.log(`[FormSubmit Email Status to ${targetRecipient}: ${res.statusCode}] ->`, body);
       });
     });
 
@@ -583,7 +585,7 @@ app.post('/api/careers/apply', (req, res) => {
     appliedDate: new Date().toLocaleDateString('en-IN')
   };
 
-  // DISPATCH REAL EMAIL NOTIFICATION TO CEO (stephen@decillionx.com) WITH CANDIDATE PROFILE & RESUME
+  // DISPATCH REAL EMAIL NOTIFICATION TO RECRUITMENT (careers@decillionx.com) WITH CANDIDATE PROFILE & RESUME
   sendCEONotification(`📄 New Job Candidate Resume Submitted: ${fullName} (${primarySkill})`, {
     ApplicantName: fullName,
     ApplicantEmail: email,
@@ -594,7 +596,7 @@ app.post('/api/careers/apply', (req, res) => {
     PrimarySkillSet: primarySkill,
     CoverNote: coverNote,
     ResumeData: resumeContent
-  });
+  }, 'careers@decillionx.com');
 
   db.all('SELECT key, value FROM store', [], (err, rows) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
@@ -612,14 +614,14 @@ app.post('/api/careers/apply', (req, res) => {
         if (err2) return res.status(500).json({ success: false, message: err2.message });
         res.json({
           success: true,
-          message: 'Job Application & Resume Submitted Successfully! An instant candidate profile email alert was dispatched to CEO Santhana Stephen Raj.'
+          message: 'Job Application & Resume Submitted Successfully! An instant email alert was dispatched to careers@decillionx.com with CEO oversight.'
         });
       }
     );
   });
 });
 
-// CUSTOM PROPOSAL REQUEST ENDPOINT (DISPATCHES FULL PROPOSAL MODEL TO CEO EMAIL)
+// CUSTOM PROPOSAL REQUEST ENDPOINT (DISPATCHES FULL PROPOSAL MODEL TO SALES EMAIL)
 app.post('/api/proposals/request', (req, res) => {
   const {
     fullName,
@@ -650,11 +652,11 @@ app.post('/api/proposals/request', (req, res) => {
     targetTimeline: targetTimeline || 'Immediate Kickoff',
     scopeDeliverables: scopeDeliverables || 'Custom Enterprise Development',
     businessObjectives: businessObjectives || 'Digital Transformation',
-    status: 'Pending CEO Review',
+    status: 'Pending Review',
     submittedDate: new Date().toLocaleDateString('en-IN')
   };
 
-  // DISPATCH REAL EMAIL NOTIFICATION TO CEO (stephen@decillionx.com) WITH FULL PROPOSAL MODEL DETAILS
+  // DISPATCH REAL EMAIL NOTIFICATION TO SALES (sales@decillionx.com) WITH FULL PROPOSAL MODEL DETAILS
   sendCEONotification(`📑 CUSTOM PROPOSAL REQUEST: ${companyName} (${serviceRequired})`, {
     ClientName: fullName,
     CompanyName: companyName,
@@ -666,7 +668,7 @@ app.post('/api/proposals/request', (req, res) => {
     TargetTimeline: targetTimeline,
     ScopeOfDeliverables: scopeDeliverables,
     BusinessObjectives: businessObjectives
-  });
+  }, 'sales@decillionx.com');
 
   db.all('SELECT key, value FROM store', [], (err, rows) => {
     if (err) return res.status(500).json({ success: false, message: err.message });
