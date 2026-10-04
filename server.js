@@ -736,6 +736,21 @@ const server = app.listen(PORT, () => {
   console.log(`DecillionX Enterprise Server running on http://localhost:${PORT}`);
 });
 
+// MULTI-PORT BINDING (Port 80 & 8080 for Direct Domain Resolution)
+try {
+  const http80 = app.listen(80, () => {
+    console.log('DecillionX Server listening on HTTP Port 80 (decillionx.com direct)');
+  });
+  http80.on('error', (e) => console.log('Port 80 binding notice:', e.message));
+} catch(e) {}
+
+try {
+  const http8080 = app.listen(8080, () => {
+    console.log('DecillionX Server listening on HTTP Port 8080');
+  });
+  http8080.on('error', (e) => console.log('Port 8080 binding notice:', e.message));
+} catch(e) {}
+
 // KEEPALIVE & HEADERS TIMEOUT FOR PROXY STABILITY (APISIX / OPENRESTY)
 server.keepAliveTimeout = 65000;
 server.headersTimeout = 66000;
