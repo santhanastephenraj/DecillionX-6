@@ -1,3 +1,11 @@
+// PROCESS CRASH PREVENTION GUARDS
+process.on('uncaughtException', (err) => {
+  console.error('[CRASH GUARD] Uncaught Exception trapped:', err.message, err.stack);
+});
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('[CRASH GUARD] Unhandled Rejection trapped:', reason);
+});
+
 const express = require('express');
 const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
@@ -6,10 +14,16 @@ const fs = require('fs');
 const https = require('https');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// HEALTH CHECK ENDPOINT FOR PROXY WATCHDOG
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'HEALTHY', timestamp: new Date().toISOString(), uptime: process.uptime() });
+});
 
 const dbPath = path.join(__dirname, 'database.sqlite');
 
@@ -712,6 +726,24 @@ app.post('/api/proposals/request', (req, res) => {
 // STATIC FILE MIDDLEWARE AT THE END
 app.use(express.static(path.join(__dirname)));
 
-app.listen(PORT, () => {
+// GLOBAL EXPRESS ERROR HANDLER
+app.use((err, req, res, next) => {
+  console.error('[EXPRESS ERROR HANDLER]', err);
+  res.status(500).json({ success: false, error: 'Internal Server Error', message: err.message });
+});
+
+const server = app.listen(PORT, () => {
   console.log(`DecillionX Enterprise Server running on http://localhost:${PORT}`);
+});
+
+// KEEPALIVE & HEADERS TIMEOUT FOR PROXY STABILITY (APISIX / OPENRESTY)
+server.keepAliveTimeout = 65000;
+server.headersTimeout = 66000;
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`[PORT IN USE] Port ${PORT} is currently in use. Server will retry in 1s...`);
+  } else {
+    console.error('[SERVER ERROR]', err);
+  }
 });
