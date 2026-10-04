@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+  command = "echo 'DecillionX Netlify Build Complete'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
