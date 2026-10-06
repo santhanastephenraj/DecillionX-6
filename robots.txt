@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Allow: /about.html
+Allow: /services.html
+Allow: /industries.html
+Allow: /careers.html
+Allow: /blog.html
+Allow: /privacy.html
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# Prevent crawling of private portals and API routes
+Disallow: /api/
+Disallow: /admin-dashboard.html
+Disallow: /client-dashboard.html
+Disallow: /employee-dashboard.html
+Disallow: /login.html
+
+Sitemap: https://decillionx.com/sitemap.xml
