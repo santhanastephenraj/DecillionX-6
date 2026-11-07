@@ -12,7 +12,7 @@
 ## 📌 Executive Overview
 
 - **Founder & CEO:** Santhana Stephen Raj (`stephen@decillionx.com` | `+91-9342888529`)
-- **Global HQ:** SG Palaya, Bangalore – 560029, Karnataka, India
+- **Offices:** Plano, TX, United States & SG Palaya, Bangalore – 560029, Karnataka, India (HQ)
 - **Core Specialization:** Custom Enterprise Software, Generative AI & LLM Agents, Multi-Tenant Cloud Architecture, Zero-Trust Cybersecurity VAPT.
 
 ---

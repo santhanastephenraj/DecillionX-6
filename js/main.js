@@ -266,7 +266,7 @@ function initAIChatbot() {
       const ask = chip.dataset.ask;
       if (ask === 'services') handleUserQuery('What services do you offer?');
       else if (ask === 'estimator') handleUserQuery('How much does a project cost?');
-      else if (ask === 'location') handleUserQuery('Where is your Bangalore office located?');
+      else if (ask === 'location') handleUserQuery('Where are your offices located?');
       else if (ask === 'ceo') handleUserQuery('Who is the Founder & CEO of DecillionX?');
       else if (ask === 'contact') handleUserQuery('How do I contact CEO Santhana Stephen Raj?');
     });
@@ -278,7 +278,7 @@ function initAIChatbot() {
     // 1. Company Overview & About DecillionX
     if (q.includes('decillionx') || q.includes('about company') || q.includes('about decillionx') || q.includes('company profile') || q.includes('what is decillionx') || q.includes('tell me about') || q.includes('who are you') || q.includes('overview') || q.includes('company details')) {
       return `<strong>🏢 DecillionX Company Overview:</strong><br>` +
-             `DecillionX is a premier IT Software & Artificial Intelligence Development company based in <strong>SG Palaya, Bangalore - 560029, India</strong>.<br><br>` +
+             `DecillionX is a premier IT Software & Artificial Intelligence Development company with offices in <strong>Plano, TX, USA</strong> and <strong>SG Palaya, Bangalore, India</strong>.<br><br>` +
              `• <strong>Founder & CEO:</strong> Mr. Santhana Stephen Raj<br>` +
              `• <strong>Core Focus:</strong> Custom Software (ERP, CRM, HRMS), AI & LLM Systems (RAG, PyTorch, LangChain), and Web & Mobile Apps.<br>` +
              `• <strong>Global Currency:</strong> Engagement costs in $ USD.<br>` +
@@ -308,19 +308,21 @@ function initAIChatbot() {
       return `<strong>👔 Founder & CEO Details:</strong><br>` +
              `• <strong>Name:</strong> Santhana Stephen Raj<br>` +
              `• <strong>Title:</strong> Founder & Chief Executive Officer<br>` +
-             `• <strong>Bangalore HQ:</strong> SG Palaya, Bangalore - 560029, Karnataka, India<br>` +
+             `• <strong>Offices:</strong> Plano, TX (USA) & SG Palaya, Bangalore - 560029 (India HQ)<br>` +
              `• <strong>Direct Email:</strong> stephen@decillionx.com<br>` +
              `• <strong>Direct Phone:</strong> +91-9342888529`;
     }
 
-    // 5. Office Location & Bangalore Address
-    if (q.includes('location') || q.includes('address') || q.includes('where') || q.includes('office') || q.includes('bangalore') || q.includes('sg palaya') || q.includes('pincode') || q.includes('560029') || q.includes('city') || q.includes('hq')) {
-      return `<strong>📍 Corporate Headquarters:</strong><br>` +
-             `DecillionX Enterprise Systems<br>` +
+    // 5. Office Location & Address
+    if (q.includes('location') || q.includes('address') || q.includes('where') || q.includes('office') || q.includes('plano') || q.includes('texas') || q.includes('usa') || q.includes('bangalore') || q.includes('sg palaya') || q.includes('pincode') || q.includes('560029') || q.includes('city') || q.includes('hq')) {
+      return `<strong>📍 DecillionX Office Locations:</strong><br><br>` +
+             `<strong>🇺🇸 United States Office:</strong><br>` +
+             `Plano, TX, USA<br><br>` +
+             `<strong>🇮🇳 India Office (Global HQ):</strong><br>` +
              `SG Palaya, Bangalore - 560029<br>` +
              `Karnataka, India.<br><br>` +
              `⏰ <strong>Hours:</strong> Monday – Saturday, 9:00 AM – 7:00 PM IST<br>` +
-             `📧 <strong>Email:</strong> stephen@decillionx.com`;
+             `📧 <strong>Email:</strong> info@decillionx.com / stephen@decillionx.com`;
     }
 
     // 6. Contact & Direct Email Delivery
