@@ -113,6 +113,31 @@
     .hero-actions .btn {
       padding: 0.75rem 1.4rem;
     }
+
+    /* Mobile overrides for Homepage - prevents flex centering overflow clipping */
+    @media (max-width: 768px) {
+      .home-layout {
+        display: block !important;
+        min-height: 100vh !important;
+        height: auto !important;
+      }
+      .hero-home {
+        display: block !important;
+        flex: none !important;
+        padding-top: 86px !important;
+        padding-bottom: 2rem !important;
+        min-height: auto !important;
+      }
+      .hero-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+      }
+      .hero-content {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
   </style>
   <script>
     function toggleMobileNav(e) {
@@ -192,9 +217,11 @@
         <div class="hero-motto-banner">
           <div class="motto-pill">
             <span class="motto-icon"><i class="fas fa-bolt"></i></span>
-            <span class="motto-part">INNOVATION WITHOUT LIMITS</span>
-            <span class="motto-divider">✦</span>
-            <span class="motto-part">ENGINEERING WITHOUT COMPROMISE</span>
+            <div class="motto-lines">
+              <span class="motto-part motto-line-1">INNOVATION WITHOUT LIMITS</span>
+              <span class="motto-divider">✦</span>
+              <span class="motto-part motto-line-2">ENGINEERING WITHOUT COMPROMISE</span>
+            </div>
           </div>
         </div>
         
