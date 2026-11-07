@@ -26,6 +26,33 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
+  <script>
+    function toggleMobileNav(e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      var drawer = document.getElementById('mobile-nav-drawer');
+      var overlay = document.getElementById('mobile-drawer-overlay');
+      if (drawer && overlay) {
+        var isOpen = drawer.classList.contains('active');
+        if (isOpen) {
+          drawer.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        } else {
+          drawer.classList.add('active');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+    }
+    function closeMobileNav(e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      var drawer = document.getElementById('mobile-nav-drawer');
+      var overlay = document.getElementById('mobile-drawer-overlay');
+      if (drawer) drawer.classList.remove('active');
+      if (overlay) overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  </script>
 </head>
 <body>
 
@@ -50,9 +77,11 @@
       <li><a href="contact.html" style="color:var(--primary-cyan); font-weight:800;"><i class="fas fa-envelope"></i> Contact</a></li>
       <li><a href="login.html" style="color:var(--accent-amber); font-weight:800;"><i class="fas fa-user-shield"></i> Portals</a></li>
     </ul>
-    <div style="display:flex;gap:0.85rem;align-items:center">
-      <a href="contact.html" class="btn btn-primary btn-sm"><i class="fas fa-paper-plane"></i> Get in Touch</a>
-      <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu"><i class="fas fa-bars"></i></button>
+    <div class="nav-actions" style="display:flex;gap:0.75rem;align-items:center;">
+      <a href="contact.html" class="btn btn-primary btn-sm nav-quote-btn"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" onclick="toggleMobileNav(event)" aria-label="Toggle Navigation Menu">
+        <i class="fas fa-bars" style="pointer-events:none;"></i>
+      </button>
     </div>
   </div>
 </nav>
@@ -167,14 +196,14 @@
 </footer>
 
 <!-- ===== MOBILE NAVIGATION DRAWER ===== -->
-<div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav(event)"></div>
 <div class="mobile-nav-drawer" id="mobile-nav-drawer">
   <div class="mobile-drawer-header">
     <a href="index.html" class="brand-logo">
       <img src="assets/logo.png" alt="DecillionX Logo" style="height:32px">
       <div class="brand-name" style="font-size:1.2rem">Decillion<span>X</span></div>
     </a>
-    <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close navigation">&times;</button>
+    <button class="mobile-drawer-close" id="mobile-drawer-close" onclick="closeMobileNav(event)" aria-label="Close navigation">&times;</button>
   </div>
   <ul class="mobile-drawer-links">
     <li><a href="index.html"><i class="fas fa-house" style="color:var(--primary-cyan)"></i> Home</a></li>

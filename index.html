@@ -114,6 +114,33 @@
       padding: 0.75rem 1.4rem;
     }
   </style>
+  <script>
+    function toggleMobileNav(e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      var drawer = document.getElementById('mobile-nav-drawer');
+      var overlay = document.getElementById('mobile-drawer-overlay');
+      if (drawer && overlay) {
+        var isOpen = drawer.classList.contains('active');
+        if (isOpen) {
+          drawer.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        } else {
+          drawer.classList.add('active');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+    }
+    function closeMobileNav(e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      var drawer = document.getElementById('mobile-nav-drawer');
+      var overlay = document.getElementById('mobile-drawer-overlay');
+      if (drawer) drawer.classList.remove('active');
+      if (overlay) overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  </script>
 </head>
 <body>
 
@@ -140,9 +167,11 @@
         <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
         <li><a href="login.html" style="color:var(--accent-amber); font-weight:800;"><i class="fas fa-user-shield"></i> Portals</a></li>
       </ul>
-      <div style="display:flex;gap:0.85rem;align-items:center">
-        <a href="#" class="btn btn-primary btn-sm open-quote-modal"><i class="fas fa-paper-plane"></i> Get Quote</a>
-        <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu"><i class="fas fa-bars"></i></button>
+      <div style="display:flex;gap:0.75rem;align-items:center;" class="nav-actions">
+        <a href="#" class="btn btn-primary btn-sm open-quote-modal nav-quote-btn"><i class="fas fa-paper-plane"></i> Get Quote</a>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" onclick="toggleMobileNav(event)" aria-label="Toggle Navigation Menu">
+          <i class="fas fa-bars" style="pointer-events:none;"></i>
+        </button>
       </div>
     </div>
   </nav>
@@ -154,8 +183,8 @@
         <div class="tagline-badge"><span class="badge-pulse"></span>United States and Trusted Globally</div>
         <h1>Custom <span class="gradient-text">Software & AI</span> Engineering for Your Business.</h1>
         <p style="font-size:1.12rem; line-height:1.7; color:#cbd5e1; margin-bottom:1.1rem;">DecillionX engineers advanced AI and software solutions that transform complex challenges into intelligent, scalable technology built for business impact.</p>
-        <div style="font-size:0.84rem; font-weight:800; letter-spacing:0.14em; color:var(--primary-cyan); text-transform:uppercase; margin-bottom:2.25rem; display:flex; align-items:center; gap:0.6rem;">
-          <span style="display:inline-block; width:20px; height:2px; background:var(--primary-cyan);"></span>
+        <div class="hero-motto">
+          <span style="display:inline-block; width:20px; height:2px; background:var(--primary-cyan); flex-shrink:0;"></span>
           INNOVATION WITHOUT LIMITS. ENGINEERING WITHOUT COMPROMISE.
         </div>
         
@@ -290,14 +319,14 @@
 </div>
 
 <!-- ===== MOBILE NAVIGATION DRAWER ===== -->
-<div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileNav(event)"></div>
 <div class="mobile-nav-drawer" id="mobile-nav-drawer">
   <div class="mobile-drawer-header">
     <a href="index.html" class="brand-logo">
       <img src="assets/logo.png" alt="DecillionX Logo" style="height:32px">
       <div class="brand-name" style="font-size:1.2rem">Decillion<span>X</span></div>
     </a>
-    <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close navigation">&times;</button>
+    <button class="mobile-drawer-close" id="mobile-drawer-close" onclick="closeMobileNav(event)" aria-label="Close navigation">&times;</button>
   </div>
   <ul class="mobile-drawer-links">
     <li><a href="index.html" style="color:var(--primary-cyan); font-weight:700;"><i class="fas fa-house" style="color:var(--primary-cyan)"></i> Home</a></li>
