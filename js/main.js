@@ -8,39 +8,44 @@ let globalDB = { employees: [], projects: [], clients: [], attendance: [], leave
 
 async function initDatabase() {
   try {
-    const res = await fetch('http://localhost:3000/api/store');
-    globalDB = await res.json();
+    const res = await fetch('/api/store');
+    if (res.ok) {
+      globalDB = await res.json();
+    }
   } catch(e) {
-    console.error("DB Fetch Error:", e);
+    // Graceful offline fallback
   }
 }
 
 async function saveDB(key, data) {
   globalDB[key] = data;
   try {
-    await fetch('http://localhost:3000/api/store', {
+    await fetch('/api/store', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ key, data })
     });
-  } catch(e) { console.error("DB Save Error:", e); }
+  } catch(e) { /* Graceful fallback */ }
 }
 
 /* ---- GLOBAL STATE ---- */
 let currentRole = null;
 let currentUserId = null;
 
-document.addEventListener('DOMContentLoaded', async () => {
-  await initDatabase();
+document.addEventListener('DOMContentLoaded', () => {
+  // CRITICAL: Initialize mobile navigation and UI immediately so mobile clicks work instantly
   initNavbar();
   initMobileNav();
+  initModals();
+  initAIChatbot();
   initAISandbox();
   initTechFilter();
   initCostEstimator();
-  initAIChatbot();
-  initModals();
   initContactForm();
   initCareersPortal();
+
+  // Async data fetch in background without blocking UI
+  initDatabase();
 });
 
 /* ---- NAVBAR ---- */
@@ -440,7 +445,7 @@ function initAIChatbot() {
   }
 }
 
-/* ---- MOBILE NAVIGATION DRAWER ---- */
+/* ---- MOBILE NAVIGATION DRAWER (iOS & Android Touch Support) ---- */
 function initMobileNav() {
   const toggles = document.querySelectorAll('.mobile-nav-toggle');
   const drawer = document.getElementById('mobile-nav-drawer');
@@ -449,26 +454,62 @@ function initMobileNav() {
 
   if (!drawer) return;
 
-  function openDrawer() {
+  function toggleDrawer(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const isOpen = drawer.classList.contains('active');
+    if (isOpen) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  }
+
+  function openDrawer(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     drawer.classList.add('active');
     if (overlay) overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
   }
 
-  function closeDrawer() {
+  function closeDrawer(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     drawer.classList.remove('active');
     if (overlay) overlay.classList.remove('active');
     document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
   }
 
-  toggles.forEach(t => t.addEventListener('click', (e) => {
-    e.preventDefault();
-    openDrawer();
-  }));
+  // Bind to mobile toggles
+  toggles.forEach(t => {
+    t.addEventListener('click', toggleDrawer);
+  });
 
-  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-  if (overlay) overlay.addEventListener('click', closeDrawer);
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeDrawer);
+  }
 
+  if (overlay) {
+    overlay.addEventListener('click', closeDrawer);
+  }
+
+  // Close drawer when pressing Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('active')) {
+      closeDrawer();
+    }
+  });
+
+  // Close drawer upon clicking any navigation link inside
   drawer.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => closeDrawer());
   });

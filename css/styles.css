@@ -372,12 +372,12 @@ body { padding-top:0; }
 .top-bar-badge { padding:0.15rem 0.6rem; background:rgba(0,242,254,0.1); border:1px solid var(--border-glow); border-radius:var(--radius-full); color:var(--primary-cyan); font-size:0.73rem; font-weight:700; }
 
 /* Mobile Navigation Toggle & Drawer */
-.mobile-nav-toggle { display:none; background:rgba(255,255,255,0.05); border:1px solid var(--border-glass); color:#fff; font-size:1.25rem; padding:0.5rem 0.85rem; border-radius:var(--radius-sm); cursor:pointer; transition:var(--ease); }
-.mobile-nav-toggle:hover { background:rgba(0,242,254,0.15); border-color:var(--primary-cyan); color:var(--primary-cyan); }
+.mobile-nav-toggle { display:none; background:rgba(255,255,255,0.08); border:1px solid var(--border-glass); color:#fff; font-size:1.35rem; padding:0.5rem 0.85rem; border-radius:var(--radius-sm); cursor:pointer; transition:var(--ease); touch-action:manipulation; -webkit-tap-highlight-color:transparent; z-index:100; }
+.mobile-nav-toggle:hover, .mobile-nav-toggle:active { background:rgba(0,242,254,0.18); border-color:var(--primary-cyan); color:var(--primary-cyan); }
 
-.mobile-nav-drawer { position:fixed; top:0; right:-320px; width:300px; height:100vh; background:#060813; border-left:1px solid var(--border-glass); z-index:2000; transition:all 0.35s cubic-bezier(0.4, 0, 0.2, 1); display:flex; flex-direction:column; padding:1.5rem; backdrop-filter:blur(25px); box-shadow:-10px 0 30px rgba(0,0,0,0.8); }
+.mobile-nav-drawer { position:fixed; top:0; right:-320px; width:300px; height:100vh; height:100dvh; background:#060813; border-left:1px solid var(--border-glass); z-index:2000; transition:right 0.35s cubic-bezier(0.4, 0, 0.2, 1); display:flex; flex-direction:column; padding:1.5rem; backdrop-filter:blur(25px); -webkit-backdrop-filter:blur(25px); box-shadow:-10px 0 30px rgba(0,0,0,0.8); -webkit-overflow-scrolling:touch; }
 .mobile-nav-drawer.active { right:0; }
-.mobile-drawer-overlay { position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); backdrop-filter:blur(5px); z-index:1999; opacity:0; pointer-events:none; transition:opacity 0.3s ease; }
+.mobile-drawer-overlay { position:fixed; top:0; left:0; width:100vw; height:100vh; height:100dvh; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); z-index:1999; opacity:0; pointer-events:none; transition:opacity 0.3s ease; -webkit-tap-highlight-color:transparent; }
 .mobile-drawer-overlay.active { opacity:1; pointer-events:auto; }
 
 .mobile-drawer-header { display:flex; justify-content:space-between; align-items:center; padding-bottom:1rem; border-bottom:1px solid var(--border-glass); margin-bottom:1.25rem; }
