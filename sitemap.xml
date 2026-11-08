@@ -7,8 +7,16 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
+      <image:loc>https://decillionx.com/assets/decillionx-logo-full.png</image:loc>
+      <image:title>DecillionX Official Enterprise AI and Software Development Logo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://decillionx.com/assets/decillionx-og-banner.png</image:loc>
+      <image:title>DecillionX Official Brand Identity Social Preview Banner</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://decillionx.com/assets/logo.png</image:loc>
-      <image:title>DecillionX Enterprise AI and Custom Software Development</image:title>
+      <image:title>DecillionX Enterprise AI and Custom Software Development Symbol</image:title>
     </image:image>
     <image:image>
       <image:loc>https://decillionx.com/assets/hero-visual.png</image:loc>

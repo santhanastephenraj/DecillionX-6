@@ -21,6 +21,8 @@ Allow: /js/
 Allow: /assets/
 Allow: /sitemap.xml
 Allow: /robots.txt
+Allow: /favicon.ico
+Allow: /site.webmanifest
 
 # Prevent crawling of private portals and API routes
 Disallow: /api/
