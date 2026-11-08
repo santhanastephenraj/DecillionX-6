@@ -77,7 +77,7 @@
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css?v=20261108b">
+  <link rel="stylesheet" href="css/styles.css?v=20261108_android_v3">
   <style>
     /* Clean Homepage Layout - Focused strictly on Homepage */
     html, body {
@@ -234,7 +234,7 @@
       .hero-home {
         display: block !important;
         flex: none !important;
-        padding-top: 76px !important;
+        padding-top: calc(76px + env(safe-area-inset-top, 0px)) !important;
         padding-bottom: 1.75rem !important;
         min-height: auto !important;
         width: 100% !important;
@@ -731,7 +731,7 @@
   </div>
 </div>
 
-<script src="js/particle-canvas.js"></script>
-<script src="js/main.js"></script>
+<script src="js/particle-canvas.js?v=20261108_android_v3"></script>
+<script src="js/main.js?v=20261108_android_v3"></script>
 </body>
 </html>
