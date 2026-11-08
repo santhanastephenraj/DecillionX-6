@@ -10,6 +10,7 @@ Allow: /cybersecurity-services.html
 Allow: /web-mobile-development.html
 Allow: /it-consulting-services.html
 Allow: /case-studies.html
+Allow: /locations.html
 Allow: /industries.html
 Allow: /careers.html
 Allow: /blog.html
