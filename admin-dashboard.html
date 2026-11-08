@@ -45,7 +45,7 @@
           <h2 style="font-size: 1.55rem;">Santhana Stephen Raj</h2>
           <p style="color: var(--primary-cyan); font-size: 0.88rem; font-weight: 700;">Founder & Chief Executive Officer • DecillionX</p>
           <p style="color: var(--text-dim); font-size: 0.78rem; margin-top: 0.25rem;">
-            <i class="fas fa-location-dot" style="color: var(--primary-cyan);"></i> HQ: SG Palaya, Bangalore - 560029 • <i class="fas fa-envelope"></i> stephen@decillionx.com • <i class="fas fa-phone"></i> +91-9342888529
+            <i class="fas fa-location-dot" style="color: var(--primary-cyan);"></i> HQ: Indiranagar, Bangalore 560038 • <i class="fas fa-envelope"></i> info@decillionx.com
           </p>
         </div>
       </div>
@@ -437,7 +437,7 @@
         </div>
 
         <div class="form-group"><label>Required Tech Skills (comma separated) *</label><input class="input-custom" id="job-post-skills" placeholder="e.g. Java 21, Spring Boot 3, Kafka, PostgreSQL" required></div>
-        <div class="form-group"><label>Work Location *</label><input class="input-custom" id="job-post-location" value="SG Palaya, Bangalore - 560029" required></div>
+        <div class="form-group"><label>Work Location *</label><input class="input-custom" id="job-post-location" value="Indiranagar, Bangalore 560038" required></div>
         <div class="form-group"><label>Job Description & Key Responsibilities *</label><textarea class="textarea-custom" id="job-post-desc" placeholder="Describe the key responsibilities, deliverables, and role expectations..." required style="min-height:80px;"></textarea></div>
 
         <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Publish Job Opening & Email CEO Summary</button>
@@ -787,7 +787,7 @@
           <td><span class="status-pill ${r.type === 'in' ? 'pill-green' : 'pill-amber'}">${r.type === 'in' ? 'Clock In' : 'Clock Out'}</span></td>
           <td><strong style="font-family:var(--font-mono);">${r.time}</strong></td>
           <td>${r.date}</td>
-          <td><i class="fas fa-location-dot" style="color:var(--primary-cyan);"></i> ${r.notes || 'SG Palaya, Bangalore 560029'}</td>
+          <td><i class="fas fa-location-dot" style="color:var(--primary-cyan);"></i> ${r.notes || 'Indiranagar, Bangalore 560038'}</td>
         </tr>
       `).join('') || '<tr><td colspan="5" style="text-align:center;color:#94a3b8;padding:2rem;">No attendance records.</td></tr>';
     }

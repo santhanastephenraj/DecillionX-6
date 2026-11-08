@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
@@ -14,6 +15,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <canvas id="bg-canvas"></canvas>
@@ -44,9 +46,12 @@
         <div class="portal-avatar" id="emp-avatar">EM</div>
         <div>
           <h2 style="font-size: 1.5rem;" id="emp-name">Employee Name</h2>
-          <p style="color: var(--primary-cyan); font-size: 0.88rem;" id="emp-role-dept">Software Engineer • DecillionX</p>
+          <p style="color: var(--primary-cyan); font-size: 0.88rem;" id="emp-role-dept">Software Engineer • DecillionX
+          </p>
           <p style="color: var(--text-dim); font-size: 0.78rem; margin-top: 0.2rem;">
-            <i class="fas fa-location-dot" style="color: var(--primary-cyan);"></i> SG Palaya, Bangalore - 560029 • <i class="fas fa-envelope"></i> <span id="emp-email">email</span> • <i class="fas fa-phone"></i> <span id="emp-phone">phone</span>
+            <i class="fas fa-location-dot" style="color: var(--primary-cyan);"></i> Indiranagar, Bangalore 560038 • <i
+              class="fas fa-envelope"></i> <span id="emp-email">email</span> • <i class="fas fa-phone"></i> <span
+              id="emp-phone">phone</span>
           </p>
         </div>
       </div>
@@ -56,54 +61,71 @@
     </div>
 
     <!-- CEO INSPECTION MODE BANNER -->
-    <div id="ceo-inspect-banner" class="glass-card" style="display:none; margin-bottom: 1.5rem; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.5); padding: 1rem 1.5rem; justify-content: space-between; align-items: center;">
+    <div id="ceo-inspect-banner" class="glass-card"
+      style="display:none; margin-bottom: 1.5rem; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.5); padding: 1rem 1.5rem; justify-content: space-between; align-items: center;">
       <div style="display:flex; align-items:center; gap:0.75rem; color:#f59e0b; font-weight:700;">
         <i class="fas fa-eye" style="font-size:1.4rem;"></i>
         <span>👁️ CEO EXECUTIVE INSPECTION MODE: Viewing employee workspace as CEO Santhana Stephen Raj.</span>
       </div>
-      <button class="btn btn-xs btn-amber" onclick="exitCEOInspect()"><i class="fas fa-arrow-left"></i> Return to CEO Admin Hub</button>
+      <button class="btn btn-xs btn-amber" onclick="exitCEOInspect()"><i class="fas fa-arrow-left"></i> Return to CEO
+        Admin Hub</button>
     </div>
 
     <!-- COMPANY SUCCESS NOTE CARD (NO LOCATION, NO EMAIL, NO PHONE) -->
-    <div class="glass-card" style="margin-bottom: 1.75rem; background: linear-gradient(135deg, rgba(0, 242, 254, 0.08), rgba(79, 172, 254, 0.05)); border: 1px solid rgba(0, 242, 254, 0.3); padding: 1.5rem 2rem;">
+    <div class="glass-card"
+      style="margin-bottom: 1.75rem; background: linear-gradient(135deg, rgba(0, 242, 254, 0.08), rgba(79, 172, 254, 0.05)); border: 1px solid rgba(0, 242, 254, 0.3); padding: 1.5rem 2rem;">
       <div style="display:flex; align-items:center; gap:1.25rem;">
-        <div style="background: linear-gradient(135deg, #00f2fe, #4facfe); width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#000; font-size:1.5rem; font-weight:bold; flex-shrink:0;">
+        <div
+          style="background: linear-gradient(135deg, #00f2fe, #4facfe); width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#000; font-size:1.5rem; font-weight:bold; flex-shrink:0;">
           <i class="fas fa-trophy"></i>
         </div>
         <div>
-          <h3 style="color:#00f2fe; margin-bottom:0.25rem; font-size:1.15rem;"><i class="fas fa-shield-halved"></i> DecillionX Enterprise Success & Engineering Note</h3>
+          <h3 style="color:#00f2fe; margin-bottom:0.25rem; font-size:1.15rem;"><i class="fas fa-shield-halved"></i>
+            DecillionX Enterprise Success & Engineering Note</h3>
           <p style="color:#e2e8f0; font-size:0.88rem; margin:0; line-height:1.55;">
-            At <strong>DecillionX Enterprise Systems</strong>, our success is defined by engineering excellence, high-performance software systems, autonomous AI models, and zero-defect QA delivery. Powered by architectural precision and continuous innovation, DecillionX empowers engineering teams to deliver world-class digital solutions.
+            At <strong>DecillionX Enterprise Systems</strong>, our success is defined by engineering excellence,
+            high-performance software systems, autonomous AI models, and zero-defect QA delivery. Powered by
+            architectural precision and continuous innovation, DecillionX empowers engineering teams to deliver
+            world-class digital solutions.
           </p>
         </div>
       </div>
     </div>
     <div class="portal-tabs-nav">
-      <button class="portal-tab-item active" data-tab="tab-attendance"><i class="fas fa-fingerprint"></i> Daily Attendance Clock</button>
-      <button class="portal-tab-item" data-tab="tab-profile"><i class="fas fa-id-card"></i> My Onboarding Details & Profile</button>
+      <button class="portal-tab-item active" data-tab="tab-attendance"><i class="fas fa-fingerprint"></i> Daily
+        Attendance Clock</button>
+      <button class="portal-tab-item" data-tab="tab-profile"><i class="fas fa-id-card"></i> My Onboarding Details &
+        Profile</button>
       <button class="portal-tab-item" data-tab="tab-skills"><i class="fas fa-award"></i> Skill Matrix</button>
-      <button class="portal-tab-item" data-tab="tab-projects"><i class="fas fa-briefcase"></i> Assigned Projects</button>
+      <button class="portal-tab-item" data-tab="tab-projects"><i class="fas fa-briefcase"></i> Assigned
+        Projects</button>
       <button class="portal-tab-item" data-tab="tab-timesheet"><i class="fas fa-clock"></i> Weekly Timesheets</button>
-      <button class="portal-tab-item" data-tab="tab-leave"><i class="fas fa-calendar-minus"></i> Apply for Leave</button>
+      <button class="portal-tab-item" data-tab="tab-leave"><i class="fas fa-calendar-minus"></i> Apply for
+        Leave</button>
     </div>
 
     <!-- TAB 1: DAILY ATTENDANCE -->
     <div class="portal-tab-content active" id="tab-attendance">
       <div style="display: grid; grid-template-columns: 360px 1fr; gap: 2rem; align-items: start;">
-        
+
         <div class="glass-card attendance-clock-box">
-          <div class="tagline-badge" style="justify-content: center;"><i class="fas fa-fingerprint"></i> Live Attendance</div>
+          <div class="tagline-badge" style="justify-content: center;"><i class="fas fa-fingerprint"></i> Live Attendance
+          </div>
           <div class="date-display" id="att-date-now">Loading...</div>
           <div class="clock-display" id="att-clock-time">00:00:00</div>
           <p style="color: var(--text-muted); font-size: 0.82rem;">
-            <i class="fas fa-building" style="color: var(--primary-cyan);"></i> DecillionX HQ - SG Palaya, Bangalore 560029
+            <i class="fas fa-building" style="color: var(--primary-cyan);"></i> DecillionX HQ - Indiranagar, Bangalore
+            560038
           </p>
           <div class="clock-btn-row">
             <button class="btn btn-success" id="btn-clock-in"><i class="fas fa-door-open"></i> Clock In</button>
-            <button class="btn btn-danger" id="btn-clock-out" disabled><i class="fas fa-door-closed"></i> Clock Out</button>
+            <button class="btn btn-danger" id="btn-clock-out" disabled><i class="fas fa-door-closed"></i> Clock
+              Out</button>
           </div>
           <div class="clock-status-bar" id="att-status-text">⏳ Loading attendance state...</div>
-          <p style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.75rem"><i class="fas fa-envelope-circle-check"></i> Clocking In/Out dispatches live attendance alert to CEO Email (stephen@decillionx.com).</p>
+          <p style="font-size:0.75rem;color:var(--accent-emerald);margin-top:0.75rem"><i
+              class="fas fa-envelope-circle-check"></i> Clocking In/Out dispatches live attendance alert to Executive Email
+            (info@decillionx.com).</p>
         </div>
 
         <div>
@@ -129,8 +151,10 @@
     <!-- TAB 2: MY ONBOARDING DETAILS & PROFILE -->
     <div class="portal-tab-content" id="tab-profile">
       <div class="glass-card" style="padding:2rem">
-        <h3 style="margin-bottom:0.25rem"><i class="fas fa-id-card" style="color:var(--primary-cyan)"></i> Employee Onboarding & Legal Record Details</h3>
-        <p style="color:#94a3b8;font-size:0.85rem;margin-bottom:1.5rem">End-to-end details required by DecillionX Executive Management for payroll, emergency contact, and project assignment.</p>
+        <h3 style="margin-bottom:0.25rem"><i class="fas fa-id-card" style="color:var(--primary-cyan)"></i> Employee
+          Onboarding & Legal Record Details</h3>
+        <p style="color:#94a3b8;font-size:0.85rem;margin-bottom:1.5rem">End-to-end details required by DecillionX
+          Executive Management for payroll, emergency contact, and project assignment.</p>
 
         <form id="form-emp-onboarding" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
           <div class="form-group">
@@ -145,7 +169,8 @@
 
           <div class="form-group">
             <label>Bank Name, Account Number & IFSC *</label>
-            <input class="input-custom" id="prof-bank" placeholder="e.g. HDFC Bank, A/C: 50100..., IFSC: HDFC0001234" required>
+            <input class="input-custom" id="prof-bank" placeholder="e.g. HDFC Bank, A/C: 50100..., IFSC: HDFC0001234"
+              required>
           </div>
 
           <div class="form-group">
@@ -155,11 +180,13 @@
 
           <div class="form-group" style="grid-column:1 / -1">
             <label>Technical Certifications & Specialized Qualifications</label>
-            <input class="input-custom" id="prof-certs" placeholder="e.g. AWS Certified Solutions Architect, PyTorch AI Specialist, Java 21 Spring Certified">
+            <input class="input-custom" id="prof-certs"
+              placeholder="e.g. AWS Certified Solutions Architect, PyTorch AI Specialist, Java 21 Spring Certified">
           </div>
 
           <div style="grid-column:1 / -1;text-align:right;margin-top:0.5rem">
-            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Profile & Onboarding Details</button>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Profile & Onboarding
+              Details</button>
           </div>
         </form>
       </div>
@@ -171,11 +198,13 @@
         <h3>My Technical Skill Ratings</h3>
       </div>
       <div class="skills-grid-wrapper" id="skills-grid-container"></div>
-      
+
       <div class="glass-card" style="margin-top: 2rem; padding: 1.5rem;">
         <h4 style="margin-bottom: 1rem;"><i class="fas fa-plus"></i> Add New Technical Competency</h4>
-        <form id="form-add-skill" style="display: grid; grid-template-columns: 1fr 1fr 120px 140px; gap: 1rem; align-items: end;">
-          <div><label>Skill Name</label><input class="input-custom" id="skill-name-input" placeholder="e.g. GenAI QA / RAG / .NET 9 Core" required></div>
+        <form id="form-add-skill"
+          style="display: grid; grid-template-columns: 1fr 1fr 120px 140px; gap: 1rem; align-items: end;">
+          <div><label>Skill Name</label><input class="input-custom" id="skill-name-input"
+              placeholder="e.g. GenAI QA / RAG / .NET 9 Core" required></div>
           <div>
             <label>Category</label>
             <select class="select-custom" id="skill-cat-select">
@@ -188,8 +217,10 @@
               <option>Cloud</option>
             </select>
           </div>
-          <div><label>Proficiency %</label><input type="number" min="1" max="100" class="input-custom" id="skill-level-input" placeholder="90" required></div>
-          <button type="submit" class="btn btn-primary" style="height: 42px;"><i class="fas fa-plus"></i> Add Skill</button>
+          <div><label>Proficiency %</label><input type="number" min="1" max="100" class="input-custom"
+              id="skill-level-input" placeholder="90" required></div>
+          <button type="submit" class="btn btn-primary" style="height: 42px;"><i class="fas fa-plus"></i> Add
+            Skill</button>
         </form>
       </div>
     </div>
@@ -204,7 +235,8 @@
     <div class="portal-tab-content" id="tab-timesheet">
       <div class="glass-card" style="padding: 1.75rem; margin-bottom: 2rem;">
         <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-clock-rotate-left"></i> Log Weekly Timesheet Hours</h3>
-        <form id="form-submit-ts" style="display: grid; grid-template-columns: 1fr 140px 1fr 140px; gap: 1rem; align-items: end;">
+        <form id="form-submit-ts"
+          style="display: grid; grid-template-columns: 1fr 140px 1fr 140px; gap: 1rem; align-items: end;">
           <div>
             <label>Select Assigned Project</label>
             <select class="select-custom" id="ts-project-select"></select>
@@ -215,9 +247,11 @@
           </div>
           <div>
             <label>Summary of Tasks Completed</label>
-            <input class="input-custom" id="ts-tasks-input" placeholder="e.g. Implemented FastAPI endpoint & Playwright tests..." required>
+            <input class="input-custom" id="ts-tasks-input"
+              placeholder="e.g. Implemented FastAPI endpoint & Playwright tests..." required>
           </div>
-          <button type="submit" class="btn btn-primary" style="height:42px;"><i class="fas fa-paper-plane"></i> Submit</button>
+          <button type="submit" class="btn btn-primary" style="height:42px;"><i class="fas fa-paper-plane"></i>
+            Submit</button>
         </form>
       </div>
 
@@ -242,7 +276,7 @@
     <!-- TAB 6: APPLY LEAVE -->
     <div class="portal-tab-content" id="tab-leave">
       <div style="display: grid; grid-template-columns: 360px 1fr; gap: 2rem; align-items: start;">
-        
+
         <div class="glass-card" style="padding: 1.75rem;">
           <h3 style="margin-bottom: 1.25rem;"><i class="fas fa-calendar-plus"></i> Apply for Leave</h3>
           <form id="form-apply-leave" style="display: flex; flex-direction: column; gap: 1rem;">
@@ -264,7 +298,8 @@
             </div>
             <div>
               <label>Reason for Leave</label>
-              <textarea class="textarea-custom" id="leave-reason-input" placeholder="Reason..." required style="min-height: 70px;"></textarea>
+              <textarea class="textarea-custom" id="leave-reason-input" placeholder="Reason..." required
+                style="min-height: 70px;"></textarea>
             </div>
             <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Request</button>
           </form>
@@ -278,11 +313,13 @@
             </div>
             <div class="glass-card" style="flex:1; padding: 1rem 1.25rem;">
               <span style="font-size: 0.8rem; color: var(--text-muted);">Leaves Taken</span>
-              <h2 style="color: var(--accent-amber); font-size: 1.6rem; margin-top: 0.2rem;" id="leave-used-num">0 Days</h2>
+              <h2 style="color: var(--accent-amber); font-size: 1.6rem; margin-top: 0.2rem;" id="leave-used-num">0 Days
+              </h2>
             </div>
             <div class="glass-card" style="flex:1; padding: 1rem 1.25rem;">
               <span style="font-size: 0.8rem; color: var(--text-muted);">Leaves Remaining</span>
-              <h2 style="color: var(--accent-emerald); font-size: 1.6rem; margin-top: 0.2rem;" id="leave-rem-num">30 Days</h2>
+              <h2 style="color: var(--accent-emerald); font-size: 1.6rem; margin-top: 0.2rem;" id="leave-rem-num">30
+                Days</h2>
             </div>
           </div>
 
@@ -364,7 +401,7 @@
         // Refresh current user object from DB
         const latestUser = (globalStore.employees || []).find(e => e.id === currentUser.id);
         if (latestUser) currentUser = latestUser;
-      } catch(e) { console.error(e); }
+      } catch (e) { console.error(e); }
     }
 
     async function saveStoreKey(key, data) {
@@ -375,12 +412,12 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ key, data })
         });
-      } catch(e) { console.error(e); }
+      } catch (e) { console.error(e); }
     }
 
     function initEmpHeader() {
       document.getElementById('emp-name').textContent = currentUser.name;
-      document.getElementById('emp-avatar').textContent = currentUser.avatar || currentUser.name.slice(0,2).toUpperCase();
+      document.getElementById('emp-avatar').textContent = currentUser.avatar || currentUser.name.slice(0, 2).toUpperCase();
       document.getElementById('emp-role-dept').textContent = `${currentUser.role} • ${currentUser.dept}`;
       document.getElementById('emp-email').textContent = currentUser.email;
       document.getElementById('emp-phone').textContent = currentUser.phone || 'N/A';
@@ -454,15 +491,15 @@
         date: dateStr,
         time: timeStr,
         type,
-        notes: 'Verified HQ Location - SG Palaya, Bangalore 560029'
+        notes: 'Verified HQ Location - Indiranagar, Bangalore 560038'
       };
 
       attList.unshift(newRec);
       await saveStoreKey('attendance', attList);
 
-      // DISPATCH LIVE EMAIL TO CEO (stephen@decillionx.com)
+      // DISPATCH LIVE EMAIL TO EXECUTIVE (info@decillionx.com)
       try {
-        await fetch('https://formsubmit.co/ajax/stephen@decillionx.com', {
+        await fetch('https://formsubmit.co/ajax/info@decillionx.com', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
@@ -473,13 +510,13 @@
             Role: currentUser.role,
             ClockType: type === 'in' ? 'CLOCK IN' : 'CLOCK OUT',
             Timestamp: `${dateStr} at ${timeStr}`,
-            VerifiedLocation: 'SG Palaya, Bangalore 560029',
-            DeliveredTo: 'stephen@decillionx.com'
+            VerifiedLocation: 'Indiranagar, Bangalore 560038',
+            DeliveredTo: 'info@decillionx.com'
           })
         });
-      } catch(e) { console.log('Attendance mail dispatched'); }
+      } catch (e) { console.log('Attendance mail dispatched'); }
 
-      alert(`✅ Attendance ${type === 'in' ? 'Clocked In' : 'Clocked Out'} successfully!\nReal Email Notification dispatched to CEO Santhana Stephen Raj (stephen@decillionx.com).`);
+      alert(`✅ Attendance ${type === 'in' ? 'Clocked In' : 'Clocked Out'} successfully!\nReal Email Notification dispatched to (info@decillionx.com).`);
       initAttendanceClock();
     }
 
@@ -504,7 +541,7 @@
       const certsEl = document.getElementById('prof-certs');
 
       emergencyEl.value = currentUser.emergencyContact || '';
-      addressEl.value = currentUser.location || 'SG Palaya, Bangalore - 560029';
+      addressEl.value = currentUser.location || 'Indiranagar, Bangalore 560038';
       bankEl.value = currentUser.bankDetails || '';
       teamEl.value = `${currentUser.dept} • ${currentUser.role}`;
       certsEl.value = currentUser.certs || 'AWS Solutions Architect, PyTorch AI Specialist, Java 21 Core';
@@ -697,28 +734,35 @@
     }
   </script>
 
-<!-- ===== MOBILE NAVIGATION DRAWER ===== -->
-<div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
-<div class="mobile-nav-drawer" id="mobile-nav-drawer">
-  <div class="mobile-drawer-header">
-    <a href="index.html" class="brand-logo">
-      <img src="assets/logo.png" alt="DecillionX Logo" style="height:32px">
-      <div class="brand-name" style="font-size:1.2rem">Decillion<span>X</span></div>
-    </a>
-    <button class="mobile-drawer-close" id="mobile-drawer-close">&times;</button>
+  <!-- ===== MOBILE NAVIGATION DRAWER ===== -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.png" alt="DecillionX Logo" style="height:32px">
+        <div class="brand-name" style="font-size:1.2rem">Decillion<span>X</span></div>
+      </a>
+      <button class="mobile-drawer-close" id="mobile-drawer-close">&times;</button>
+    </div>
+    <ul class="mobile-drawer-links">
+      <li><a href="index.html"><i class="fas fa-house" style="color:var(--primary-cyan)"></i> Home</a></li>
+      <li><a href="about.html"><i class="fas fa-crown" style="color:var(--primary-violet)"></i> About Us</a></li>
+      <li><a href="services.html"><i class="fas fa-desktop" style="color:var(--accent-emerald)"></i> 13 Engineering
+          Services</a></li>
+      <li><a href="industries.html"><i class="fas fa-city" style="color:var(--accent-amber)"></i> 11 Industry
+          Solutions</a></li>
+      <li><a href="careers.html"><i class="fas fa-briefcase" style="color:var(--accent-rose)"></i> Careers & Jobs</a>
+      </li>
+      <li><a href="blog.html"><i class="fas fa-newspaper" style="color:var(--primary-cyan)"></i> Tech Blog</a></li>
+      <li><a href="privacy.html"><i class="fas fa-scale-balanced" style="color:var(--text-muted)"></i> Privacy
+          Policy</a></li>
+      <li><a href="login.html" style="color:var(--accent-amber)"><i class="fas fa-user-shield"></i> Login Portals</a>
+      </li>
+    </ul>
+    <a href="#" class="btn btn-primary open-quote-modal" style="width:100%; justify-content:center"><i
+        class="fas fa-paper-plane"></i> Request Custom Proposal</a>
   </div>
-  <ul class="mobile-drawer-links">
-    <li><a href="index.html"><i class="fas fa-house" style="color:var(--primary-cyan)"></i> Home</a></li>
-    <li><a href="about.html"><i class="fas fa-crown" style="color:var(--primary-violet)"></i> About Us</a></li>
-    <li><a href="services.html"><i class="fas fa-desktop" style="color:var(--accent-emerald)"></i> 13 Engineering Services</a></li>
-    <li><a href="industries.html"><i class="fas fa-city" style="color:var(--accent-amber)"></i> 11 Industry Solutions</a></li>
-    <li><a href="careers.html"><i class="fas fa-briefcase" style="color:var(--accent-rose)"></i> Careers & Jobs</a></li>
-    <li><a href="blog.html"><i class="fas fa-newspaper" style="color:var(--primary-cyan)"></i> Tech Blog</a></li>
-    <li><a href="privacy.html"><i class="fas fa-scale-balanced" style="color:var(--text-muted)"></i> Privacy Policy</a></li>
-    <li><a href="login.html" style="color:var(--accent-amber)"><i class="fas fa-user-shield"></i> Login Portals</a></li>
-  </ul>
-  <a href="#" class="btn btn-primary open-quote-modal" style="width:100%; justify-content:center"><i class="fas fa-paper-plane"></i> Request Custom Proposal</a>
-</div>
 
 </body>
+
 </html>

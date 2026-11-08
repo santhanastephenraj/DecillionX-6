@@ -35,7 +35,7 @@ function sendCEONotification(subject, details, departmentEmail = 'info@decillion
       _template: 'table',
       _captcha: 'false',
       DepartmentInbox: targetRecipient,
-      CEOExecutiveCC: 'stephen@decillionx.com',
+      CEOExecutiveCC: 'info@decillionx.com',
       ...details
     });
 
@@ -98,7 +98,7 @@ function seedInitialData() {
         phone: '+91-9342888529',
         avatar: 'SS',
         dept: 'Executive Management',
-        location: 'SG Palaya, Bangalore - 560029',
+        location: 'Indiranagar, Bangalore 560038',
         password: 'admin123',
         status: 'Approved',
         emergencyContact: 'Executive Office (+91-9342888529)',
@@ -130,7 +130,7 @@ function seedInitialData() {
         companyType: 'Enterprise Product MNC',
         skills: ['Java 21', 'Spring Boot 3', 'Kafka', 'Microservices'],
         salary: '$80,000 - $110,000 / year',
-        location: 'SG Palaya, Bangalore - 560029',
+        location: 'Indiranagar, Bangalore 560038',
         status: 'Active',
         description: 'Architect distributed microservices, multi-tenant database clusters, and cloud API gateways.',
         postedDate: '2026-08-09'
@@ -143,7 +143,7 @@ function seedInitialData() {
         companyType: 'AI Research Lab / Tech Startup',
         skills: ['Python', 'PyTorch', 'LLM Fine-Tuning', 'RAG Architecture', 'CrewAI'],
         salary: '$95,000 - $130,000 / year',
-        location: 'SG Palaya, Bangalore - 560029',
+        location: 'Indiranagar, Bangalore 560038',
         status: 'Active',
         description: 'Build autonomous multi-agent AI systems, fine-tune Llama 3 & DeepSeek models, and deploy RAG vector pipelines.',
         postedDate: '2026-08-09'
@@ -156,7 +156,7 @@ function seedInitialData() {
         companyType: 'Security Audit / Tech Product',
         skills: ['GenAI QA', 'LLM Hallucination Testing', 'Playwright', 'VAPT Security'],
         salary: '$75,000 - $105,000 / year',
-        location: 'SG Palaya, Bangalore - 560029',
+        location: 'Indiranagar, Bangalore 560038',
         status: 'Active',
         description: 'Lead automated GenAI prompt safety testing, Playwright E2E automation, and penetration security audits.',
         postedDate: '2026-08-09'
@@ -453,7 +453,7 @@ app.post('/api/auth/register', (req, res) => {
         status: 'Pending Approval',
         avatar: fullName.slice(0,2).toUpperCase(),
         dept: dept || 'Software Systems Division',
-        location: 'SG Palaya, Bangalore - 560029',
+        location: 'Indiranagar, Bangalore 560038',
         skills: [{ name: 'Enterprise Engineering', level: 90, cat: 'Software' }],
         projects: [],
         performance: 90,
@@ -538,7 +538,7 @@ app.post('/api/careers/jobs', (req, res) => {
     companyType: companyType || 'Enterprise IT / Product',
     skills: Array.isArray(skills) ? skills : (skills || 'General Tech').split(',').map(s => s.trim()),
     salary: salary || '$80,000 - $110,000 / year',
-    location: location || 'SG Palaya, Bangalore - 560029',
+    location: location || 'Indiranagar, Bangalore 560038',
     status: 'Active',
     description,
     postedDate: new Date().toLocaleDateString('en-IN')

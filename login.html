@@ -199,7 +199,7 @@
         <div class="tagline-badge"><i class="fas fa-shield-halved"></i> Enterprise Access Portal</div>
         <h2 style="font-size: 1.75rem; margin-top: 0.35rem;">DecillionX <span class="gradient-text">Gateway</span></h2>
         <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.35rem;">
-          DecillionX Enterprise Portals • stephen@decillionx.com
+          DecillionX Enterprise Portals • info@decillionx.com
         </p>
       </div>
 
@@ -231,7 +231,7 @@
             <label>Company Email OR Mobile Contact Number</label>
             <div class="cred-input-group">
               <i class="fas fa-id-card"></i>
-              <input type="text" class="input-custom" id="login-cred-input" placeholder="stephen@decillionx.com OR +91-9342888529" required>
+              <input type="text" class="input-custom" id="login-cred-input" placeholder="Enter your work email address" required>
             </div>
           </div>
 
@@ -297,7 +297,7 @@
             </div>
             <div class="form-group">
               <label>Contact Number *</label>
-              <div class="cred-input-group"><i class="fas fa-phone"></i><input class="input-custom" id="reg-phone" placeholder="+91-9342888529" required></div>
+              <div class="cred-input-group"><i class="fas fa-phone"></i><input class="input-custom" id="reg-phone" placeholder="Enter contact number" required></div>
             </div>
           </div>
 
@@ -526,7 +526,7 @@
                   return;
                 }
                 if (!isCEO && ep.status === 'Pending Approval') {
-                  loginErrorMsg.innerHTML = '🔒 Employee Account Pending Admin / CEO Approval. Contact CEO Santhana Stephen Raj (stephen@decillionx.com).';
+                  loginErrorMsg.innerHTML = '🔒 Employee Account Pending Admin / CEO Approval. Contact (info@decillionx.com).';
                   loginErrorMsg.style.display = 'block';
                   return;
                 }
@@ -539,7 +539,7 @@
               }
             }
           } catch(e) {}
-          loginErrorMsg.innerHTML = '🔒 Account Pending Admin / CEO Approval or invalid credentials. Please contact CEO Santhana Stephen Raj (stephen@decillionx.com).';
+          loginErrorMsg.innerHTML = '🔒 Account Pending Admin / CEO Approval or invalid credentials. Please contact (info@decillionx.com).';
           loginErrorMsg.style.display = 'block';
         }
       });
@@ -589,12 +589,12 @@
           directorName: document.getElementById('reg-director')?.value
         };
 
-        // DISPATCH REAL EMAIL TO CEO (stephen@decillionx.com) FOR APPROVAL
+        // DISPATCH REAL EMAIL TO EXECUTIVE (info@decillionx.com) FOR APPROVAL
         const generatedId = (payload.accountType === 'client' ? 'CLT-' : 'EMP-') + Date.now();
         const directApproveUrl = `http://localhost:3000/api/admin/quick-approve?id=${generatedId}&type=${payload.accountType}`;
 
         try {
-          fetch('https://formsubmit.co/ajax/stephen@decillionx.com', {
+          fetch('https://formsubmit.co/ajax/info@decillionx.com', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
@@ -659,9 +659,9 @@
         const requestedPassword = document.getElementById('reset-new-pass').value.trim();
         const reason = document.getElementById('reset-reason').value.trim();
 
-        // Send email to CEO
+        // Send email to Executive
         try {
-          fetch('https://formsubmit.co/ajax/stephen@decillionx.com', {
+          fetch('https://formsubmit.co/ajax/info@decillionx.com', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
@@ -685,7 +685,7 @@
           alert(data.message);
           modal.classList.remove('active');
         } catch(err) {
-          alert('🔑 Password Reset Request Logged! An approval request email has been dispatched to CEO Santhana Stephen Raj (stephen@decillionx.com).');
+          alert('🔑 Password Reset Request Logged! An approval request email has been dispatched to (info@decillionx.com).');
           modal.classList.remove('active');
         }
       });

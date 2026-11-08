@@ -1,7 +1,7 @@
 /* ====================================================
    DECILLIONX — Main Application Script
-   Company: DecillionX, SG Palaya, Bangalore 560029
-   CEO: Santhana Stephen Raj (stephen@decillionx.com)
+   Company: DecillionX, Indiranagar, Bangalore 560038
+   CEO: Santhana Stephen Raj (info@decillionx.com)
    ==================================================== */
 
 let globalDB = { employees: [], projects: [], clients: [], attendance: [], leaves: [], timesheets: [], invoices: [], tickets: [], contact_inquiries: [] };
@@ -89,7 +89,7 @@ const sandboxDemos = {
 <span class="code-keyword">const</span> erp = <span class="code-keyword">new</span> ERPBuilder({
   modules: [<span class="code-string">'Inventory'</span>, <span class="code-string">'HRMS'</span>, <span class="code-string">'Finance'</span>, <span class="code-string">'CRM'</span>],
   database: <span class="code-string">'PostgreSQL Cluster (SQLite Fallback)'</span>,
-  location: <span class="code-string">'SG Palaya, Bangalore 560029'</span>
+  location: <span class="code-string">'Indiranagar, Bangalore 560038'</span>
 });
 
 <span class="code-keyword">const</span> deployment = <span class="code-keyword">await</span> erp.<span class="code-function">deployProduction</span>({ cloud: <span class="code-string">'AWS ap-south-1'</span> });
@@ -151,7 +151,7 @@ function initAISandbox() {
 
       codeConsole.innerHTML += `\n\n<span class="code-comment">// --- EXECUTING LIVE SIMULATION LOGS ---</span>\n`;
       setTimeout(() => {
-        codeConsole.innerHTML += `<span class="code-keyword">[LOG 12:35:01]</span> <span class="code-string">Connecting to DecillionX Neural Node (SG Palaya, Bangalore)...</span>\n`;
+        codeConsole.innerHTML += `<span class="code-keyword">[LOG 12:35:01]</span> <span class="code-string">Connecting to DecillionX Neural Node (Indiranagar, Bangalore)...</span>\n`;
         codeConsole.scrollTop = codeConsole.scrollHeight;
       }, 400);
 
@@ -294,11 +294,11 @@ function initAIChatbot() {
     // 1. Company Overview & About DecillionX
     if (q.includes('decillionx') || q.includes('about company') || q.includes('about decillionx') || q.includes('company profile') || q.includes('what is decillionx') || q.includes('tell me about') || q.includes('who are you') || q.includes('overview') || q.includes('company details')) {
       return `<strong>🏢 DecillionX Company Overview:</strong><br>` +
-             `DecillionX is a premier IT Software & Artificial Intelligence Development company with offices in <strong>Plano, TX, USA</strong> and <strong>SG Palaya, Bangalore, India</strong>.<br><br>` +
+             `DecillionX is a premier IT Software & Artificial Intelligence Development company with offices in <strong>Plano, TX, USA</strong> and <strong>Indiranagar, Bangalore, India</strong>.<br><br>` +
              `• <strong>Founder & CEO:</strong> Mr. Santhana Stephen Raj<br>` +
              `• <strong>Core Focus:</strong> Custom Software (ERP, CRM, HRMS), AI & LLM Systems (RAG, PyTorch, LangChain), and Web & Mobile Apps.<br>` +
              `• <strong>Global Currency:</strong> Engagement costs in $ USD.<br>` +
-             `• <strong>Official Email:</strong> stephen@decillionx.com`;
+             `• <strong>Official Email:</strong> info@decillionx.com`;
     }
 
     // 2. Company Structure / Hierarchy / Divisions / Org Chart
@@ -324,29 +324,26 @@ function initAIChatbot() {
       return `<strong>👔 Founder & CEO Details:</strong><br>` +
              `• <strong>Name:</strong> Santhana Stephen Raj<br>` +
              `• <strong>Title:</strong> Founder & Chief Executive Officer<br>` +
-             `• <strong>Offices:</strong> Plano, TX (USA) & SG Palaya, Bangalore - 560029 (India HQ)<br>` +
-             `• <strong>Direct Email:</strong> stephen@decillionx.com<br>` +
-             `• <strong>Direct Phone:</strong> +91-9342888529`;
+             `• <strong>Offices:</strong> United States: Plano, Texas 75025 & India: Indiranagar, Bangalore 560038<br>` +
+             `• <strong>Official Email:</strong> info@decillionx.com`;
     }
 
     // 5. Office Location & Address
-    if (q.includes('location') || q.includes('address') || q.includes('where') || q.includes('office') || q.includes('plano') || q.includes('texas') || q.includes('usa') || q.includes('bangalore') || q.includes('sg palaya') || q.includes('pincode') || q.includes('560029') || q.includes('city') || q.includes('hq')) {
+    if (q.includes('location') || q.includes('address') || q.includes('where') || q.includes('office') || q.includes('plano') || q.includes('texas') || q.includes('usa') || q.includes('bangalore') || q.includes('indiranagar') || q.includes('pincode') || q.includes('560038') || q.includes('city') || q.includes('hq')) {
       return `<strong>📍 DecillionX Office Locations:</strong><br><br>` +
              `<strong>🇺🇸 United States Office:</strong><br>` +
-             `Plano, TX, USA<br><br>` +
+             `North American Operations, Plano, Texas 75025, United States<br><br>` +
              `<strong>🇮🇳 India Office (Global HQ):</strong><br>` +
-             `SG Palaya, Bangalore - 560029<br>` +
-             `Karnataka, India.<br><br>` +
+             `Indiranagar, Bangalore 560038, India.<br><br>` +
              `⏰ <strong>Hours:</strong> Monday – Saturday, 9:00 AM – 7:00 PM IST<br>` +
-             `📧 <strong>Email:</strong> info@decillionx.com / stephen@decillionx.com`;
+             `📧 <strong>Email:</strong> info@decillionx.com`;
     }
 
     // 6. Contact & Direct Email Delivery
     if (q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('mobile') || q.includes('reach') || q.includes('call') || q.includes('inquiry') || q.includes('message') || q.includes('jio')) {
       return `<strong>✉️ Direct Contact Options:</strong><br>` +
-             `• <strong>CEO Email:</strong> stephen@decillionx.com<br>` +
-             `• <strong>CEO Phone:</strong> +91-9342888529<br>` +
-             `• <strong>Live Form:</strong> Submit the <em>"Send Us a Message"</em> form below—email is sent live to stephen@decillionx.com and logged in SQLite!`;
+             `• <strong>Email:</strong> info@decillionx.com<br>` +
+             `• <strong>Live Form:</strong> Submit the <em>"Send Us a Message"</em> form below—our executive team will respond within 24 hours!`;
     }
 
     // 7. End-to-End Development Services
@@ -437,9 +434,9 @@ function initAIChatbot() {
     // 16. How to Start / Hire Us
     if (q.includes('hire') || q.includes('start') || q.includes('begin') || q.includes('partner') || q.includes('proposal') || q.includes('contract')) {
       return `<strong>🚀 How to Start Your Project:</strong><br>` +
-             `1) Fill out <strong>"Send Us a Message"</strong> below—email is sent live to CEO Santhana Stephen Raj.<br>` +
+             `1) Fill out <strong>"Send Us a Message"</strong> below—our executive team will respond within 24 hours.<br>` +
              `2) Click <strong>"Get Quote"</strong> in the header for a proposal.<br>` +
-             `3) Email CEO directly at <strong>stephen@decillionx.com</strong>.<br>` +
+             `3) Email us directly at <strong>info@decillionx.com</strong>.<br>` +
              `We schedule a strategy call within 24 hours!`;
     }
 
@@ -608,7 +605,7 @@ function initModals() {
             <div style="font-size:3.5rem; color:var(--accent-emerald); margin-bottom:1rem"><i class="fas fa-check-circle"></i></div>
             <h2 style="margin-bottom:0.5rem; color:#fff">Corporate Proposal Request Submitted!</h2>
             <p style="color:#cbd5e1; font-size:0.92rem; max-width:540px; margin:0.5rem auto 1.5rem auto; line-height:1.6">
-              A comprehensive proposal model alert has been dispatched directly to Sales (<span style="color:var(--primary-cyan)">sales@decillionx.com</span>) with CEO executive oversight (<span style="color:var(--primary-cyan)">stephen@decillionx.com</span>) and stored in the DecillionX CRM Database.
+              A comprehensive proposal model alert has been dispatched directly to Sales (<span style="color:var(--primary-cyan)">sales@decillionx.com</span>) with executive oversight (<span style="color:var(--primary-cyan)">info@decillionx.com</span>) and stored in the DecillionX CRM Database.
             </p>
             <button class="btn btn-primary" onclick="document.getElementById('quote-modal').classList.remove('active')"><i class="fas fa-xmark"></i> Close Window</button>
           </div>
@@ -684,8 +681,7 @@ function initContactForm() {
           CompanyName: company,
           ServiceRequested: serviceNeeded,
           Message: messageText,
-          DepartmentInbox: 'info@decillionx.com',
-          CEOExecutiveCC: 'stephen@decillionx.com'
+          DepartmentInbox: 'info@decillionx.com'
         })
       });
     } catch(err) {
@@ -831,7 +827,7 @@ function renderJobCards(jobs, filterTag) {
       <div class="glass-card flex-col" style="padding:1.85rem; justify-content:space-between;">
         <div>
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
-            <span class="tagline-badge" style="font-size:0.7rem; padding:3px 10px; margin:0;"><i class="fas fa-location-dot"></i> ${j.location || 'SG Palaya, Bangalore'}</span>
+            <span class="tagline-badge" style="font-size:0.7rem; padding:3px 10px; margin:0;"><i class="fas fa-location-dot"></i> ${j.location || 'Indiranagar, Bangalore'}</span>
             <span style="font-size:0.8rem; font-weight:700; color:var(--accent-emerald); font-family:var(--font-mono);">${j.salary || '$80,000 / yr'}</span>
           </div>
           <h3 style="font-size:1.18rem; margin-bottom:0.4rem; color:#fff;">${j.title}</h3>

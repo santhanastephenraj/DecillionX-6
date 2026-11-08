@@ -11,8 +11,8 @@
 
 ## 📌 Executive Overview
 
-- **Founder & CEO:** Santhana Stephen Raj (`stephen@decillionx.com` | `+91-9342888529`)
-- **Offices:** Plano, TX, United States & SG Palaya, Bangalore – 560029, Karnataka, India (HQ)
+- **Founder & CEO:** Santhana Stephen Raj (`info@decillionx.com`)
+- **Offices:** Plano, Texas 75025, United States & Indiranagar, Bangalore 560038, India (HQ)
 - **Core Specialization:** Custom Enterprise Software, Generative AI & LLM Agents, Multi-Tenant Cloud Architecture, Zero-Trust Cybersecurity VAPT.
 
 ---
@@ -42,7 +42,7 @@
 - **Database Persistence:** SQLite3 (`database.sqlite`) with single-table JSON KV store fallback
 - **Frontend Engine:** Vanilla JavaScript ES6+, HTML5 Canvas API (Particle Engine)
 - **Styling System:** Modular CSS3 custom variables, glassmorphism, responsive grid & flexbox
-- **Email Gateway:** FormSubmit API real-time alert dispatch to `stephen@decillionx.com`
+- **Email Gateway:** FormSubmit API real-time alert dispatch to `info@decillionx.com`
 
 ---
 
