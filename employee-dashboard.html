@@ -372,7 +372,7 @@
       }
 
       currentUser = JSON.parse(userRaw);
-      const isCEO = currentUser.email.toLowerCase() === 'stephen@decillionx.com' || currentUser.id === 'EMP-001';
+      const isCEO = currentUser.email.toLowerCase() === 'info@decillionx.com' || currentUser.id === 'EMP-001';
 
       if (isCEO && localStorage.getItem('dx_ceo_inspect_mode') !== 'true') {
         localStorage.setItem('dx_auth_role', 'admin');

@@ -461,7 +461,7 @@
       // Quick Demo Buttons
       document.getElementById('quick-admin-login').addEventListener('click', () => {
         document.getElementById('btn-portal-admin').click();
-        credInput.value = 'stephen@decillionx.com';
+        credInput.value = 'info@decillionx.com';
         passInput.value = 'admin123';
         loginForm.dispatchEvent(new Event('submit'));
       });
@@ -532,7 +532,7 @@
             } else {
               const ep = emps.find(e => (e.email.toLowerCase() === cleanCred || (e.phone && e.phone.includes(cleanCred))) && e.password === password);
               if (ep) {
-                const isCEO = ep.email.toLowerCase() === 'stephen@decillionx.com' || ep.id === 'EMP-001' || ep.name.includes('Santhana Stephen Raj');
+                const isCEO = ep.email.toLowerCase() === 'info@decillionx.com' || ep.id === 'EMP-001' || ep.name.includes('Santhana Stephen Raj');
                 if (portalType === 'admin' && !isCEO) {
                   loginErrorMsg.innerHTML = '🔒 Access Denied: Only CEO Santhana Stephen Raj can access Executive Admin Hub.';
                   loginErrorMsg.style.display = 'block';

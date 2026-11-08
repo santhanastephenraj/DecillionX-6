@@ -505,7 +505,7 @@
       }
 
       const loggedUser = JSON.parse(userRaw);
-      const isCEO = loggedUser.email.toLowerCase() === 'stephen@decillionx.com' || loggedUser.id === 'EMP-001';
+      const isCEO = loggedUser.email.toLowerCase() === 'info@decillionx.com' || loggedUser.id === 'EMP-001';
 
       if (!isCEO) {
         // Fix stale local storage and redirect non-CEO users to their correct workspace
@@ -584,7 +584,7 @@
       const totalPendingCEO = pendingEmps.length + pendingClients.length + pendingResets.length;
 
       // KPIs - Only count approved non-CEO engineers and active approved projects
-      const approvedEngineers = emps.filter(e => e.id !== 'EMP-001' && (e.status === 'Approved' || e.email.toLowerCase() !== 'stephen@decillionx.com'));
+      const approvedEngineers = emps.filter(e => e.id !== 'EMP-001' && (e.status === 'Approved' || e.email.toLowerCase() !== 'info@decillionx.com'));
       const activeProjects = projs.filter(p => p.status === 'on-track' || p.status === 'in-review' || p.status === 'Approved');
 
       document.getElementById('kpi-projects').textContent = activeProjects.length;
@@ -752,7 +752,7 @@
         });
 
         tbody.innerHTML = filtered.map(e => {
-          const isApproved = e.status === 'Approved' || e.id === 'EMP-001' || e.email.toLowerCase() === 'stephen@decillionx.com';
+          const isApproved = e.status === 'Approved' || e.id === 'EMP-001' || e.email.toLowerCase() === 'info@decillionx.com';
           return `
             <tr>
               <td>

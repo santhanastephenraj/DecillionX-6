@@ -94,14 +94,14 @@ function seedInitialData() {
         id: 'EMP-001',
         name: 'Santhana Stephen Raj',
         role: 'Founder & Chief Executive Officer',
-        email: 'stephen@decillionx.com',
-        phone: '+91-9342888529',
+        email: 'info@decillionx.com',
+        phone: '+91-9876543210',
         avatar: 'SS',
         dept: 'Executive Management',
         location: 'Indiranagar, Bangalore 560038',
         password: 'admin123',
         status: 'Approved',
-        emergencyContact: 'Executive Office (+91-9342888529)',
+        emergencyContact: 'Executive Office (info@decillionx.com)',
         bankDetails: 'HDFC Bank, HDFC0001234, Account: 50100234567890',
         skills: [
           { name: 'Strategic Leadership', level: 100, cat: 'Management' },
@@ -169,7 +169,7 @@ function seedInitialData() {
     audit_logs: [
       {
         id: 'LOG-001',
-        user: 'stephen@decillionx.com',
+        user: 'info@decillionx.com',
         role: 'Founder & CEO',
         action: 'System Security Initialization & Enterprise RBAC Audit Active',
         timestamp: new Date().toISOString(),
@@ -339,7 +339,7 @@ app.post('/api/auth/login', (req, res) => {
       });
 
       if (employee) {
-        const isCEO = employee.email.toLowerCase() === 'stephen@decillionx.com' || employee.id === 'EMP-001' || employee.name.includes('Santhana Stephen Raj');
+        const isCEO = employee.email.toLowerCase() === 'info@decillionx.com' || employee.id === 'EMP-001' || employee.name.includes('Santhana Stephen Raj');
 
         if (portalType === 'admin' && !isCEO) {
           return res.status(403).json({
@@ -381,7 +381,7 @@ app.post('/api/auth/register', (req, res) => {
   const generatedId = (accountType === 'client' ? 'CLT-' : 'EMP-') + Date.now();
   const directApprovalLink = `http://localhost:3000/api/admin/quick-approve?id=${generatedId}&type=${accountType}`;
 
-  // DISPATCH BACKEND MAIL NOTIFICATION TO CEO (stephen@decillionx.com) WITH 1-CLICK APPROVAL LINK
+  // DISPATCH BACKEND MAIL NOTIFICATION TO CEO (info@decillionx.com) WITH 1-CLICK APPROVAL LINK
   sendCEONotification(`🔐 CEO Approval Needed: New ${accountType.toUpperCase()} Account - ${fullName}`, {
     AccountType: accountType.toUpperCase(),
     ApplicantName: fullName,
