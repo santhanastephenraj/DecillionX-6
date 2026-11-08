@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initCostEstimator();
   initContactForm();
   initCareersPortal();
+  initFaqAccordion();
+  initSeoTracking();
 
   // Async data fetch in background without blocking UI
   initDatabase();
@@ -863,4 +865,80 @@ function openJobApplyModal(jobId, jobTitle) {
 function closeJobApplyModal() {
   const modal = document.getElementById('modal-job-apply');
   if (modal) modal.classList.remove('active');
+}
+
+/* ====================================================
+   ENTERPRISE SEO ACCORDION & FAQ CONTROLLER
+   ==================================================== */
+function initFaqAccordion() {
+  const cards = document.querySelectorAll('.faq-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    const question = card.querySelector('.faq-question');
+    if (!question) return;
+
+    question.addEventListener('click', () => {
+      const isActive = card.classList.contains('active');
+      // Close other accordions in the same grid for clean UX
+      card.closest('.faq-grid')?.querySelectorAll('.faq-card').forEach(c => {
+        c.classList.remove('active');
+        const icon = c.querySelector('.faq-question i');
+        if (icon) icon.className = 'fas fa-chevron-down';
+      });
+
+      if (!isActive) {
+        card.classList.add('active');
+        const icon = card.querySelector('.faq-question i');
+        if (icon) icon.className = 'fas fa-chevron-up';
+        trackSeoEvent('faq_interaction', {
+          question: question.innerText.trim()
+        });
+      }
+    });
+  });
+}
+
+/* ====================================================
+   ENTERPRISE SEO & ANALYTICS EVENT TRACKER
+   ==================================================== */
+function initSeoTracking() {
+  // 1. Google Analytics DataLayer Fallback
+  window.dataLayer = window.dataLayer || [];
+
+  // 2. Track Proposal Modal Clicks
+  document.querySelectorAll('.open-quote-modal, .nav-quote-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      trackSeoEvent('cta_click', {
+        action: 'open_proposal_modal',
+        location: window.location.pathname
+      });
+    });
+  });
+
+  // 3. Track Service & Internal Links
+  document.querySelectorAll('.seo-footer-links a, .hero-actions a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href) {
+        trackSeoEvent('internal_navigation', {
+          target: href,
+          from: window.location.pathname
+        });
+      }
+    });
+  });
+}
+
+function trackSeoEvent(eventName, params = {}) {
+  try {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params);
+    }
+    if (window.dataLayer) {
+      window.dataLayer.push({ event: eventName, ...params });
+    }
+    // Debug logging for verified analytics
+    console.debug(`[DecillionX SEO Analytics] Event: ${eventName}`, params);
+  } catch(e) {}
 }

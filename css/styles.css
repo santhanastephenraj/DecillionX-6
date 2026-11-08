@@ -1208,3 +1208,115 @@ body { padding-top:0; }
   .stat-item h3 { font-size: 1.15rem !important; }
   .stat-item p { font-size: 0.6rem !important; }
 }
+
+/* ====================================================
+   ENTERPRISE SEO ACCORDION & FAQ STYLES
+   ==================================================== */
+.faq-section {
+  margin: 4.5rem 0 3rem 0;
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 920px;
+  margin: 2rem auto 0 auto;
+}
+.faq-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.faq-card:hover {
+  border-color: rgba(0, 242, 254, 0.4);
+  box-shadow: 0 4px 25px rgba(0, 242, 254, 0.1);
+}
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  user-select: none;
+}
+.faq-question i {
+  color: var(--primary-cyan);
+  transition: transform 0.3s ease;
+  font-size: 0.95rem;
+}
+.faq-card.active .faq-question i {
+  transform: rotate(180deg);
+  color: var(--accent-emerald);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding-top 0.3s ease;
+  color: #94a3b8;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+.faq-card.active .faq-answer {
+  max-height: 500px;
+  padding-top: 0.85rem;
+}
+
+/* Rich SEO Sitemaps Footer */
+.seo-sitemap-footer {
+  background: rgba(8, 11, 26, 0.98);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4rem 0 2rem 0;
+  margin-top: 4rem;
+}
+.seo-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+@media (max-width: 900px) {
+  .seo-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .seo-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+.seo-footer-col h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid rgba(0, 242, 254, 0.4);
+  padding-bottom: 0.4rem;
+  display: inline-block;
+}
+.seo-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.seo-footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.86rem;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  display: inline-block;
+}
+.seo-footer-links a:hover {
+  color: var(--primary-cyan);
+  padding-left: 4px;
+}
