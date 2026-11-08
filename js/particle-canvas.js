@@ -8,8 +8,8 @@
 
   let width, height;
   let particles = [];
-  const maxParticles = 65;
-  const connectionDistance = 140;
+  let maxParticles = 65;
+  let connectionDistance = 140;
   
   let mouse = {
     x: null,
@@ -30,6 +30,9 @@
   function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
+    const isMobile = width <= 768;
+    maxParticles = isMobile ? (width <= 480 ? 20 : 32) : 65;
+    connectionDistance = isMobile ? 95 : 140;
   }
 
   class Particle {
@@ -112,8 +115,12 @@
     requestAnimationFrame(animate);
   }
 
+  let resizeTimeout;
   window.addEventListener('resize', () => {
-    resize();
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      init();
+    }, 200);
   });
 
   init();

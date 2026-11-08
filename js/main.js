@@ -224,26 +224,37 @@ function initAIChatbot() {
 
   if (!toggle || !win) return;
 
-  // 1. Hover Auto-Open on Cursor Over
+  // 1. Hover Auto-Open on Cursor Over (ONLY on desktop mice, never on mobile/touch screens)
   let autoOpenTimer = null;
 
-  widget.addEventListener('mouseenter', () => {
-    win.classList.add('active');
-  });
-
-  // Auto-open after 4 seconds on page load
-  autoOpenTimer = setTimeout(() => {
-    if (!win.classList.contains('active')) {
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
+    widget.addEventListener('mouseenter', () => {
       win.classList.add('active');
-    }
-  }, 4000);
+    });
 
-  toggle.addEventListener('click', () => {
+    // Auto-open after 5 seconds on desktop only
+    autoOpenTimer = setTimeout(() => {
+      if (!win.classList.contains('active')) {
+        win.classList.add('active');
+      }
+    }, 5000);
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     win.classList.toggle('active');
   });
 
-  closeBtn?.addEventListener('click', () => {
+  closeBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
     win.classList.remove('active');
+  });
+
+  // Tap outside to close chat window on mobile and desktop
+  document.addEventListener('click', (e) => {
+    if (win.classList.contains('active') && !widget.contains(e.target)) {
+      win.classList.remove('active');
+    }
   });
 
   function addMsg(text, isUser = false) {
@@ -385,7 +396,7 @@ function initAIChatbot() {
     // 11. Portals & Login Gateway
     if (q.includes('portal') || q.includes('login') || q.includes('dashboard') || q.includes('employee portal') || q.includes('admin portal') || q.includes('client portal') || q.includes('gate')) {
       return `<strong>🔑 Login Portals Access:</strong><br>` +
-             `Click <strong>"Portals"</strong> in the top menu or visit <a href="login.html" style="color:var(--primary-cyan);font-weight:bold;">http://localhost:3000/login.html</a>.<br><br>` +
+             `Click <strong>"Portals"</strong> in the top menu or visit <a href="login.html" style="color:var(--primary-cyan);font-weight:bold;">Login Portals</a>.<br><br>` +
              `• <strong>Dual Auth Supported:</strong> Log in using Company Email OR Mobile Phone (Jio format)!<br>` +
              `• <strong>Employee Portal:</strong> Attendance Clock In/Out, Skills, Timesheets, Leaves.<br>` +
              `• <strong>Executive Admin Hub:</strong> CEO Live Attendance Monitor, Projects Launcher, Approvals, Contact Inbox.<br>` +
@@ -584,7 +595,7 @@ function initModals() {
     btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Dispatching Proposal Alert to CEO Email...`;
 
     try {
-      const res = await fetch('http://localhost:3000/api/proposals/request', {
+      const res = await fetch('/api/proposals/request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -751,7 +762,7 @@ function initCareersPortal() {
       submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Submitting & Dispatching Alert...`;
 
       try {
-        const res = await fetch('http://localhost:3000/api/careers/apply', {
+        const res = await fetch('/api/careers/apply', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)

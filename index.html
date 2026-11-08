@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>DecillionX | AI, GenAI & LLM Software Development</title>
   <meta name="description" content="DecillionX engineers advanced AI and software solutions that transform complex challenges into intelligent, scalable technology built for business impact.">
   <meta name="keywords" content="DecillionX, AI software development, GenAI development, LLM development, AI ML company, custom software development, enterprise software, Bangalore software company, Santhana Stephen Raj">
@@ -82,12 +82,18 @@
     /* Clean Homepage Layout - Focused strictly on Homepage */
     html, body {
       min-height: 100vh;
+      min-height: 100dvh;
       overflow-x: hidden !important;
       width: 100% !important;
       max-width: 100% !important;
+      -webkit-text-size-adjust: 100% !important;
+      -moz-text-size-adjust: 100% !important;
+      -ms-text-size-adjust: 100% !important;
+      text-size-adjust: 100% !important;
     }
     .home-layout {
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -120,13 +126,17 @@
       padding: 0.75rem 1.4rem;
     }
 
-    /* Flawless Mobile View Across All Smartphones (iOS Safari, Android Chrome <= 768px) */
+    /* Flawless Mobile View Across All Smartphones (iOS Safari, Android Chrome/WebView <= 768px) */
     @media (max-width: 768px) {
       html, body {
         overflow-x: hidden !important;
         width: 100% !important;
-        max-width: 100vw !important;
+        max-width: 100% !important;
         position: relative !important;
+        -webkit-text-size-adjust: 100% !important;
+        -moz-text-size-adjust: 100% !important;
+        -ms-text-size-adjust: 100% !important;
+        text-size-adjust: 100% !important;
       }
       .glow-orb {
         display: none !important;
@@ -137,6 +147,7 @@
         left: 0 !important;
         right: 0 !important;
         padding: 0.75rem 0 !important;
+        padding-top: max(0.75rem, env(safe-area-inset-top, 0.75rem)) !important;
         box-sizing: border-box !important;
       }
       .nav-container {
@@ -170,6 +181,8 @@
         min-height: 44px !important;
         font-size: 1.35rem !important;
         border-radius: 8px !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
       }
       .mobile-nav-drawer {
         display: none !important;
@@ -177,11 +190,14 @@
         top: 0 !important;
         right: 0 !important;
         width: 290px !important;
-        max-width: 85vw !important;
-        height: 100vh !important;
+        max-width: 85% !important;
+        height: 100% !important;
         height: 100dvh !important;
         z-index: 99999 !important;
         background: #060919 !important;
+        padding: 1.5rem 1.25rem !important;
+        padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 1.5rem)) !important;
+        overscroll-behavior-y: contain !important;
       }
       .mobile-nav-drawer.active {
         display: flex !important;
@@ -191,12 +207,17 @@
       .mobile-drawer-overlay {
         display: none !important;
         position: fixed !important;
+        inset: 0 !important;
         top: 0 !important;
         left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        height: 100dvh !important;
         z-index: 99998 !important;
         background: rgba(4, 6, 16, 0.85) !important;
+        -webkit-tap-highlight-color: transparent !important;
       }
       .mobile-drawer-overlay.active {
         display: block !important;
@@ -204,6 +225,7 @@
       .home-layout {
         display: block !important;
         min-height: 100vh !important;
+        min-height: 100dvh !important;
         height: auto !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -213,7 +235,7 @@
         display: block !important;
         flex: none !important;
         padding-top: 76px !important;
-        padding-bottom: 2rem !important;
+        padding-bottom: 1.75rem !important;
         min-height: auto !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -239,6 +261,7 @@
         margin-bottom: 0.9rem !important;
         width: fit-content !important;
         max-width: 100% !important;
+        letter-spacing: 0.04em !important;
       }
       .hero-content h1 {
         font-size: clamp(1.85rem, 6.2vw, 2.35rem) !important;
@@ -270,12 +293,14 @@
       }
       .hero-motto-banner {
         width: 100% !important;
+        max-width: 100% !important;
         display: block !important;
         margin-bottom: 1.35rem !important;
         box-sizing: border-box !important;
       }
       .motto-pill {
         width: 100% !important;
+        max-width: 100% !important;
         padding: 0.75rem 0.9rem !important;
         border-radius: 12px !important;
         display: flex !important;
@@ -284,12 +309,17 @@
         box-sizing: border-box !important;
         flex-wrap: nowrap !important;
         overflow: hidden !important;
+        background: linear-gradient(135deg, rgba(8, 14, 36, 0.98), rgba(14, 20, 48, 0.95)) !important;
+        border: 1px solid rgba(0, 242, 254, 0.35) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
       }
       .motto-icon {
         width: 28px !important;
         height: 28px !important;
         font-size: 0.85rem !important;
         flex-shrink: 0 !important;
+        background: rgba(0, 242, 254, 0.2) !important;
+        box-shadow: 0 0 10px rgba(0, 242, 254, 0.5) !important;
       }
       .motto-lines {
         display: flex !important;
@@ -300,18 +330,24 @@
         min-width: 0 !important;
       }
       .motto-line-1 {
-        font-size: clamp(0.7rem, 2.6vw, 0.82rem) !important;
-        letter-spacing: 0.08em !important;
+        font-size: clamp(0.7rem, 2.5vw, 0.82rem) !important;
+        letter-spacing: 0.05em !important;
         font-weight: 800 !important;
         color: var(--primary-cyan) !important;
         white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 100% !important;
       }
       .motto-line-2 {
-        font-size: clamp(0.7rem, 2.6vw, 0.82rem) !important;
-        letter-spacing: 0.08em !important;
+        font-size: clamp(0.7rem, 2.5vw, 0.82rem) !important;
+        letter-spacing: 0.05em !important;
         font-weight: 800 !important;
         color: #ffffff !important;
         white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 100% !important;
       }
       .motto-divider {
         display: none !important;
@@ -321,15 +357,17 @@
         grid-template-columns: 1fr 1fr !important;
         gap: 0.65rem !important;
         width: 100% !important;
+        max-width: 100% !important;
         margin-bottom: 1.35rem !important;
         box-sizing: border-box !important;
       }
       .hero-actions .btn {
         width: 100% !important;
+        min-width: 0 !important;
         min-height: 48px !important;
         height: auto !important;
         padding: 0.7rem 0.35rem !important;
-        font-size: clamp(0.78rem, 2.6vw, 0.9rem) !important;
+        font-size: clamp(0.76rem, 2.55vw, 0.88rem) !important;
         font-weight: 700 !important;
         justify-content: center !important;
         text-align: center !important;
@@ -338,6 +376,15 @@
         display: inline-flex !important;
         align-items: center !important;
         gap: 0.35rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+      }
+      .hero-actions .btn i {
+        font-size: 0.88em !important;
+        flex-shrink: 0 !important;
       }
       .hero-stats {
         display: grid !important;
@@ -348,14 +395,28 @@
         margin-bottom: 1.35rem !important;
         box-sizing: border-box !important;
         width: 100% !important;
+        max-width: 100% !important;
+        background: rgba(14, 18, 36, 0.85) !important;
+        border: 1px solid rgba(0, 242, 254, 0.25) !important;
+      }
+      .stat-item {
+        min-width: 0 !important;
+        text-align: center !important;
       }
       .stat-item h3 {
         font-size: clamp(1.25rem, 4.2vw, 1.65rem) !important;
         margin-bottom: 0.15rem !important;
+        font-weight: 800 !important;
+        color: var(--primary-cyan) !important;
       }
       .stat-item p {
         font-size: clamp(0.66rem, 2.1vw, 0.76rem) !important;
+        font-weight: 600 !important;
+        color: #cbd5e1 !important;
         line-height: 1.25 !important;
+        margin: 0 !important;
+        word-break: normal !important;
+        white-space: normal !important;
       }
       .hero-visual {
         margin-top: 0.75rem !important;
@@ -377,6 +438,7 @@
         max-width: 100% !important;
         box-sizing: border-box !important;
         padding: 1.25rem 1rem !important;
+        padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 1.25rem)) !important;
         margin-top: 1.25rem !important;
       }
       .home-footer-inner {
@@ -386,22 +448,45 @@
         font-size: 0.82rem !important;
       }
       .chatbot-widget {
-        bottom: 16px !important;
-        right: 16px !important;
+        bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+        right: calc(14px + env(safe-area-inset-right, 0px)) !important;
       }
       .chatbot-toggle {
         width: 48px !important;
         height: 48px !important;
         font-size: 1.2rem !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
       }
       .chatbot-window {
         position: fixed !important;
         left: 10px !important;
         right: 10px !important;
         width: auto !important;
-        bottom: 72px !important;
-        max-height: calc(100vh - 90px) !important;
+        max-width: calc(100% - 20px) !important;
+        bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+        max-height: min(440px, calc(100dvh - 85px)) !important;
+        height: auto !important;
+        border-radius: 16px !important;
       }
+    }
+
+    /* Extra Compact Android Devices (<= 360px) */
+    @media (max-width: 360px) {
+      .hero-grid { padding: 0 0.75rem !important; }
+      .hero-actions { gap: 0.45rem !important; }
+      .hero-actions .btn {
+        font-size: 0.72rem !important;
+        padding: 0.6rem 0.15rem !important;
+        min-height: 44px !important;
+        gap: 0.25rem !important;
+      }
+      .hero-actions .btn i { font-size: 0.78rem !important; }
+      .motto-pill { padding: 0.65rem 0.75rem !important; gap: 0.55rem !important; }
+      .motto-line-1, .motto-line-2 { font-size: 0.65rem !important; letter-spacing: 0.02em !important; }
+      .hero-stats { padding: 0.75rem 0.3rem !important; gap: 0.25rem !important; }
+      .stat-item h3 { font-size: 1.15rem !important; }
+      .stat-item p { font-size: 0.6rem !important; }
     }
   </style>
   <script>
