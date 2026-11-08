@@ -16,13 +16,73 @@
     </image:image>
   </url>
   <url>
-    <loc>https://decillionx.com/about.html</loc>
+    <loc>https://decillionx.com/ai-ml-development.html</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
     <image:image>
-      <image:loc>https://decillionx.com/assets/logo.png</image:loc>
-      <image:title>About DecillionX Leadership and Vision</image:title>
+      <image:loc>https://decillionx.com/assets/hero-visual.png</image:loc>
+      <image:title>DecillionX Enterprise AI and Generative AI Development Services</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://decillionx.com/enterprise-software-development.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://decillionx.com/assets/hero-visual.png</image:loc>
+      <image:title>DecillionX Custom Enterprise Software and ERP Development</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://decillionx.com/cloud-devops-consulting.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://decillionx.com/assets/hero-visual.png</image:loc>
+      <image:title>DecillionX Cloud Consulting, Kubernetes and DevOps Services</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://decillionx.com/cybersecurity-services.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://decillionx.com/assets/hero-visual.png</image:loc>
+      <image:title>DecillionX Cybersecurity, VAPT Auditing and Threat Defense</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://decillionx.com/web-mobile-development.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://decillionx.com/assets/hero-visual.png</image:loc>
+      <image:title>DecillionX Web and Cross-Platform Mobile Application Development</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://decillionx.com/it-consulting-services.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://decillionx.com/assets/hero-visual.png</image:loc>
+      <image:title>DecillionX Strategic IT Consulting and Digital Engineering</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://decillionx.com/case-studies.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://decillionx.com/assets/hero-visual.png</image:loc>
+      <image:title>DecillionX Enterprise Case Studies and Portfolio</image:title>
     </image:image>
   </url>
   <url>
@@ -33,6 +93,16 @@
     <image:image>
       <image:loc>https://decillionx.com/assets/hero-visual.png</image:loc>
       <image:title>DecillionX 13 Technology and AI Engineering Services</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://decillionx.com/about.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://decillionx.com/assets/logo.png</image:loc>
+      <image:title>About DecillionX Leadership and Vision</image:title>
     </image:image>
   </url>
   <url>
@@ -59,7 +129,7 @@
     <loc>https://decillionx.com/blog.html</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://decillionx.com/assets/hero-visual.png</image:loc>
       <image:title>DecillionX Deep Tech Research and AI Articles</image:title>

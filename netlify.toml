@@ -69,3 +69,78 @@
   from = "/privacy"
   to = "/privacy.html"
   status = 301
+
+[[redirects]]
+  from = "/ai-ml"
+  to = "/ai-ml-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/ai"
+  to = "/ai-ml-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/custom-software"
+  to = "/enterprise-software-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/software"
+  to = "/enterprise-software-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/cloud-consulting"
+  to = "/cloud-devops-consulting.html"
+  status = 301
+
+[[redirects]]
+  from = "/cloud"
+  to = "/cloud-devops-consulting.html"
+  status = 301
+
+[[redirects]]
+  from = "/devops"
+  to = "/cloud-devops-consulting.html"
+  status = 301
+
+[[redirects]]
+  from = "/cybersecurity"
+  to = "/cybersecurity-services.html"
+  status = 301
+
+[[redirects]]
+  from = "/vapt"
+  to = "/cybersecurity-services.html"
+  status = 301
+
+[[redirects]]
+  from = "/web-mobile"
+  to = "/web-mobile-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/mobile-apps"
+  to = "/web-mobile-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/it-consulting"
+  to = "/it-consulting-services.html"
+  status = 301
+
+[[redirects]]
+  from = "/consulting"
+  to = "/it-consulting-services.html"
+  status = 301
+
+[[redirects]]
+  from = "/case-studies"
+  to = "/case-studies.html"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio"
+  to = "/case-studies.html"
+  status = 301

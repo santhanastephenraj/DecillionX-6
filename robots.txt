@@ -3,6 +3,13 @@ Allow: /
 Allow: /index.html
 Allow: /about.html
 Allow: /services.html
+Allow: /ai-ml-development.html
+Allow: /enterprise-software-development.html
+Allow: /cloud-devops-consulting.html
+Allow: /cybersecurity-services.html
+Allow: /web-mobile-development.html
+Allow: /it-consulting-services.html
+Allow: /case-studies.html
 Allow: /industries.html
 Allow: /careers.html
 Allow: /blog.html
