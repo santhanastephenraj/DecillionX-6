@@ -1,14 +1,18 @@
 User-agent: *
 Allow: /
+Allow: /index.html
 Allow: /about.html
 Allow: /services.html
 Allow: /industries.html
 Allow: /careers.html
 Allow: /blog.html
+Allow: /contact.html
 Allow: /privacy.html
 Allow: /css/
 Allow: /js/
 Allow: /assets/
+Allow: /sitemap.xml
+Allow: /robots.txt
 
 # Prevent crawling of private portals and API routes
 Disallow: /api/
